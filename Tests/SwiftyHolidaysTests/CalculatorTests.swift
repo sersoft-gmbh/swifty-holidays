@@ -17,7 +17,7 @@ final class CalculatorTests: XCTestCase {
 
         mutating func initialize(with context: Context) { self.context = context }
     }
-    
+
     func testDateCreation() {
         let calculator = MockCalc()
         let date = TimelessDate(day: 29, month: 08, year: 2019)
