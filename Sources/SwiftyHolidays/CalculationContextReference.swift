@@ -66,12 +66,13 @@ private func dispatchPrecondition(notOn queue: DispatchQueue) {
     }
 }
 
-@inline(__always)
-private func dispatchPrecondition(on queue: DispatchQueue) {
-    if #available(OSX 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *) {
-        dispatchPrecondition(condition: .onQueue(queue))
-    }
-}
+// Not currently used
+//@inline(__always)
+//private func dispatchPrecondition(on queue: DispatchQueue) {
+//    if #available(OSX 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *) {
+//        dispatchPrecondition(condition: .onQueue(queue))
+//    }
+//}
 
 @inline(__always)
 private func dispatchPrecondition(asBarrierOn queue: DispatchQueue) {

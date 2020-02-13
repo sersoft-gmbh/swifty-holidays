@@ -83,7 +83,7 @@ jobs:
         - gem install jazzy
       script:
         - SH_DOCS=$(sourcekitten doc --spm-module SwiftyHolidays)
-        - echo "$SH_DOCS" > docs.json
+        - echo "${SH_DOCS}" > docs.json
         - jazzy --sourcekitten-sourcefile docs.json --module-version $TRAVIS_TAG
       deploy:
         provider: pages
