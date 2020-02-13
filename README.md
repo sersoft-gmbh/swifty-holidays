@@ -2,7 +2,7 @@
 
 [![GitHub release](https://img.shields.io/github/release/sersoft-gmbh/SwiftyHolidays.svg?style=flat)](https://github.com/sersoft-gmbh/SwiftyHolidays/releases/latest)
 [![CI Status](https://travis-ci.com/sersoft-gmbh/SwiftyHolidays.svg?branch=master)](https://travis-ci.com/sersoft-gmbh/SwiftyHolidays)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/2c8e4e87ed7c4b9b9be446aa2e14b787)](https://www.codacy.com/gh/sersoft-gmbh/SwiftyHolidays?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=sersoft-gmbh/SwiftyHolidays&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/b5898f7d9f6c4b4f93e753e219e3a3d0)](https://www.codacy.com/gh/sersoft-gmbh/SwiftyHolidays?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=sersoft-gmbh/SwiftyHolidays&amp;utm_campaign=Badge_Grade)
 [![codecov](https://codecov.io/gh/sersoft-gmbh/SwiftyHolidays/branch/master/graph/badge.svg)](https://codecov.io/gh/sersoft-gmbh/SwiftyHolidays)
 [![jazzy](https://raw.githubusercontent.com/sersoft-gmbh/SwiftyHolidays/gh-pages/badge.svg?sanitize=true)](https://sersoft-gmbh.github.io/SwiftyHolidays)
 
