@@ -21,7 +21,7 @@ Or add it via Xcode (as of Xcode 11).
 
 SwiftyHolidays is built upon calculators. A calculator is responsible for calculating holidays in a given year for a certain calendar. Currently, SwiftyHolidays has a calculator for the gregorian calendar.
 
-All calculations in SwiftyHolidays are thread-safe and are only performed once. This means even if you ask a given calculator for a cretain date from two threads in parallel, it will only be calcualted once and the second thread will wait for the first to finish its calculation.
+All calculations in SwiftyHolidays are thread-safe and are only performed once. This means even if you ask a given calculator for a certain date from two threads in parallel, it will only be calcualted once and the second thread will wait for the first to finish its calculation.
 Certain dates (like e.g. new years eve) don't even need to be calculated but are fixed day-month-combinations. Dates, that do have to be calculated, are cached, so that the next time a certain date is requested, it does not have to be calculated but is returned immediately instead.
 Even though calculators are usually structs, they have reference semantics and are thread-safe when it comes to their context (which e.g. contains their cache). This means that you can use the calculator object in multiple places and still get the same performance by having dates calcualted only once.
 
