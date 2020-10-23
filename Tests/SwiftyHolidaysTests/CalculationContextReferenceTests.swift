@@ -3,7 +3,9 @@ import XCTest
 
 final class CalculationContextReferenceTests: XCTestCase {
     private final class MockContext: Equatable, CalculationContext {
-        let id = UUID().uuidString
+        let id: String
+
+        init() { id = UUID().uuidString }
 
         var boolValue = false
 
@@ -11,7 +13,7 @@ final class CalculationContextReferenceTests: XCTestCase {
 
         func clear() {}
 
-        static func ==(lhs: MockContext, rhs: MockContext) -> Bool { return lhs.id == rhs.id }
+        static func ==(lhs: MockContext, rhs: MockContext) -> Bool { lhs.id == rhs.id }
     }
 
     func testGettingContext() {
