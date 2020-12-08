@@ -16,14 +16,12 @@ public protocol Calculator {
 
     /// (Re-)Initializes the context of the calculator with a new one, replacing the old one.
     /// This API is useful if you create a new calculator and want it to use the context of another one (or a deserialized context).
-    ///
     /// - Parameter context: The context to use from now on.
     mutating func initialize(with context: Context)
 }
 
 extension Calculator {
     /// Creates a Date for a given timeless date, optionally setting to to noon.
-    ///
     /// - Parameters:
     ///   - timelessDate: The timeless date to create a Date for.
     ///   - atNoon: Whether or not the returned date should have its time set to noon.

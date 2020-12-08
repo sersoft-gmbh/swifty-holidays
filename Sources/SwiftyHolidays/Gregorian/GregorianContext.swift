@@ -16,6 +16,7 @@ public struct GregorianCalculationContext: CalculationContext {
         semaphores = [:]
     }
 
+    /// See `Decodable.init(from:)`
     public init(from decoder: Decoder) throws {
         let keyedContainer = try decoder.container(keyedBy: YearKey.self)
         storage = try Dictionary(uniqueKeysWithValues: keyedContainer.allKeys.map {
@@ -27,6 +28,7 @@ public struct GregorianCalculationContext: CalculationContext {
         semaphores = [:]
     }
 
+    /// See `Encodable.encode(to:)`
     public func encode(to encoder: Encoder) throws {
         var keyedContainer = encoder.container(keyedBy: YearKey.self)
         for (year, values) in storage where !values.isEmpty {
@@ -37,6 +39,7 @@ public struct GregorianCalculationContext: CalculationContext {
         }
     }
 
+    /// See `CalculatorContext.merge(with:)`
     public mutating func merge(with other: GregorianCalculationContext) {
         other.storage.values.forEach {
             $0.forEach { key, date in
@@ -58,6 +61,7 @@ public struct GregorianCalculationContext: CalculationContext {
         currentSemaphores.lazy.flatMap { $0.values }.forEach { $0.signal() }
     }
 
+    /// See `CalculatorContext.clear`
     @inlinable
     public mutating func clear() {
         clear(keepingCapacity: true)
@@ -67,7 +71,6 @@ public struct GregorianCalculationContext: CalculationContext {
 extension GregorianCalculationContext {
     /// Accesses the calculation promise for a given key in a given year if one exists. Nil if none exists.
     /// Setting this to nil removes the promise.
-    ///
     /// - Parameters:
     ///   - key: The storage key for which to return the promise.
     ///   - year: The year for which to return the promise.
@@ -78,7 +81,6 @@ extension GregorianCalculationContext {
 
     /// Returns an existing calculation promise for a given key in a given year, or creates a new one if none exists yet.
     /// In the resulting tuple, there is also the information whether or not the promise was created.
-    ///
     /// - Parameters:
     ///   - key: The storage key for which to return the promise.
     ///   - year: The year for which to return the promise.
@@ -92,8 +94,8 @@ extension GregorianCalculationContext {
         }
     }
 
-    /// Fulfills the promise for a given key in a given year with a given date. Or stores a fulfilled promise if no promise exists yet for this key/year combination.
-    ///
+    /// Fulfills the promise for a given key in a given year with a given date.
+    /// Or stores a fulfilled promise if no promise exists yet for this key/year combination.
     /// - Parameters:
     ///   - key: The storage key for which to fulfill the promise.
     ///   - date: The date to fulfill the promise with.

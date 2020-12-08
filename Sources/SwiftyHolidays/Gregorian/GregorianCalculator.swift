@@ -2,14 +2,17 @@ import Foundation
 
 /// Calculates holiday dates for the gregorian calendar.
 public struct GregorianCalculator: Calculator {
+    /// See `Calculator.Context`.
     public typealias Context = GregorianCalculationContext
 
+    /// See `Calculator.calendar`.
     public let calendar: Calendar
 
     /// The reference to the context.
     @usableFromInline
     /*private but @usableFromInline*/ let contextRef = CalculationContextReference(context: Context())
 
+    /// See `Calculator.context`.
     @inlinable
     public var context: Context { contextRef.context }
 
@@ -20,6 +23,7 @@ public struct GregorianCalculator: Calculator {
         self.calendar = calendar
     }
 
+    /// See `Calculator.initialize(with:)`
     @inlinable
     public func initialize(with context: Context) {
         var oldCtx = contextRef.exchange(with: context)
@@ -28,16 +32,14 @@ public struct GregorianCalculator: Calculator {
 
     /// Returns the date for a given context storage key in a given year by either using the already calculated and cached result,
     /// or calculating it by executing the given calculation closure.
-    ///
     /// - Parameters:
     ///   - key: The key for which to return the date.
     ///   - year: The year for which to return the date.
     ///   - calculation: The calculation that would calculate the date if none exists yet.
     /// - Returns: The date that was either cached or calculated.
     /// - Note: This method also waits on existing calculations on other threads.
-    @inlinable
-    @inline(__always)
-    /*private but @inlinable*/ func date(for key: Context.StorageKey, forYear year: Int, calculation: (Int) -> TimelessDate) -> TimelessDate {
+    @usableFromInline
+    /*private but @usableFromInline*/ func date(for key: Context.StorageKey, forYear year: Int, calculation: (Int) -> TimelessDate) -> TimelessDate {
         @inline(__always)
         func await(promise: CalculationPromise<TimelessDate>, calculation: (Int) -> TimelessDate) -> TimelessDate {
             switch promise {
@@ -60,7 +62,6 @@ public struct GregorianCalculator: Calculator {
     }
 
     /// Calculates a date by adding a certain amount of days to the result of another calculation.
-    ///
     /// - Parameters:
     ///   - days: The number of days to add to the result of `otherDate`. Can be negative.
     ///   - otherDate: The calculation closure to execute to retrieve the date to add `days` to.
@@ -75,7 +76,6 @@ public struct GregorianCalculator: Calculator {
     }
 
     /// Calculates the palm sunday date for a given year.
-    ///
     /// - Parameter year: The year for which to calculate palm sunday.
     /// - Returns: The calculated date for palm sunday.
     @inlinable
@@ -84,7 +84,6 @@ public struct GregorianCalculator: Calculator {
     }
 
     /// Calculates the maundy thursday date for a given year.
-    ///
     /// - Parameter year: The year for which to calculate maundy thursday.
     /// - Returns: The calculated date for maundy thursday.
     @inlinable
@@ -93,7 +92,6 @@ public struct GregorianCalculator: Calculator {
     }
 
     /// Calculates the good friday date for a given year.
-    ///
     /// - Parameter year: The year for which to calculate good friday.
     /// - Returns: The calculated date for good friday.
     @inlinable
@@ -102,7 +100,6 @@ public struct GregorianCalculator: Calculator {
     }
 
     /// Calculates the holy saturday date for a given year.
-    ///
     /// - Parameter year: The year for which to calculate the holy saturday.
     /// - Returns: The calculated date for holy saturday.
     @inlinable
@@ -111,7 +108,6 @@ public struct GregorianCalculator: Calculator {
     }
 
     /// Calculates the easter sunday date for a given year.
-    ///
     /// - Parameter year: The year for which to calculate easter sunday.
     /// - Returns: The calculated date for easter sunday.
     @usableFromInline
@@ -125,7 +121,6 @@ public struct GregorianCalculator: Calculator {
     }
 
     /// Calculates the easter monday date for a given year.
-    ///
     /// - Parameter year: The year for which to calculate easter monday.
     /// - Returns: The calculated date for easter monday.
     @inlinable
@@ -134,7 +129,6 @@ public struct GregorianCalculator: Calculator {
     }
 
     /// Calculates the ascension day date for a given year.
-    ///
     /// - Parameter year: The year for which to calculate the ascension day.
     /// - Returns: The calculated date for ascension day.
     @inlinable
@@ -143,7 +137,6 @@ public struct GregorianCalculator: Calculator {
     }
 
     /// Calculates the pentecost date for a given year.
-    ///
     /// - Parameter year: The year for which to calculate pentecost.
     /// - Returns: The calculated date for pentecost.
     @inlinable
@@ -152,7 +145,6 @@ public struct GregorianCalculator: Calculator {
     }
 
     /// Calculates the whit monday date for a given year.
-    ///
     /// - Parameter year: The year for which to calculate whit monday.
     /// - Returns: The calculated date for whit monday.
     @inlinable
@@ -161,7 +153,6 @@ public struct GregorianCalculator: Calculator {
     }
 
     /// Calculates the corpus christi date for a given year.
-    ///
     /// - Parameter year: The year for which to calculate corpus christi.
     /// - Returns: The calculated date for corpus christi.
     @inlinable
@@ -170,7 +161,6 @@ public struct GregorianCalculator: Calculator {
     }
 
     /// Calculates the sunday after corpus christi date for a given year.
-    ///
     /// - Parameter year: The year for which to calculate the sunday after corpus christi.
     /// - Returns: The calculated date for sunday after corpus christi.
     @inlinable
@@ -179,7 +169,6 @@ public struct GregorianCalculator: Calculator {
     }
 
     /// Calculates the first sunday of advent date for a given year.
-    ///
     /// - Parameter year: The year for which to calculate the first sunday of advent.
     /// - Returns: The calculated date for first sunday of advent.
     @inlinable
@@ -188,7 +177,6 @@ public struct GregorianCalculator: Calculator {
     }
 
     /// Calculates the second sunday of advent date for a given year.
-    ///
     /// - Parameter year: The year for which to calculate the second sunday of advent.
     /// - Returns: The calculated date for second sunday of advent.
     @inlinable
@@ -197,7 +185,6 @@ public struct GregorianCalculator: Calculator {
     }
 
     /// Calculates the third sunday of advent date for a given year.
-    ///
     /// - Parameter year: The year for which to calculate the third sunday of advent.
     /// - Returns: The calculated date for third sunday of advent.
     @inlinable
@@ -206,19 +193,18 @@ public struct GregorianCalculator: Calculator {
     }
 
     /// Calculates the fourth sunday of advent date for a given year.
-    ///
     /// - Parameter year: The year for which to calculate the fourth sunday of advent.
     /// - Returns: The calculated date for fourth sunday of advent.
     @usableFromInline
     func calculateFourthSundayOfAdvent(forYear year: Int) -> TimelessDate {
         let christmas = christmasDay(forYear: year).date(in: calendar)!
-        let mondayAfter = (calendar.endOfWeekend(containing: christmas) ?? calendar.endOfNextWeekend(startingAfter: christmas, direction: .backward))!
+        let mondayAfter = (calendar.dateIntervalOfWeekend(containing: christmas)?.end
+                            ?? calendar.nextWeekend(startingAfter: christmas, direction: .backward)?.end)!
         let sunday = calendar.date(byAdding: .day, value: -1, to: mondayAfter)!
         return TimelessDate(date: sunday, in: calendar)
     }
 
     /// Calculates the date of new years day for a given year.
-    ///
     /// - Parameter year: The year for which to calculate new years day.
     /// - Returns: The date of new years day in the given year.
     @inlinable
@@ -227,7 +213,6 @@ public struct GregorianCalculator: Calculator {
     }
 
     /// Calculates the date of epiphany for a given year.
-    ///
     /// - Parameter year: The year for which to calculate epiphany.
     /// - Returns: The date of epiphany in the given year.
     @inlinable
@@ -236,7 +221,6 @@ public struct GregorianCalculator: Calculator {
     }
 
     /// Calculates the date of palm sunday for a given year.
-    ///
     /// - Parameter year: The year for which to calculate palm sunday.
     /// - Returns: The date of palm sunday in the given year.
     @inlinable
@@ -245,7 +229,6 @@ public struct GregorianCalculator: Calculator {
     }
 
     /// Calculates the date of maundy thursday for a given year.
-    ///
     /// - Parameter year: The year for which to calculate maundy thursday.
     /// - Returns: The date of maundy thursday in the given year.
     @inlinable
@@ -254,7 +237,6 @@ public struct GregorianCalculator: Calculator {
     }
 
     /// Calculates the date of good friday for a given year.
-    ///
     /// - Parameter year: The year for which to calculate good friday.
     /// - Returns: The date of good friday in the given year.
     @inlinable
@@ -263,7 +245,6 @@ public struct GregorianCalculator: Calculator {
     }
 
     /// Calculates the date of holy saturday for a given year.
-    ///
     /// - Parameter year: The year for which to calculate holy saturday.
     /// - Returns: The date of holy saturday in the given year.
     @inlinable
@@ -272,7 +253,6 @@ public struct GregorianCalculator: Calculator {
     }
 
     /// Calculates the date of easter sunday for a given year.
-    ///
     /// - Parameter year: The year for which to calculate easter sunday.
     /// - Returns: The date of easter sunday in the given year.
     @inlinable
@@ -290,7 +270,6 @@ public struct GregorianCalculator: Calculator {
     }
 
     /// Calculates the date of the ascension day for a given year.
-    ///
     /// - Parameter year: The year for which to calculate the ascension day.
     /// - Returns: The date of the ascension day in the given year.
     @inlinable
@@ -299,7 +278,6 @@ public struct GregorianCalculator: Calculator {
     }
 
     /// Calculates the date of pentecost for a given year.
-    ///
     /// - Parameter year: The year for which to calculate pentecost.
     /// - Returns: The date of pentecost in the given year.
     @inlinable
@@ -308,7 +286,6 @@ public struct GregorianCalculator: Calculator {
     }
 
     /// Calculates the date of whit monday for a given year.
-    ///
     /// - Parameter year: The year for which to calculate whit monday.
     /// - Returns: The date of whit monday in the given year.
     @inlinable
@@ -317,7 +294,6 @@ public struct GregorianCalculator: Calculator {
     }
 
     /// Calculates the date of corpusCristi for a given year.
-    ///
     /// - Parameter year: The year for which to calculate corpusCristi.
     /// - Returns: The date of corpusCristi in the given year.
     @inlinable
@@ -326,7 +302,6 @@ public struct GregorianCalculator: Calculator {
     }
 
     /// Calculates the date of the sunday after corpus christi for a given year.
-    ///
     /// - Parameter year: The year for which to calculate the sunday after corpus christi.
     /// - Returns: The date of the sunday after corpus christi in the given year.
     @inlinable
@@ -335,7 +310,6 @@ public struct GregorianCalculator: Calculator {
     }
 
     /// Calculates the date of halloween for a given year.
-    ///
     /// - Parameter year: The year for which to calculate halloween.
     /// - Returns: The date of halloween in the given year.
     @inlinable
@@ -344,7 +318,6 @@ public struct GregorianCalculator: Calculator {
     }
 
     /// Calculates the date of all saints for a given year.
-    ///
     /// - Parameter year: The year for which to calculate all saints.
     /// - Returns: The date of all saints in the given year.
     @inlinable
@@ -353,7 +326,6 @@ public struct GregorianCalculator: Calculator {
     }
 
     /// Calculates the date of all souls for a given year.
-    ///
     /// - Parameter year: The year for which to calculate all souls.
     /// - Returns: The date of all souls in the given year.
     @inlinable
@@ -362,7 +334,6 @@ public struct GregorianCalculator: Calculator {
     }
 
     /// Calculates the date of the first sunday of advent for a given year.
-    ///
     /// - Parameter year: The year for which to calculate the first sunday of advent.
     /// - Returns: The date of the first sunday of advent in the given year.
     @inlinable
@@ -371,7 +342,6 @@ public struct GregorianCalculator: Calculator {
     }
 
     /// Calculates the date of the second sunday of advent for a given year.
-    ///
     /// - Parameter year: The year for which to calculate the second sunday of advent.
     /// - Returns: The date of the second sunday of advent in the given year.
     @inlinable
@@ -380,7 +350,6 @@ public struct GregorianCalculator: Calculator {
     }
 
     /// Calculates the date of the third sunday of advent for a given year.
-    ///
     /// - Parameter year: The year for which to calculate the third sunday of advent.
     /// - Returns: The date of the third sunday of advent in the given year.
     @inlinable
@@ -389,7 +358,6 @@ public struct GregorianCalculator: Calculator {
     }
 
     /// Calculates the date of the fourth sunday of advent for a given year.
-    ///
     /// - Parameter year: The year for which to calculate the fourth sunday of advent.
     /// - Returns: The date of the fourth sunday of advent in the given year.
     @inlinable
@@ -398,7 +366,6 @@ public struct GregorianCalculator: Calculator {
     }
 
     /// Calculates the date of christmas eve for a given year.
-    ///
     /// - Parameter year: The year for which to calculate christmas eve.
     /// - Returns: The date of christmas eve in the given year.
     @inlinable
@@ -407,7 +374,6 @@ public struct GregorianCalculator: Calculator {
     }
 
     /// Calculates the date of christmas day for a given year.
-    ///
     /// - Parameter year: The year for which to calculate christmas day.
     /// - Returns: The date of christmas day in the given year.
     @inlinable
@@ -416,7 +382,6 @@ public struct GregorianCalculator: Calculator {
     }
 
     /// Calculates the date of the day after christmas for a given year.
-    ///
     /// - Parameter year: The year for which to calculate the day after christmas.
     /// - Returns: The date of the day after christmas in the given year.
     @inlinable
@@ -425,7 +390,6 @@ public struct GregorianCalculator: Calculator {
     }
 
     /// Calculates the date of new years eve for a given year.
-    ///
     /// - Parameter year: The year for which to calculate new years eve.
     /// - Returns: The date of new years eve in the given year.
     @inlinable

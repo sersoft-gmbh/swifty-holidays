@@ -1,8 +1,9 @@
 import Foundation
 
 /// Represents a date that is fixed across time zones - and therefor does not have a time.
-/// This is not intented to be used as a general purpose timeless date. Please use DateComponents and Date for working with dates and times.
-// @frozen
+/// This is not intented to be used as a general purpose timeless date.
+/// Please use `DateComponents` and `Date` for working with dates and times.
+@frozen
 public struct TimelessDate: Hashable, Comparable, Codable, CustomStringConvertible {
     /// The day element of the date. Should not be negative.
     public var day: Int
@@ -11,6 +12,7 @@ public struct TimelessDate: Hashable, Comparable, Codable, CustomStringConvertib
     /// The year element of the date. Should not be negative.
     public var year: Int
 
+    /// See `CustomStringConvertible.description`.
     @inlinable
     public var description: String { String(format: "%04d-%02d-%02d", year, month, day) }
 
@@ -19,7 +21,6 @@ public struct TimelessDate: Hashable, Comparable, Codable, CustomStringConvertib
     public var components: DateComponents { DateComponents(year: year, month: month, day: day) }
 
     /// Creates a new timeless date with the given parameters.
-    ///
     /// - Parameters:
     ///   - day: The day element of the date. Should not be negative.
     ///   - month: The month element of the date. Should not be negative.
@@ -31,7 +32,6 @@ public struct TimelessDate: Hashable, Comparable, Codable, CustomStringConvertib
     }
 
     /// Creates a new timeless date from the given date in the given calendar.
-    ///
     /// - Parameters:
     ///   - date: The date from which to read day, month and year.
     ///   - calendar: The calendar to use for reading day, month and year.
@@ -44,7 +44,6 @@ public struct TimelessDate: Hashable, Comparable, Codable, CustomStringConvertib
     }
 
     /// Creates a date in the given calendar, optionally setting it to noon.
-    ///
     /// - Parameters:
     ///   - calendar: The calendar to use for creating the date.
     ///   - atNoon: Whether or not the date should be at noon (instead of the calendar default, which is usually the start of the day). Defaults to `false`.
@@ -57,6 +56,7 @@ public struct TimelessDate: Hashable, Comparable, Codable, CustomStringConvertib
         return calendar.date(from: comps)
     }
 
+    /// See `Comparable.<`
     @inlinable
     public static func < (lhs: TimelessDate, rhs: TimelessDate) -> Bool {
         (lhs.year, lhs.month, lhs.day) < (rhs.year, rhs.month, rhs.day)
