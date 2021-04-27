@@ -41,7 +41,7 @@ public struct GregorianCalculator: Calculator {
     @usableFromInline
     /*private but @usableFromInline*/ func date(for key: Context.StorageKey, forYear year: Int, calculation: (Int) -> TimelessDate) -> TimelessDate {
         @inline(__always)
-        func await(promise: CalculationPromise<TimelessDate>, calculation: (Int) -> TimelessDate) -> TimelessDate {
+        func wait(for promise: CalculationPromise<TimelessDate>, calculation: (Int) -> TimelessDate) -> TimelessDate {
             switch promise {
             case .waiting(let sema):
                 sema.wait()
@@ -50,14 +50,14 @@ public struct GregorianCalculator: Calculator {
             case .fulfilled(let date): return date
             }
         }
-        if let promise = context[key, forYear: year] { return await(promise: promise, calculation: calculation) }
+        if let promise = context[key, forYear: year] { return wait(for: promise, calculation: calculation) }
         let promise = contextRef.withContext { $0[storedFor: key, forYear: year] }
         if promise.wasCreated {
             let calculated = calculation(year)
             contextRef.withContextVoid { $0.fulfill(key, with: calculated) }
             return calculated
         } else {
-            return await(promise: promise.0, calculation: calculation)
+            return wait(for: promise.0, calculation: calculation)
         }
     }
 
