@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>SwiftyHolidays  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+    <script src="js/lunr.min.js" defer></script>
+    <script src="js/typeahead.jquery.js" defer></script>
+    <script src="js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+
+
+    <a title="SwiftyHolidays  Reference"></a>
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="index.html">
+          SwiftyHolidays 2.2.0 Docs
+        </a>
+         (100% documented)
+      </p>
+    
+      <div class="header-col--secondary">
+        <form role="search" action="search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </div>
+    
+        <p class="header-col header-col--secondary">
+          <a class="header-link" href="https://github.com/sersoft-gmbh/swifty-holidays">
+            <img class="header-icon" src="img/gh.png" alt="GitHub"/>
+            View on GitHub
+          </a>
+        </p>
+    
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="index.html">SwiftyHolidays Reference</a>
+      <img class="carat" src="img/carat.png" alt=""/>
+      SwiftyHolidays  Reference
+    </p>
+
+    <div class="content-wrapper">
+      <nav class="navigation">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/CalculationContext.html">CalculationContext</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/Calculator.html">Calculator</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/GregorianCalculationContext.html">GregorianCalculationContext</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/GregorianCalculator.html">GregorianCalculator</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/TimelessDate.html">TimelessDate</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+
+        <section class="section">
+          <div class="section-content top-matter">
+            
+            <h1 id='swiftyholidays' class='heading'>SwiftyHolidays</h1>
+
+<p><a href="https://github.com/sersoft-gmbh/swifty-holidays/releases/latest"><img src="https://img.shields.io/github/release/sersoft-gmbh/swifty-holidays.svg?style=flat" alt="GitHub release"></a>
+<img src="https://github.com/sersoft-gmbh/swifty-holidays/workflows/Tests/badge.svg" alt="Tests">
+<a href="https://www.codacy.com/gh/sersoft-gmbh/swifty-holidays?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=sersoft-gmbh/swifty-holidays&amp;utm_campaign=Badge_Grade"><img src="https://api.codacy.com/project/badge/Grade/b5898f7d9f6c4b4f93e753e219e3a3d0" alt="Codacy Badge"></a>
+<a href="https://codecov.io/gh/sersoft-gmbh/swifty-holidays"><img src="https://codecov.io/gh/sersoft-gmbh/swifty-holidays/branch/master/graph/badge.svg" alt="codecov"></a>
+<a href="https://sersoft-gmbh.github.io/swifty-holidays"><img src="https://raw.githubusercontent.com/sersoft-gmbh/swifty-holidays/gh-pages/badge.svg?sanitize=true" alt="jazzy"></a></p>
+
+<p>A holiday calculator written in Swift.</p>
+<h2 id='installation' class='heading'>Installation</h2>
+
+<p>Add the following dependency to your <code>Package.swift</code>:</p>
+<pre class="highlight swift"><code><span class="o">.</span><span class="nf">package</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="s">"https://github.com/sersoft-gmbh/swifty-holidays.git"</span><span class="p">,</span> <span class="nv">from</span><span class="p">:</span> <span class="s">"2.0.0"</span><span class="p">),</span>
+</code></pre>
+
+<p>Or add it via Xcode (as of Xcode 11).</p>
+<h2 id='usage' class='heading'>Usage</h2>
+
+<p>SwiftyHolidays is built upon calculators. A calculator is responsible for calculating holidays in a given year for a certain calendar. Currently, SwiftyHolidays has a calculator for the gregorian calendar.</p>
+
+<p>All calculations in SwiftyHolidays are thread-safe and are only performed once. 
+This means even if you ask a given calculator for a certain date from two threads in parallel, it will only be calculated once and the second thread will wait for the first to finish its calculation.
+Certain dates (like e.g. new years eve) don&rsquo;t even need to be calculated but are fixed day-month-combinations. 
+Dates, that do have to be calculated, are cached, so that the next time a certain date is requested, it does not have to be calculated but is returned immediately instead.
+Even though calculators are usually structs, they have reference semantics and are thread-safe when it comes to their context (which e.g. contains their cache). 
+This means that you can use the calculator object in multiple places and still get the same performance by having dates calculated only once.</p>
+
+<p>The context of a calculator can also be serialized and merged. This means that you could e.g. create a calculator, use it to calculate a few dates and then serialize its context to disk. 
+Later on, you deserialize the context and pass it to a new calculator which will then profit from the previously calculated and now already cached dates. 
+This even works across years. Meaning you can build up a cache spanning multiple years.
+If your cache grows too large, you can always clear the context (or simply create a new calculator that uses a new context).</p>
+
+<p>Here are a few examples:</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">calculator</span> <span class="o">=</span> <span class="kt">GregorianCalculator</span><span class="p">()</span>
+<span class="c1">// A few calculations:</span>
+<span class="k">let</span> <span class="nv">easterSunday20</span> <span class="o">=</span> <span class="n">calculator</span><span class="o">.</span><span class="nf">easterSunday</span><span class="p">(</span><span class="nv">forYear</span><span class="p">:</span> <span class="mi">2020</span><span class="p">)</span>
+<span class="c1">// -&gt; 2020-04-12</span>
+<span class="k">let</span> <span class="nv">firstAdvent19</span> <span class="o">=</span> <span class="n">calculator</span><span class="o">.</span><span class="nf">firstSundayOfAdvent</span><span class="p">(</span><span class="nv">forYear</span><span class="p">:</span> <span class="mi">2019</span><span class="p">)</span>
+<span class="c1">// -&gt; 2019-12-01</span>
+<span class="k">let</span> <span class="nv">firstAdvent20</span> <span class="o">=</span> <span class="n">calculator</span><span class="o">.</span><span class="nf">firstSundayOfAdvent</span><span class="p">(</span><span class="nv">forYear</span><span class="p">:</span> <span class="mi">2020</span><span class="p">)</span>
+<span class="c1">// -&gt; 2020-11-29</span>
+
+
+<span class="c1">// Serialize context</span>
+<span class="k">let</span> <span class="nv">data</span> <span class="o">=</span> <span class="k">try</span> <span class="kt">JSONEncoder</span><span class="p">()</span><span class="o">.</span><span class="nf">encode</span><span class="p">(</span><span class="n">calculator</span><span class="o">.</span><span class="n">context</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">ctxPath</span> <span class="o">=</span> <span class="kt">URL</span><span class="p">(</span><span class="nv">fileURLWithPath</span><span class="p">:</span> <span class="s">"/path/to/gregorian.ctx"</span><span class="p">)</span>
+<span class="k">try</span> <span class="n">data</span><span class="o">.</span><span class="nf">write</span><span class="p">(</span><span class="nv">to</span><span class="p">:</span> <span class="n">ctxPath</span><span class="p">,</span> <span class="nv">options</span><span class="p">:</span> <span class="o">.</span><span class="n">atomic</span><span class="p">)</span>
+
+<span class="c1">// [...]</span>
+
+<span class="c1">// Deserialize context</span>
+<span class="k">let</span> <span class="nv">data</span> <span class="o">=</span> <span class="k">try</span> <span class="kt">Data</span><span class="p">(</span><span class="nv">contentsOf</span><span class="p">:</span> <span class="n">ctxPath</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">deserializedCtx</span> <span class="o">=</span> <span class="k">try</span> <span class="kt">JSONDecoder</span><span class="p">()</span><span class="o">.</span><span class="nf">decode</span><span class="p">(</span><span class="kt">GregorianCalculator</span><span class="o">.</span><span class="kt">Context</span><span class="o">.</span><span class="k">self</span><span class="p">,</span> <span class="nv">from</span><span class="p">:</span> <span class="n">data</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">newCalculator</span> <span class="o">=</span> <span class="kt">GregorianCalculator</span><span class="p">()</span>
+<span class="n">newCalculator</span><span class="o">.</span><span class="nf">initialize</span><span class="p">(</span><span class="nv">with</span><span class="p">:</span> <span class="n">deserializedCtx</span><span class="p">)</span>
+<span class="c1">// -&gt; `newCalculator` will now have cached values for the dates calculated above. So the following calls will use the cached values instead of recalculating them.</span>
+<span class="k">let</span> <span class="nv">cachedEasterSunday20</span> <span class="o">=</span> <span class="n">calculator</span><span class="o">.</span><span class="nf">easterSunday</span><span class="p">(</span><span class="nv">forYear</span><span class="p">:</span> <span class="mi">2020</span><span class="p">)</span>
+<span class="c1">// -&gt; 2020-04-12</span>
+<span class="k">let</span> <span class="nv">cachedFirstAdvent19</span> <span class="o">=</span> <span class="n">calculator</span><span class="o">.</span><span class="nf">firstSundayOfAdvent</span><span class="p">(</span><span class="nv">forYear</span><span class="p">:</span> <span class="mi">2019</span><span class="p">)</span>
+<span class="c1">// -&gt; 2019-12-01</span>
+<span class="k">let</span> <span class="nv">cachedFirstAdvent20</span> <span class="o">=</span> <span class="n">calculator</span><span class="o">.</span><span class="nf">firstSundayOfAdvent</span><span class="p">(</span><span class="nv">forYear</span><span class="p">:</span> <span class="mi">2020</span><span class="p">)</span>
+<span class="c1">// -&gt; 2020-11-29</span>
+</code></pre>
+
+<p>Note that all calculations return a <code><a href="Structs/TimelessDate.html">TimelessDate</a></code> - a date without a time component to it. This isn&rsquo;t a general purpose timeless date.
+It simply removes the time zone problem from the calculations. 
+This is also the reason why the <code>calendar: Foundation.Calendar</code> of a calculator always has its timezone set to UTC (0 seconds from GMT).
+Once you use the results of calculations, you should use <code>Foundation.Date</code> and <code>Foundation.DateComponents</code> again. 
+This is fairly easy since you can always ask a <code><a href="Structs/TimelessDate.html">TimelessDate</a></code> for its <code>components</code> (which will return the matching <code>DateComponents</code>) 
+or ask a calculator to return a <code>Date</code> for a given <code><a href="Structs/TimelessDate.html">TimelessDate</a></code> (which will use the calculators calendar to create a <code>Date</code> from the <code><a href="Structs/TimelessDate.html">TimelessDate</a></code>).</p>
+<h2 id='documentation' class='heading'>Documentation</h2>
+
+<p>The API is documented using header doc. If you prefer to view the documentation as a webpage, there is an <a href="https://sersoft-gmbh.github.io/swifty-holidays">online version</a> available for you.</p>
+<h2 id='contributing' class='heading'>Contributing</h2>
+
+<p>If you find a bug / like to see a new feature in SwiftyHolidays there are a few ways of helping out:</p>
+
+<ul>
+<li>If you can fix the bug / implement the feature yourself please do and open a PR.</li>
+<li>If you know how to code (which you probably do), please add a (failing) test and open a PR. We&rsquo;ll try to get your test green ASAP.</li>
+<li>If you can do neither, then open an issue. While this might be the easiest way, it will likely take the longest for the bug to be fixed / feature to be implemented.</li>
+</ul>
+<h2 id='license' class='heading'>License</h2>
+
+<p>See <a href="./LICENSE">LICENSE</a> file.</p>
+
+          </div>
+        </section>
+
+
+      </article>
+    </div>
+    <section class="footer">
+      <p>&copy; 2022 <a class="link" href="https://sersoft.de" target="_blank" rel="external noopener">ser.soft GmbH</a>. All rights reserved. (Last updated: 2022-03-21)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+    </section>
+  </body>
+</html>
