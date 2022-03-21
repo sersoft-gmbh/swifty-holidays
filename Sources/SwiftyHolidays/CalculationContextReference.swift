@@ -55,3 +55,7 @@ final class CalculationContextReference<Context: CalculationContext> {
         }
     }
 }
+
+#if compiler(>=5.5.2) && canImport(_Concurrency)
+extension CalculationContextReference: @unchecked Sendable {}
+#endif
