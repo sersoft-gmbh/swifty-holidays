@@ -1,0 +1,454 @@
+{
+  "abstract" : [
+    {
+      "text" : "Creates a Date for a given timeless date, optionally setting to to noon.",
+      "type" : "text"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays",
+        "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/GregorianCalculator",
+        "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/GregorianCalculator\/Calculator-Implementations"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/GregorianCalculator\/date(for:atNoon:)"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "extendedModule" : "SwiftyHolidays",
+    "externalID" : "s:14SwiftyHolidays10CalculatorPAAE4date3for6atNoon10Foundation4DateVSgAA08TimelessI0V_SbtF::SYNTHESIZED::s:14SwiftyHolidays19GregorianCalculatorV",
+    "fragments" : [
+      {
+        "kind" : "keyword",
+        "text" : "func"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "identifier",
+        "text" : "date"
+      },
+      {
+        "kind" : "text",
+        "text" : "("
+      },
+      {
+        "kind" : "externalParam",
+        "text" : "for"
+      },
+      {
+        "kind" : "text",
+        "text" : ": "
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:14SwiftyHolidays12TimelessDateV",
+        "text" : "TimelessDate"
+      },
+      {
+        "kind" : "text",
+        "text" : ", "
+      },
+      {
+        "kind" : "externalParam",
+        "text" : "atNoon"
+      },
+      {
+        "kind" : "text",
+        "text" : ": "
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:Sb",
+        "text" : "Bool"
+      },
+      {
+        "kind" : "text",
+        "text" : ") -> "
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:10Foundation4DateV",
+        "text" : "Date"
+      },
+      {
+        "kind" : "text",
+        "text" : "?"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "SwiftyHolidays"
+      }
+    ],
+    "role" : "symbol",
+    "roleHeading" : "Instance Method",
+    "symbolKind" : "method",
+    "title" : "date(for:atNoon:)"
+  },
+  "primaryContentSections" : [
+    {
+      "declarations" : [
+        {
+          "languages" : [
+            "swift"
+          ],
+          "platforms" : [
+            "Linux"
+          ],
+          "tokens" : [
+            {
+              "kind" : "keyword",
+              "text" : "func"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "identifier",
+              "text" : "date"
+            },
+            {
+              "kind" : "text",
+              "text" : "("
+            },
+            {
+              "kind" : "externalParam",
+              "text" : "for"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "internalParam",
+              "text" : "timelessDate"
+            },
+            {
+              "kind" : "text",
+              "text" : ": "
+            },
+            {
+              "identifier" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/TimelessDate",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:14SwiftyHolidays12TimelessDateV",
+              "text" : "TimelessDate"
+            },
+            {
+              "kind" : "text",
+              "text" : ", "
+            },
+            {
+              "kind" : "externalParam",
+              "text" : "atNoon"
+            },
+            {
+              "kind" : "text",
+              "text" : ": "
+            },
+            {
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:Sb",
+              "text" : "Bool"
+            },
+            {
+              "kind" : "text",
+              "text" : " = false) -> "
+            },
+            {
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:10Foundation4DateV",
+              "text" : "Date"
+            },
+            {
+              "kind" : "text",
+              "text" : "?"
+            }
+          ]
+        }
+      ],
+      "kind" : "declarations"
+    },
+    {
+      "content" : [
+        {
+          "anchor" : "return-value",
+          "level" : 2,
+          "text" : "Return Value",
+          "type" : "heading"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "A Date for the given timeless date inside the calendar of the calculator. Or nil if no date could be created.",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        }
+      ],
+      "kind" : "content"
+    },
+    {
+      "kind" : "parameters",
+      "parameters" : [
+        {
+          "content" : [
+            {
+              "inlineContent" : [
+                {
+                  "text" : "The timeless date to create a Date for.",
+                  "type" : "text"
+                }
+              ],
+              "type" : "paragraph"
+            }
+          ],
+          "name" : "timelessDate"
+        },
+        {
+          "content" : [
+            {
+              "inlineContent" : [
+                {
+                  "text" : "Whether or not the returned date should have its time set to noon.",
+                  "type" : "text"
+                }
+              ],
+              "type" : "paragraph"
+            }
+          ],
+          "name" : "atNoon"
+        }
+      ]
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 2,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/swiftyholidays\/gregoriancalculator\/date(for:atnoon:)"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://SwiftyHolidays/documentation/SwiftyHolidays": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "SwiftyHolidays",
+  "type" : "topic",
+  "url" : "\/documentation\/swiftyholidays"
+},
+"doc://SwiftyHolidays/documentation/SwiftyHolidays/GregorianCalculator": {
+  "abstract" : [
+    {
+      "text" : "Calculates holiday dates for the gregorian calendar.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "GregorianCalculator"
+    }
+  ],
+  "identifier" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/GregorianCalculator",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "GregorianCalculator"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "GregorianCalculator",
+  "type" : "topic",
+  "url" : "\/documentation\/swiftyholidays\/gregoriancalculator"
+},
+"doc://SwiftyHolidays/documentation/SwiftyHolidays/GregorianCalculator/Calculator-Implementations": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/GregorianCalculator\/Calculator-Implementations",
+  "kind" : "article",
+  "role" : "collectionGroup",
+  "title" : "Calculator Implementations",
+  "type" : "topic",
+  "url" : "\/documentation\/swiftyholidays\/gregoriancalculator\/calculator-implementations"
+},
+"doc://SwiftyHolidays/documentation/SwiftyHolidays/GregorianCalculator/date(for:atNoon:)": {
+  "abstract" : [
+    {
+      "text" : "Creates a Date for a given timeless date, optionally setting to to noon.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "date"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "for"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14SwiftyHolidays12TimelessDateV",
+      "text" : "TimelessDate"
+    },
+    {
+      "kind" : "text",
+      "text" : ", "
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "atNoon"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sb",
+      "text" : "Bool"
+    },
+    {
+      "kind" : "text",
+      "text" : ") -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:10Foundation4DateV",
+      "text" : "Date"
+    },
+    {
+      "kind" : "text",
+      "text" : "?"
+    }
+  ],
+  "identifier" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/GregorianCalculator\/date(for:atNoon:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "date(for:atNoon:)",
+  "type" : "topic",
+  "url" : "\/documentation\/swiftyholidays\/gregoriancalculator\/date(for:atnoon:)"
+},
+"doc://SwiftyHolidays/documentation/SwiftyHolidays/TimelessDate": {
+  "abstract" : [
+    {
+      "text" : "Represents a date that is fixed across time zones - and therefor does not have a time.",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "This is not intented to be used as a general purpose timeless date.",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "Please use ",
+      "type" : "text"
+    },
+    {
+      "code" : "DateComponents",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " and ",
+      "type" : "text"
+    },
+    {
+      "code" : "Date",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " for working with dates and times.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "TimelessDate"
+    }
+  ],
+  "identifier" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/TimelessDate",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "TimelessDate"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "TimelessDate",
+  "type" : "topic",
+  "url" : "\/documentation\/swiftyholidays\/timelessdate"
+}
+}
+}

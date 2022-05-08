@@ -1,0 +1,182 @@
+{
+  "abstract" : [
+    {
+      "text" : "No overview available.",
+      "type" : "text"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays",
+        "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/GregorianCalculator"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/GregorianCalculator\/Calculator-Implementations"
+  },
+  "kind" : "article",
+  "metadata" : {
+    "modules" : [
+      {
+        "name" : "SwiftyHolidays"
+      }
+    ],
+    "role" : "collectionGroup",
+    "title" : "Calculator Implementations"
+  },
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 2,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "topicSections" : [
+    {
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/GregorianCalculator\/date(for:atNoon:)"
+      ],
+      "title" : "Instance Methods"
+    }
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/swiftyholidays\/gregoriancalculator\/calculator-implementations"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://SwiftyHolidays/documentation/SwiftyHolidays": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "SwiftyHolidays",
+  "type" : "topic",
+  "url" : "\/documentation\/swiftyholidays"
+},
+"doc://SwiftyHolidays/documentation/SwiftyHolidays/GregorianCalculator": {
+  "abstract" : [
+    {
+      "text" : "Calculates holiday dates for the gregorian calendar.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "GregorianCalculator"
+    }
+  ],
+  "identifier" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/GregorianCalculator",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "GregorianCalculator"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "GregorianCalculator",
+  "type" : "topic",
+  "url" : "\/documentation\/swiftyholidays\/gregoriancalculator"
+},
+"doc://SwiftyHolidays/documentation/SwiftyHolidays/GregorianCalculator/date(for:atNoon:)": {
+  "abstract" : [
+    {
+      "text" : "Creates a Date for a given timeless date, optionally setting to to noon.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "date"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "for"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14SwiftyHolidays12TimelessDateV",
+      "text" : "TimelessDate"
+    },
+    {
+      "kind" : "text",
+      "text" : ", "
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "atNoon"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sb",
+      "text" : "Bool"
+    },
+    {
+      "kind" : "text",
+      "text" : ") -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:10Foundation4DateV",
+      "text" : "Date"
+    },
+    {
+      "kind" : "text",
+      "text" : "?"
+    }
+  ],
+  "identifier" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/GregorianCalculator\/date(for:atNoon:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "date(for:atNoon:)",
+  "type" : "topic",
+  "url" : "\/documentation\/swiftyholidays\/gregoriancalculator\/date(for:atnoon:)"
+}
+}
+}
