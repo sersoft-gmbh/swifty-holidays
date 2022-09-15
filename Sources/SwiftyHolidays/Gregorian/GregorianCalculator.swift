@@ -397,3 +397,7 @@ public struct GregorianCalculator: Calculator {
         TimelessDate(day: 31, month: 12, year: year)
     }
 }
+
+#if compiler(<5.7)
+extension GregorianCalculator: @unchecked Sendable {} // Calendar...
+#endif
