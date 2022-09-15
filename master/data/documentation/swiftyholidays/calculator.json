@@ -1,10 +1,4 @@
 {
-  "abstract" : [
-    {
-      "text" : "Represents a calculator that can calculate holidays using a fixed type of calendar.",
-      "type" : "text"
-    }
-  ],
   "hierarchy" : {
     "paths" : [
       [
@@ -61,6 +55,14 @@
           ],
           "tokens" : [
             {
+              "kind" : "attribute",
+              "text" : "@preconcurrency"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
               "kind" : "keyword",
               "text" : "protocol"
             },
@@ -71,6 +73,23 @@
             {
               "kind" : "identifier",
               "text" : "Calculator"
+            },
+            {
+              "kind" : "text",
+              "text" : "<"
+            },
+            {
+              "kind" : "typeIdentifier",
+              "text" : "Context"
+            },
+            {
+              "kind" : "text",
+              "text" : "> : "
+            },
+            {
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:s8SendableP",
+              "text" : "Sendable"
             }
           ]
         }
@@ -79,6 +98,14 @@
     }
   ],
   "relationshipsSections" : [
+    {
+      "identifiers" : [
+        "doc:\/\/SwiftyHolidays\/s8SendableP"
+      ],
+      "kind" : "relationships",
+      "title" : "Inherits From",
+      "type" : "inheritsFrom"
+    },
     {
       "identifiers" : [
         "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/GregorianCalculator"
@@ -90,7 +117,7 @@
   ],
   "schemaVersion" : {
     "major" : 0,
-    "minor" : 2,
+    "minor" : 3,
     "patch" : 0
   },
   "sections" : [
@@ -145,10 +172,7 @@
 },
 "doc://SwiftyHolidays/documentation/SwiftyHolidays/Calculator": {
   "abstract" : [
-    {
-      "text" : "Represents a calculator that can calculate holidays using a fixed type of calendar.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -471,6 +495,11 @@
   "title" : "GregorianCalculator",
   "type" : "topic",
   "url" : "\/documentation\/swiftyholidays\/gregoriancalculator"
+},
+"doc://SwiftyHolidays/s8SendableP": {
+  "identifier" : "doc:\/\/SwiftyHolidays\/s8SendableP",
+  "title" : "Swift.Sendable",
+  "type" : "unresolvable"
 }
 }
 }

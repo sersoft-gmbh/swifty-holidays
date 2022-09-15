@@ -81,7 +81,8 @@
   "relationshipsSections" : [
     {
       "identifiers" : [
-        "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/Calculator"
+        "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/Calculator",
+        "doc:\/\/SwiftyHolidays\/s8SendableP"
       ],
       "kind" : "relationships",
       "title" : "Conforms To",
@@ -90,7 +91,7 @@
   ],
   "schemaVersion" : {
     "major" : 0,
-    "minor" : 2,
+    "minor" : 3,
     "patch" : 0
   },
   "sections" : [
@@ -181,10 +182,7 @@
 },
 "doc://SwiftyHolidays/documentation/SwiftyHolidays/Calculator": {
   "abstract" : [
-    {
-      "text" : "Represents a calculator that can calculate holidays using a fixed type of calendar.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -1780,6 +1778,11 @@
   "title" : "whitMonday(forYear:)",
   "type" : "topic",
   "url" : "\/documentation\/swiftyholidays\/gregoriancalculator\/whitmonday(foryear:)"
+},
+"doc://SwiftyHolidays/s8SendableP": {
+  "identifier" : "doc:\/\/SwiftyHolidays\/s8SendableP",
+  "title" : "Swift.Sendable",
+  "type" : "unresolvable"
 }
 }
 }

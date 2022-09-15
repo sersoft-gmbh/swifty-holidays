@@ -18,7 +18,7 @@
       [
         "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays",
         "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/TimelessDate",
-        "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/TimelessDate\/-Implementations"
+        "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/TimelessDate\/Comparable-Implementations"
       ]
     ]
   },
@@ -321,7 +321,7 @@
   ],
   "schemaVersion" : {
     "major" : 0,
-    "minor" : 2,
+    "minor" : 3,
     "patch" : 0
   },
   "sections" : [
@@ -418,17 +418,6 @@
   "type" : "topic",
   "url" : "\/documentation\/swiftyholidays\/timelessdate"
 },
-"doc://SwiftyHolidays/documentation/SwiftyHolidays/TimelessDate/-Implementations": {
-  "abstract" : [
-
-  ],
-  "identifier" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/TimelessDate\/-Implementations",
-  "kind" : "article",
-  "role" : "collectionGroup",
-  "title" : " Implementations",
-  "type" : "topic",
-  "url" : "\/documentation\/swiftyholidays\/timelessdate\/-implementations"
-},
 "doc://SwiftyHolidays/documentation/SwiftyHolidays/TimelessDate/.._(_:_:)": {
   "abstract" : [
     {
@@ -513,6 +502,17 @@
   "title" : "..<(_:_:)",
   "type" : "topic",
   "url" : "\/documentation\/swiftyholidays\/timelessdate\/'.._(_:_:)"
+},
+"doc://SwiftyHolidays/documentation/SwiftyHolidays/TimelessDate/Comparable-Implementations": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/TimelessDate\/Comparable-Implementations",
+  "kind" : "article",
+  "role" : "collectionGroup",
+  "title" : "Comparable Implementations",
+  "type" : "topic",
+  "url" : "\/documentation\/swiftyholidays\/timelessdate\/comparable-implementations"
 }
 }
 }

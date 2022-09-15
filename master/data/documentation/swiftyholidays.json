@@ -1,10 +1,4 @@
 {
-  "abstract" : [
-    {
-      "text" : "",
-      "type" : "text"
-    }
-  ],
   "hierarchy" : {
     "paths" : [
       [
@@ -31,7 +25,7 @@
   },
   "schemaVersion" : {
     "major" : 0,
-    "minor" : 2,
+    "minor" : 3,
     "patch" : 0
   },
   "sections" : [
@@ -131,10 +125,7 @@
 },
 "doc://SwiftyHolidays/documentation/SwiftyHolidays/Calculator": {
   "abstract" : [
-    {
-      "text" : "Represents a calculator that can calculate holidays using a fixed type of calendar.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
