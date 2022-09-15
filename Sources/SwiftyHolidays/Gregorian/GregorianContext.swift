@@ -4,16 +4,16 @@ import class Dispatch.DispatchSemaphore
 public struct GregorianCalculationContext: CalculationContext {
     /// The storage that the context uses to cache the results.
     @usableFromInline
-    /*private but @usableFromInline*/ var storage: [Int: [StorageKey: TimelessDate]]
+    /*private but @usableFromInline*/ var storage: Dictionary<Int, Dictionary<StorageKey, TimelessDate>>
 
     /// The storage that the context uses to cache the results.
     @usableFromInline
-    /*private but @usableFromInline*/ var semaphores: [Int: [StorageKey: DispatchSemaphore]]
+    /*private but @usableFromInline*/ var semaphores: Dictionary<Int, Dictionary<StorageKey, DispatchSemaphore>>
 
     /// Creates a new context with an empty storage.
     init() {
-        storage = [:]
-        semaphores = [:]
+        storage = .init()
+        semaphores = .init()
     }
 
     /// See `Decodable.init(from:)`
@@ -25,7 +25,7 @@ public struct GregorianCalculationContext: CalculationContext {
                 try ($0, yearKeyedContainer.decode(TimelessDate.self, forKey: $0))
             }))
         })
-        semaphores = [:]
+        semaphores = .init()
     }
 
     /// See `Encodable.encode(to:)`

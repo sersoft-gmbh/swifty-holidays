@@ -3,7 +3,6 @@
 /// Nevertheless the resulting serialized state should be considered opaque.
 public protocol CalculationContext: Codable {
     /// Merges the contents of `other` into `self`.
-    ///
     /// - Parameter other: The other context to merge into this one.
     mutating func merge(with other: Self)
 

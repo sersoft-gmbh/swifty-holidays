@@ -1,7 +1,7 @@
 import Dispatch
 
 /// Encapsulates a by-reference relation to a given context.
-/// Since contexts and calculatos are usually structs,
+/// Since contexts and calculators are usually structs,
 /// this can be used to make sure that the calculator shares the same context internally in a thread-safe way.
 @usableFromInline
 final class CalculationContextReference<Context: CalculationContext> {

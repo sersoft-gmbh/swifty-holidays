@@ -62,3 +62,7 @@ public struct TimelessDate: Hashable, Comparable, Codable, CustomStringConvertib
         (lhs.year, lhs.month, lhs.day) < (rhs.year, rhs.month, rhs.day)
     }
 }
+
+#if compiler(>=5.5.2) && canImport(_Concurrency)
+extension TimelessDate: Sendable {}
+#endif
