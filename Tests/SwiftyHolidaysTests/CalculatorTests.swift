@@ -25,3 +25,7 @@ final class CalculatorTests: XCTestCase {
         XCTAssertEqual(calculator.date(for: date, atNoon: false), Date(timeIntervalSinceReferenceDate: 588729600))
     }
 }
+
+#if compiler(<5.7) || os(Linux)
+extension CalculatorTests.MockCalc: @unchecked Sendable {} // Calendar...
+#endif
