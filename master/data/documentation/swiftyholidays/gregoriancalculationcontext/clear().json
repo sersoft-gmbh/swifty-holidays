@@ -1,14 +1,4 @@
 {
-  "abstract" : [
-    {
-      "text" : "See ",
-      "type" : "text"
-    },
-    {
-      "code" : "CalculatorContext.clear",
-      "type" : "codeVoice"
-    }
-  ],
   "hierarchy" : {
     "paths" : [
       [
@@ -162,14 +152,7 @@
 },
 "doc://SwiftyHolidays/documentation/SwiftyHolidays/GregorianCalculationContext/clear()": {
   "abstract" : [
-    {
-      "text" : "See ",
-      "type" : "text"
-    },
-    {
-      "code" : "CalculatorContext.clear",
-      "type" : "codeVoice"
-    }
+
   ],
   "fragments" : [
     {

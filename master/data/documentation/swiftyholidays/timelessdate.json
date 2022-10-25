@@ -321,14 +321,7 @@
 },
 "doc://SwiftyHolidays/documentation/SwiftyHolidays/TimelessDate/_(_:_:)-26exi": {
   "abstract" : [
-    {
-      "text" : "See ",
-      "type" : "text"
-    },
-    {
-      "code" : "Comparable.<",
-      "type" : "codeVoice"
-    }
+
   ],
   "fragments" : [
     {
@@ -565,18 +558,7 @@
 },
 "doc://SwiftyHolidays/documentation/SwiftyHolidays/TimelessDate/description": {
   "abstract" : [
-    {
-      "text" : "See ",
-      "type" : "text"
-    },
-    {
-      "code" : "CustomStringConvertible.description",
-      "type" : "codeVoice"
-    },
-    {
-      "text" : ".",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {

@@ -235,14 +235,7 @@
 },
 "doc://SwiftyHolidays/documentation/SwiftyHolidays/GregorianCalculationContext/clear()": {
   "abstract" : [
-    {
-      "text" : "See ",
-      "type" : "text"
-    },
-    {
-      "code" : "CalculatorContext.clear",
-      "type" : "codeVoice"
-    }
+
   ],
   "fragments" : [
     {
@@ -271,14 +264,7 @@
 },
 "doc://SwiftyHolidays/documentation/SwiftyHolidays/GregorianCalculationContext/encode(to:)": {
   "abstract" : [
-    {
-      "text" : "See ",
-      "type" : "text"
-    },
-    {
-      "code" : "Encodable.encode(to:)",
-      "type" : "codeVoice"
-    }
+
   ],
   "fragments" : [
     {
@@ -328,14 +314,7 @@
 },
 "doc://SwiftyHolidays/documentation/SwiftyHolidays/GregorianCalculationContext/init(from:)": {
   "abstract" : [
-    {
-      "text" : "See ",
-      "type" : "text"
-    },
-    {
-      "code" : "Decodable.init(from:)",
-      "type" : "codeVoice"
-    }
+
   ],
   "fragments" : [
     {
@@ -377,14 +356,7 @@
 },
 "doc://SwiftyHolidays/documentation/SwiftyHolidays/GregorianCalculationContext/merge(with:)": {
   "abstract" : [
-    {
-      "text" : "See ",
-      "type" : "text"
-    },
-    {
-      "code" : "CalculatorContext.merge(with:)",
-      "type" : "codeVoice"
-    }
+
   ],
   "fragments" : [
     {
