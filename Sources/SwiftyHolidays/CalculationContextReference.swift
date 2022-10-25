@@ -4,7 +4,7 @@ import Dispatch
 /// Since contexts and calculators are usually structs,
 /// this can be used to make sure that the calculator shares the same context internally in a thread-safe way.
 @usableFromInline
-final class CalculationContextReference<Context: CalculationContext> {
+final class CalculationContextReference<Context: CalculationContext>: @unchecked Sendable {
     private let contextLock = DispatchQueue(label: "de.sersoft.swiftyholidays.calculationcontextreference.lock",
                                             attributes: .concurrent)
     private var _context: Context {
@@ -55,7 +55,3 @@ final class CalculationContextReference<Context: CalculationContext> {
         }
     }
 }
-
-#if compiler(>=5.5.2) && canImport(_Concurrency)
-extension CalculationContextReference: @unchecked Sendable {}
-#endif

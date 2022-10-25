@@ -2,17 +2,14 @@ import Foundation
 
 /// Calculates holiday dates for the gregorian calendar.
 public struct GregorianCalculator: Calculator {
-    /// See `Calculator.Context`.
     public typealias Context = GregorianCalculationContext
 
-    /// See `Calculator.calendar`.
     public let calendar: Calendar
 
     /// The reference to the context.
     @usableFromInline
     /*private but @usableFromInline*/ let contextRef = CalculationContextReference(context: Context())
 
-    /// See `Calculator.context`.
     @inlinable
     public var context: Context { contextRef.context }
 
@@ -23,7 +20,6 @@ public struct GregorianCalculator: Calculator {
         self.calendar = calendar
     }
 
-    /// See `Calculator.initialize(with:)`
     @inlinable
     public func initialize(with context: Context) {
         var oldCtx = contextRef.exchange(with: context)

@@ -4,7 +4,7 @@ import Foundation
 /// This is not intented to be used as a general purpose timeless date.
 /// Please use `DateComponents` and `Date` for working with dates and times.
 @frozen
-public struct TimelessDate: Hashable, Comparable, Codable, CustomStringConvertible {
+public struct TimelessDate: Sendable, Hashable, Comparable, Codable, CustomStringConvertible {
     /// The day element of the date. Should not be negative.
     public var day: Int
     /// The month element of the date. Should not be negative.
@@ -12,7 +12,6 @@ public struct TimelessDate: Hashable, Comparable, Codable, CustomStringConvertib
     /// The year element of the date. Should not be negative.
     public var year: Int
 
-    /// See `CustomStringConvertible.description`.
     @inlinable
     public var description: String { String(format: "%04d-%02d-%02d", year, month, day) }
 
@@ -56,13 +55,8 @@ public struct TimelessDate: Hashable, Comparable, Codable, CustomStringConvertib
         return calendar.date(from: comps)
     }
 
-    /// See `Comparable.<`
     @inlinable
     public static func < (lhs: TimelessDate, rhs: TimelessDate) -> Bool {
         (lhs.year, lhs.month, lhs.day) < (rhs.year, rhs.month, rhs.day)
     }
 }
-
-#if compiler(>=5.5.2) && canImport(_Concurrency)
-extension TimelessDate: Sendable {}
-#endif

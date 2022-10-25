@@ -16,7 +16,6 @@ public struct GregorianCalculationContext: CalculationContext {
         semaphores = .init()
     }
 
-    /// See `Decodable.init(from:)`
     public init(from decoder: Decoder) throws {
         let keyedContainer = try decoder.container(keyedBy: YearKey.self)
         storage = try Dictionary(uniqueKeysWithValues: keyedContainer.allKeys.map {
@@ -28,7 +27,6 @@ public struct GregorianCalculationContext: CalculationContext {
         semaphores = .init()
     }
 
-    /// See `Encodable.encode(to:)`
     public func encode(to encoder: Encoder) throws {
         var keyedContainer = encoder.container(keyedBy: YearKey.self)
         for (year, values) in storage where !values.isEmpty {
@@ -39,7 +37,6 @@ public struct GregorianCalculationContext: CalculationContext {
         }
     }
 
-    /// See `CalculatorContext.merge(with:)`
     public mutating func merge(with other: GregorianCalculationContext) {
         other.storage.values.forEach {
             $0.forEach { key, date in
@@ -50,7 +47,6 @@ public struct GregorianCalculationContext: CalculationContext {
     }
 
     /// Clears the context, optionally keeping the capacity of the storage.
-    ///
     /// - Parameter keepingCapacity: Whether or not the storage of the capacity should be kept.
     @usableFromInline
     mutating func clear(keepingCapacity: Bool) {
@@ -61,7 +57,6 @@ public struct GregorianCalculationContext: CalculationContext {
         currentSemaphores.lazy.flatMap { $0.values }.forEach { $0.signal() }
     }
 
-    /// See `CalculatorContext.clear`
     @inlinable
     public mutating func clear() {
         clear(keepingCapacity: true)
