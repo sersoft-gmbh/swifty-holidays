@@ -420,6 +420,22 @@
               {
                 "children" : [
                   {
+                    "title" : "Instance Properties",
+                    "type" : "groupMarker"
+                  },
+                  {
+                    "path" : "\/documentation\/swiftyholidays\/timelessdate\/halfwidthcornerquoted",
+                    "title" : "var halfWidthCornerQuoted: String",
+                    "type" : "property"
+                  }
+                ],
+                "path" : "\/documentation\/swiftyholidays\/timelessdate\/customstringconvertible-implementations",
+                "title" : "CustomStringConvertible Implementations",
+                "type" : "symbol"
+              },
+              {
+                "children" : [
+                  {
                     "title" : "Operators",
                     "type" : "groupMarker"
                   },

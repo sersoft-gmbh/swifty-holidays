@@ -176,6 +176,7 @@
       "generated" : true,
       "identifiers" : [
         "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/TimelessDate\/Comparable-Implementations",
+        "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/TimelessDate\/CustomStringConvertible-Implementations",
         "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/TimelessDate\/Equatable-Implementations"
       ],
       "title" : "Default Implementations"
@@ -307,6 +308,17 @@
   "title" : "Comparable Implementations",
   "type" : "topic",
   "url" : "\/documentation\/swiftyholidays\/timelessdate\/comparable-implementations"
+},
+"doc://SwiftyHolidays/documentation/SwiftyHolidays/TimelessDate/CustomStringConvertible-Implementations": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/TimelessDate\/CustomStringConvertible-Implementations",
+  "kind" : "article",
+  "role" : "collectionGroup",
+  "title" : "CustomStringConvertible Implementations",
+  "type" : "topic",
+  "url" : "\/documentation\/swiftyholidays\/timelessdate\/customstringconvertible-implementations"
 },
 "doc://SwiftyHolidays/documentation/SwiftyHolidays/TimelessDate/Equatable-Implementations": {
   "abstract" : [
