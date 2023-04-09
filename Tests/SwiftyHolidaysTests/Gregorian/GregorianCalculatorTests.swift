@@ -105,6 +105,14 @@ final class GregorianCalculatorTests: XCTestCase {
         XCTAssertEqual(calculator.newYearsEve(forYear: 2019), TimelessDate(day: 31, month: 12, year: 2019))
     }
 
+    func testEasterSunday2033() {
+        XCTAssertEqual(calculator.easterSunday(forYear: 2033), TimelessDate(day: 17, month: 04, year: 2033))
+    }
+
+    func testEasterMonday2033() {
+        XCTAssertEqual(calculator.easterMonday(forYear: 2033), TimelessDate(day: 18, month: 04, year: 2033))
+    }
+
     func testInitializing() {
         _ = calculator.easterSunday(forYear: 2019)
         let sema = DispatchSemaphore(value: 0)
