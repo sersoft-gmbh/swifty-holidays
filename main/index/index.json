@@ -221,8 +221,23 @@
                 "type" : "method"
               },
               {
+                "path" : "\/documentation\/swiftyholidays\/gregoriancalculator\/internationalworkersday(foryear:)",
+                "title" : "func internationalWorkersDay(forYear: Int) -> TimelessDate",
+                "type" : "method"
+              },
+              {
+                "path" : "\/documentation\/swiftyholidays\/gregoriancalculator\/laborday(foryear:)",
+                "title" : "func laborDay(forYear: Int) -> TimelessDate",
+                "type" : "method"
+              },
+              {
                 "path" : "\/documentation\/swiftyholidays\/gregoriancalculator\/maundythursday(foryear:)",
                 "title" : "func maundyThursday(forYear: Int) -> TimelessDate",
+                "type" : "method"
+              },
+              {
+                "path" : "\/documentation\/swiftyholidays\/gregoriancalculator\/mayday(foryear:)",
+                "title" : "func mayDay(forYear: Int) -> TimelessDate",
                 "type" : "method"
               },
               {

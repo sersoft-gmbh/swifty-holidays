@@ -129,7 +129,10 @@
         "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/GregorianCalculator\/halloween(forYear:)",
         "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/GregorianCalculator\/holySaturday(forYear:)",
         "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/GregorianCalculator\/initialize(with:)",
+        "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/GregorianCalculator\/internationalWorkersDay(forYear:)",
+        "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/GregorianCalculator\/laborDay(forYear:)",
         "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/GregorianCalculator\/maundyThursday(forYear:)",
+        "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/GregorianCalculator\/mayDay(forYear:)",
         "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/GregorianCalculator\/newYearsDay(forYear:)",
         "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/GregorianCalculator\/newYearsEve(forYear:)",
         "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/GregorianCalculator\/palmSunday(forYear:)",
@@ -1253,6 +1256,114 @@
   "type" : "topic",
   "url" : "\/documentation\/swiftyholidays\/gregoriancalculator\/initialize(with:)"
 },
+"doc://SwiftyHolidays/documentation/SwiftyHolidays/GregorianCalculator/internationalWorkersDay(forYear:)": {
+  "abstract" : [
+    {
+      "text" : "Calculates the date of international workers day for a given year.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "internationalWorkersDay"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "forYear"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Si",
+      "text" : "Int"
+    },
+    {
+      "kind" : "text",
+      "text" : ") -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14SwiftyHolidays12TimelessDateV",
+      "text" : "TimelessDate"
+    }
+  ],
+  "identifier" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/GregorianCalculator\/internationalWorkersDay(forYear:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "internationalWorkersDay(forYear:)",
+  "type" : "topic",
+  "url" : "\/documentation\/swiftyholidays\/gregoriancalculator\/internationalworkersday(foryear:)"
+},
+"doc://SwiftyHolidays/documentation/SwiftyHolidays/GregorianCalculator/laborDay(forYear:)": {
+  "abstract" : [
+    {
+      "text" : "Calculates the date of labor day for a given year. It’s an alias for the international workers day.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "laborDay"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "forYear"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Si",
+      "text" : "Int"
+    },
+    {
+      "kind" : "text",
+      "text" : ") -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14SwiftyHolidays12TimelessDateV",
+      "text" : "TimelessDate"
+    }
+  ],
+  "identifier" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/GregorianCalculator\/laborDay(forYear:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "laborDay(forYear:)",
+  "type" : "topic",
+  "url" : "\/documentation\/swiftyholidays\/gregoriancalculator\/laborday(foryear:)"
+},
 "doc://SwiftyHolidays/documentation/SwiftyHolidays/GregorianCalculator/maundyThursday(forYear:)": {
   "abstract" : [
     {
@@ -1306,6 +1417,60 @@
   "title" : "maundyThursday(forYear:)",
   "type" : "topic",
   "url" : "\/documentation\/swiftyholidays\/gregoriancalculator\/maundythursday(foryear:)"
+},
+"doc://SwiftyHolidays/documentation/SwiftyHolidays/GregorianCalculator/mayDay(forYear:)": {
+  "abstract" : [
+    {
+      "text" : "Calculates the date of May day for a given year. It’s an alias for the international workers day.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "mayDay"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "forYear"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Si",
+      "text" : "Int"
+    },
+    {
+      "kind" : "text",
+      "text" : ") -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14SwiftyHolidays12TimelessDateV",
+      "text" : "TimelessDate"
+    }
+  ],
+  "identifier" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/GregorianCalculator\/mayDay(forYear:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "mayDay(forYear:)",
+  "type" : "topic",
+  "url" : "\/documentation\/swiftyholidays\/gregoriancalculator\/mayday(foryear:)"
 },
 "doc://SwiftyHolidays/documentation/SwiftyHolidays/GregorianCalculator/newYearsDay(forYear:)": {
   "abstract" : [
