@@ -265,6 +265,35 @@ public struct GregorianCalculator: Calculator {
         date(for: .easterMonday, forYear: year, calculation: calculateEasterMonday)
     }
 
+    /// Calculates the date of international workers day for a given year.
+    ///
+    /// - Parameter year: The year for which to calculate international workers day.
+    /// - Returns: The date of international workers day in the given year.
+    @inlinable
+    public func internationalWorkersDay(forYear year: Int) -> TimelessDate {
+        .init(day: 1, month: 5, year: year)
+    }
+
+    /// Calculates the date of labor day for a given year. It's an alias for the international workers day.
+    ///
+    /// - Parameter year: The year for which to calculate labor day.
+    /// - Returns: The date of labor day in the given year.
+    /// - SeeAlso: ``internationalWorkersDay(forYear:)``
+    @inlinable
+    public func laborDay(forYear year: Int) -> TimelessDate {
+        internationalWorkersDay(forYear: year)
+    }
+
+    /// Calculates the date of May day for a given year. It's an alias for the international workers day.
+    ///
+    /// - Parameter year: The year for which to calculate May day.
+    /// - Returns: The date of May day in the given year.
+    /// - SeeAlso: ``internationalWorkersDay(forYear:)``
+    @inlinable
+    public func mayDay(forYear year: Int) -> TimelessDate {
+        internationalWorkersDay(forYear: year)
+    }
+
     /// Calculates the date of the ascension day for a given year.
     /// - Parameter year: The year for which to calculate the ascension day.
     /// - Returns: The date of the ascension day in the given year.

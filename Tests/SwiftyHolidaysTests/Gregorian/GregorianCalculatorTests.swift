@@ -41,6 +41,18 @@ final class GregorianCalculatorTests: XCTestCase {
         XCTAssertEqual(calculator.easterMonday(forYear: 2019), TimelessDate(day: 22, month: 4, year: 2019))
     }
 
+    func testInternationalWorkersDay() {
+        XCTAssertEqual(calculator.internationalWorkersDay(forYear: 2019), TimelessDate(day: 1, month: 5, year: 2019))
+    }
+
+    func testLaborDay() {
+        XCTAssertEqual(calculator.laborDay(forYear: 2019), calculator.internationalWorkersDay(forYear: 2019))
+    }
+
+    func testMayDay() {
+        XCTAssertEqual(calculator.mayDay(forYear: 2019), calculator.internationalWorkersDay(forYear: 2019))
+    }
+
     func testAscensionDay() {
         XCTAssertEqual(calculator.ascensionDay(forYear: 2019), TimelessDate(day: 30, month: 5, year: 2019))
     }
