@@ -19,7 +19,7 @@
   },
   "kind" : "symbol",
   "metadata" : {
-    "externalID" : "s:14SwiftyHolidays19GregorianCalculatorV12christmasEve7forYearAA12TimelessDateVSi_tF",
+    "externalID" : "s:14SwiftyHolidays19GregorianCalculatorV12christmasEve7forYearAA11HolidayDateVSi_tF",
     "fragments" : [
       {
         "kind" : "keyword",
@@ -56,8 +56,8 @@
       },
       {
         "kind" : "typeIdentifier",
-        "preciseIdentifier" : "s:14SwiftyHolidays12TimelessDateV",
-        "text" : "TimelessDate"
+        "preciseIdentifier" : "s:14SwiftyHolidays11HolidayDateV",
+        "text" : "HolidayDate"
       }
     ],
     "modules" : [
@@ -123,10 +123,10 @@
               "text" : ") -> "
             },
             {
-              "identifier" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/TimelessDate",
+              "identifier" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/HolidayDate",
               "kind" : "typeIdentifier",
-              "preciseIdentifier" : "s:14SwiftyHolidays12TimelessDateV",
-              "text" : "TimelessDate"
+              "preciseIdentifier" : "s:14SwiftyHolidays11HolidayDateV",
+              "text" : "HolidayDate"
             }
           ]
         }
@@ -283,8 +283,8 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14SwiftyHolidays12TimelessDateV",
-      "text" : "TimelessDate"
+      "preciseIdentifier" : "s:14SwiftyHolidays11HolidayDateV",
+      "text" : "HolidayDate"
     }
   ],
   "identifier" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/GregorianCalculator\/christmasEve(forYear:)",
@@ -294,42 +294,10 @@
   "type" : "topic",
   "url" : "\/documentation\/swiftyholidays\/gregoriancalculator\/christmaseve(foryear:)"
 },
-"doc://SwiftyHolidays/documentation/SwiftyHolidays/TimelessDate": {
+"doc://SwiftyHolidays/documentation/SwiftyHolidays/HolidayDate": {
   "abstract" : [
     {
-      "text" : "Represents a date that is fixed across time zones - and therefor does not have a time.",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "This is not intented to be used as a general purpose timeless date.",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "Please use ",
-      "type" : "text"
-    },
-    {
-      "code" : "DateComponents",
-      "type" : "codeVoice"
-    },
-    {
-      "text" : " and ",
-      "type" : "text"
-    },
-    {
-      "code" : "Date",
-      "type" : "codeVoice"
-    },
-    {
-      "text" : " for working with dates and times.",
+      "text" : "Represents a holiday date which is fixed across time zones - and therefor does not have a time.",
       "type" : "text"
     }
   ],
@@ -344,21 +312,21 @@
     },
     {
       "kind" : "identifier",
-      "text" : "TimelessDate"
+      "text" : "HolidayDate"
     }
   ],
-  "identifier" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/TimelessDate",
+  "identifier" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/HolidayDate",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
       "kind" : "identifier",
-      "text" : "TimelessDate"
+      "text" : "HolidayDate"
     }
   ],
   "role" : "symbol",
-  "title" : "TimelessDate",
+  "title" : "HolidayDate",
   "type" : "topic",
-  "url" : "\/documentation\/swiftyholidays\/timelessdate"
+  "url" : "\/documentation\/swiftyholidays\/holidaydate"
 }
 }
 }

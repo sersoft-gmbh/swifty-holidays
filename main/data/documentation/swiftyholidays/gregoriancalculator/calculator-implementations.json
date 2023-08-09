@@ -100,7 +100,7 @@
 "doc://SwiftyHolidays/documentation/SwiftyHolidays/GregorianCalculator/date(for:atNoon:)": {
   "abstract" : [
     {
-      "text" : "Creates a Date for a given timeless date, optionally setting to to noon.",
+      "text" : "Creates a Date for a given holiday date, optionally setting to to noon.",
       "type" : "text"
     }
   ],
@@ -131,8 +131,8 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14SwiftyHolidays12TimelessDateV",
-      "text" : "TimelessDate"
+      "preciseIdentifier" : "s:14SwiftyHolidays11HolidayDateV",
+      "text" : "HolidayDate"
     },
     {
       "kind" : "text",
