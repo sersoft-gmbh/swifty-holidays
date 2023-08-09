@@ -35,9 +35,9 @@ public struct GregorianCalculator: Calculator {
     /// - Returns: The date that was either cached or calculated.
     /// - Note: This method also waits on existing calculations on other threads.
     @usableFromInline
-    /*private but @usableFromInline*/ func date(for key: Context.StorageKey, forYear year: Int, calculation: (Int) -> TimelessDate) -> TimelessDate {
+    /*private but @usableFromInline*/ func date(for key: Context.StorageKey, forYear year: Int, calculation: (Int) -> HolidayDate) -> HolidayDate {
         @inline(__always)
-        func wait(for promise: CalculationPromise<TimelessDate>, calculation: (Int) -> TimelessDate) -> TimelessDate {
+        func wait(for promise: CalculationPromise<HolidayDate>, calculation: (Int) -> HolidayDate) -> HolidayDate {
             switch promise {
             case .waiting(let sema):
                 sema.wait()
@@ -64,18 +64,18 @@ public struct GregorianCalculator: Calculator {
     ///   - year: The year for which to perform these calculations.
     /// - Returns: The date after adding `days` to the date returned by `otherDate`.
     @inlinable
-    /*private but @inlinable*/ func calculateByAdding(days: Int, toResultOf otherDate: (Int) -> TimelessDate, forYear year: Int) -> TimelessDate {
+    /*private but @inlinable*/ func calculateByAdding(days: Int, toResultOf otherDate: (Int) -> HolidayDate, forYear year: Int) -> HolidayDate {
         var otherDateComps = otherDate(year).components
         otherDateComps.day! += days
         let date = calendar.date(from: otherDateComps)!
-        return TimelessDate(date: date, in: calendar)
+        return HolidayDate(date: date, in: calendar)
     }
 
     /// Calculates the palm sunday date for a given year.
     /// - Parameter year: The year for which to calculate palm sunday.
     /// - Returns: The calculated date for palm sunday.
     @inlinable
-    func calculatePalmSunday(forYear year: Int) -> TimelessDate {
+    func calculatePalmSunday(forYear year: Int) -> HolidayDate {
         calculateByAdding(days: -7, toResultOf: easterSunday, forYear: year)
     }
 
@@ -83,7 +83,7 @@ public struct GregorianCalculator: Calculator {
     /// - Parameter year: The year for which to calculate maundy thursday.
     /// - Returns: The calculated date for maundy thursday.
     @inlinable
-    func calculateMaundyThursday(forYear year: Int) -> TimelessDate {
+    func calculateMaundyThursday(forYear year: Int) -> HolidayDate {
         calculateByAdding(days: -3, toResultOf: easterSunday, forYear: year)
     }
 
@@ -91,7 +91,7 @@ public struct GregorianCalculator: Calculator {
     /// - Parameter year: The year for which to calculate good friday.
     /// - Returns: The calculated date for good friday.
     @inlinable
-    func calculateGoodFriday(forYear year: Int) -> TimelessDate {
+    func calculateGoodFriday(forYear year: Int) -> HolidayDate {
         calculateByAdding(days: -2, toResultOf: easterSunday, forYear: year)
     }
 
@@ -99,7 +99,7 @@ public struct GregorianCalculator: Calculator {
     /// - Parameter year: The year for which to calculate the holy saturday.
     /// - Returns: The calculated date for holy saturday.
     @inlinable
-    func calculateHolySaturday(forYear year: Int) -> TimelessDate {
+    func calculateHolySaturday(forYear year: Int) -> HolidayDate {
         calculateByAdding(days: -1, toResultOf: easterSunday, forYear: year)
     }
 
@@ -107,20 +107,20 @@ public struct GregorianCalculator: Calculator {
     /// - Parameter year: The year for which to calculate easter sunday.
     /// - Returns: The calculated date for easter sunday.
     @usableFromInline
-    func calculateEasterSunday(forYear year: Int) -> TimelessDate {
+    func calculateEasterSunday(forYear year: Int) -> HolidayDate {
         let d = (19 * (year % 19) + 24) % 30
         let e = (2 * (year % 4) + 4 * (year % 7) + 6 * d + 5) % 7
         let p = 22 + d + e
         let comps = DateComponents(year: year, month: 3, day: p)
         let date = calendar.date(from: comps)!
-        return TimelessDate(date: date, in: calendar)
+        return HolidayDate(date: date, in: calendar)
     }
 
     /// Calculates the easter monday date for a given year.
     /// - Parameter year: The year for which to calculate easter monday.
     /// - Returns: The calculated date for easter monday.
     @inlinable
-    func calculateEasterMonday(forYear year: Int) -> TimelessDate {
+    func calculateEasterMonday(forYear year: Int) -> HolidayDate {
         calculateByAdding(days: 1, toResultOf: easterSunday, forYear: year)
     }
 
@@ -128,7 +128,7 @@ public struct GregorianCalculator: Calculator {
     /// - Parameter year: The year for which to calculate the ascension day.
     /// - Returns: The calculated date for ascension day.
     @inlinable
-    func calculateAscensionDay(forYear year: Int) -> TimelessDate {
+    func calculateAscensionDay(forYear year: Int) -> HolidayDate {
         calculateByAdding(days: 39, toResultOf: easterSunday, forYear: year)
     }
 
@@ -136,7 +136,7 @@ public struct GregorianCalculator: Calculator {
     /// - Parameter year: The year for which to calculate pentecost.
     /// - Returns: The calculated date for pentecost.
     @inlinable
-    func calculatePentecost(forYear year: Int) -> TimelessDate {
+    func calculatePentecost(forYear year: Int) -> HolidayDate {
         calculateByAdding(days: 49, toResultOf: easterSunday, forYear: year)
     }
 
@@ -144,7 +144,7 @@ public struct GregorianCalculator: Calculator {
     /// - Parameter year: The year for which to calculate whit monday.
     /// - Returns: The calculated date for whit monday.
     @inlinable
-    func calculateWhitMonday(forYear year: Int) -> TimelessDate {
+    func calculateWhitMonday(forYear year: Int) -> HolidayDate {
         calculateByAdding(days: 50, toResultOf: easterSunday, forYear: year)
     }
 
@@ -152,7 +152,7 @@ public struct GregorianCalculator: Calculator {
     /// - Parameter year: The year for which to calculate corpus christi.
     /// - Returns: The calculated date for corpus christi.
     @inlinable
-    func calculateCorpusChristi(forYear year: Int) -> TimelessDate {
+    func calculateCorpusChristi(forYear year: Int) -> HolidayDate {
         calculateByAdding(days: 60, toResultOf: easterSunday, forYear: year)
     }
 
@@ -160,7 +160,7 @@ public struct GregorianCalculator: Calculator {
     /// - Parameter year: The year for which to calculate the sunday after corpus christi.
     /// - Returns: The calculated date for sunday after corpus christi.
     @inlinable
-    func calculateSundayAfterCorpusChristi(forYear year: Int) -> TimelessDate {
+    func calculateSundayAfterCorpusChristi(forYear year: Int) -> HolidayDate {
         calculateByAdding(days: 63, toResultOf: easterSunday, forYear: year)
     }
 
@@ -168,7 +168,7 @@ public struct GregorianCalculator: Calculator {
     /// - Parameter year: The year for which to calculate the first sunday of advent.
     /// - Returns: The calculated date for first sunday of advent.
     @inlinable
-    func calculateFirstSundayOfAdvent(forYear year: Int) -> TimelessDate {
+    func calculateFirstSundayOfAdvent(forYear year: Int) -> HolidayDate {
         calculateByAdding(days: -21, toResultOf: fourthSundayOfAdvent, forYear: year)
     }
 
@@ -176,7 +176,7 @@ public struct GregorianCalculator: Calculator {
     /// - Parameter year: The year for which to calculate the second sunday of advent.
     /// - Returns: The calculated date for second sunday of advent.
     @inlinable
-    func calculateSecondSundayOfAdvent(forYear year: Int) -> TimelessDate {
+    func calculateSecondSundayOfAdvent(forYear year: Int) -> HolidayDate {
         calculateByAdding(days: -14, toResultOf: fourthSundayOfAdvent, forYear: year)
     }
 
@@ -184,7 +184,7 @@ public struct GregorianCalculator: Calculator {
     /// - Parameter year: The year for which to calculate the third sunday of advent.
     /// - Returns: The calculated date for third sunday of advent.
     @inlinable
-    func calculateThirdSundayOfAdvent(forYear year: Int) -> TimelessDate {
+    func calculateThirdSundayOfAdvent(forYear year: Int) -> HolidayDate {
         calculateByAdding(days: -7, toResultOf: fourthSundayOfAdvent, forYear: year)
     }
 
@@ -192,35 +192,35 @@ public struct GregorianCalculator: Calculator {
     /// - Parameter year: The year for which to calculate the fourth sunday of advent.
     /// - Returns: The calculated date for fourth sunday of advent.
     @usableFromInline
-    func calculateFourthSundayOfAdvent(forYear year: Int) -> TimelessDate {
+    func calculateFourthSundayOfAdvent(forYear year: Int) -> HolidayDate {
         let christmas = christmasDay(forYear: year).date(in: calendar)!
         let mondayAfter = (calendar.dateIntervalOfWeekend(containing: christmas)?.end
                             ?? calendar.nextWeekend(startingAfter: christmas, direction: .backward)?.end)!
         let sunday = calendar.date(byAdding: .day, value: -1, to: mondayAfter)!
-        return TimelessDate(date: sunday, in: calendar)
+        return HolidayDate(date: sunday, in: calendar)
     }
 
     /// Calculates the date of new years day for a given year.
     /// - Parameter year: The year for which to calculate new years day.
     /// - Returns: The date of new years day in the given year.
     @inlinable
-    public func newYearsDay(forYear year: Int) -> TimelessDate {
-        TimelessDate(day: 1, month: 1, year: year)
+    public func newYearsDay(forYear year: Int) -> HolidayDate {
+        HolidayDate(day: 1, month: 1, year: year)
     }
 
     /// Calculates the date of epiphany for a given year.
     /// - Parameter year: The year for which to calculate epiphany.
     /// - Returns: The date of epiphany in the given year.
     @inlinable
-    public func epiphany(forYear year: Int) -> TimelessDate {
-        TimelessDate(day: 6, month: 1, year: year)
+    public func epiphany(forYear year: Int) -> HolidayDate {
+        HolidayDate(day: 6, month: 1, year: year)
     }
 
     /// Calculates the date of palm sunday for a given year.
     /// - Parameter year: The year for which to calculate palm sunday.
     /// - Returns: The date of palm sunday in the given year.
     @inlinable
-    public func palmSunday(forYear year: Int) -> TimelessDate {
+    public func palmSunday(forYear year: Int) -> HolidayDate {
         date(for: .palmSunday, forYear: year, calculation: calculatePalmSunday)
     }
 
@@ -228,7 +228,7 @@ public struct GregorianCalculator: Calculator {
     /// - Parameter year: The year for which to calculate maundy thursday.
     /// - Returns: The date of maundy thursday in the given year.
     @inlinable
-    public func maundyThursday(forYear year: Int) -> TimelessDate {
+    public func maundyThursday(forYear year: Int) -> HolidayDate {
         date(for: .maundyThursday, forYear: year, calculation: calculateMaundyThursday)
     }
 
@@ -236,7 +236,7 @@ public struct GregorianCalculator: Calculator {
     /// - Parameter year: The year for which to calculate good friday.
     /// - Returns: The date of good friday in the given year.
     @inlinable
-    public func goodFriday(forYear year: Int) -> TimelessDate {
+    public func goodFriday(forYear year: Int) -> HolidayDate {
         date(for: .goodFriday, forYear: year, calculation: calculateGoodFriday)
     }
 
@@ -244,7 +244,7 @@ public struct GregorianCalculator: Calculator {
     /// - Parameter year: The year for which to calculate holy saturday.
     /// - Returns: The date of holy saturday in the given year.
     @inlinable
-    public func holySaturday(forYear year: Int) -> TimelessDate {
+    public func holySaturday(forYear year: Int) -> HolidayDate {
         date(for: .holySaturday, forYear: year, calculation: calculateHolySaturday)
     }
 
@@ -252,7 +252,7 @@ public struct GregorianCalculator: Calculator {
     /// - Parameter year: The year for which to calculate easter sunday.
     /// - Returns: The date of easter sunday in the given year.
     @inlinable
-    public func easterSunday(forYear year: Int) -> TimelessDate {
+    public func easterSunday(forYear year: Int) -> HolidayDate {
         date(for: .easterSunday, forYear: year, calculation: calculateEasterSunday)
     }
 
@@ -261,7 +261,7 @@ public struct GregorianCalculator: Calculator {
     /// - Parameter year: The year for which to calculate easter monday.
     /// - Returns: The date of easter monday in the given year.
     @inlinable
-    public func easterMonday(forYear year: Int) -> TimelessDate {
+    public func easterMonday(forYear year: Int) -> HolidayDate {
         date(for: .easterMonday, forYear: year, calculation: calculateEasterMonday)
     }
 
@@ -270,7 +270,7 @@ public struct GregorianCalculator: Calculator {
     /// - Parameter year: The year for which to calculate international workers day.
     /// - Returns: The date of international workers day in the given year.
     @inlinable
-    public func internationalWorkersDay(forYear year: Int) -> TimelessDate {
+    public func internationalWorkersDay(forYear year: Int) -> HolidayDate {
         .init(day: 1, month: 5, year: year)
     }
 
@@ -280,7 +280,7 @@ public struct GregorianCalculator: Calculator {
     /// - Returns: The date of labor day in the given year.
     /// - SeeAlso: ``internationalWorkersDay(forYear:)``
     @inlinable
-    public func laborDay(forYear year: Int) -> TimelessDate {
+    public func laborDay(forYear year: Int) -> HolidayDate {
         internationalWorkersDay(forYear: year)
     }
 
@@ -290,7 +290,7 @@ public struct GregorianCalculator: Calculator {
     /// - Returns: The date of May day in the given year.
     /// - SeeAlso: ``internationalWorkersDay(forYear:)``
     @inlinable
-    public func mayDay(forYear year: Int) -> TimelessDate {
+    public func mayDay(forYear year: Int) -> HolidayDate {
         internationalWorkersDay(forYear: year)
     }
 
@@ -298,7 +298,7 @@ public struct GregorianCalculator: Calculator {
     /// - Parameter year: The year for which to calculate the ascension day.
     /// - Returns: The date of the ascension day in the given year.
     @inlinable
-    public func ascensionDay(forYear year: Int) -> TimelessDate {
+    public func ascensionDay(forYear year: Int) -> HolidayDate {
         date(for: .ascensionDay, forYear: year, calculation: calculateAscensionDay)
     }
 
@@ -306,7 +306,7 @@ public struct GregorianCalculator: Calculator {
     /// - Parameter year: The year for which to calculate pentecost.
     /// - Returns: The date of pentecost in the given year.
     @inlinable
-    public func pentecost(forYear year: Int) -> TimelessDate {
+    public func pentecost(forYear year: Int) -> HolidayDate {
         date(for: .pentecost, forYear: year, calculation: calculatePentecost)
     }
 
@@ -314,7 +314,7 @@ public struct GregorianCalculator: Calculator {
     /// - Parameter year: The year for which to calculate whit monday.
     /// - Returns: The date of whit monday in the given year.
     @inlinable
-    public func whitMonday(forYear year: Int) -> TimelessDate {
+    public func whitMonday(forYear year: Int) -> HolidayDate {
         date(for: .whitMonday, forYear: year, calculation: calculateWhitMonday)
     }
 
@@ -322,7 +322,7 @@ public struct GregorianCalculator: Calculator {
     /// - Parameter year: The year for which to calculate corpusCristi.
     /// - Returns: The date of corpusCristi in the given year.
     @inlinable
-    public func corpusChristi(forYear year: Int) -> TimelessDate {
+    public func corpusChristi(forYear year: Int) -> HolidayDate {
         date(for: .corpusChristi, forYear: year, calculation: calculateCorpusChristi)
     }
 
@@ -330,7 +330,7 @@ public struct GregorianCalculator: Calculator {
     /// - Parameter year: The year for which to calculate the sunday after corpus christi.
     /// - Returns: The date of the sunday after corpus christi in the given year.
     @inlinable
-    public func sundayAfterCorpusChristi(forYear year: Int) -> TimelessDate {
+    public func sundayAfterCorpusChristi(forYear year: Int) -> HolidayDate {
         date(for: .sundayAfterCorpusChristi, forYear: year, calculation: calculateSundayAfterCorpusChristi)
     }
 
@@ -338,31 +338,31 @@ public struct GregorianCalculator: Calculator {
     /// - Parameter year: The year for which to calculate halloween.
     /// - Returns: The date of halloween in the given year.
     @inlinable
-    public func halloween(forYear year: Int) -> TimelessDate {
-        TimelessDate(day: 31, month: 10, year: year)
+    public func halloween(forYear year: Int) -> HolidayDate {
+        HolidayDate(day: 31, month: 10, year: year)
     }
 
     /// Calculates the date of all saints for a given year.
     /// - Parameter year: The year for which to calculate all saints.
     /// - Returns: The date of all saints in the given year.
     @inlinable
-    public func allSaints(forYear year: Int) -> TimelessDate {
-        TimelessDate(day: 1, month: 11, year: year)
+    public func allSaints(forYear year: Int) -> HolidayDate {
+        HolidayDate(day: 1, month: 11, year: year)
     }
 
     /// Calculates the date of all souls for a given year.
     /// - Parameter year: The year for which to calculate all souls.
     /// - Returns: The date of all souls in the given year.
     @inlinable
-    public func allSouls(forYear year: Int) -> TimelessDate {
-        TimelessDate(day: 2, month: 11, year: year)
+    public func allSouls(forYear year: Int) -> HolidayDate {
+        HolidayDate(day: 2, month: 11, year: year)
     }
 
     /// Calculates the date of the first sunday of advent for a given year.
     /// - Parameter year: The year for which to calculate the first sunday of advent.
     /// - Returns: The date of the first sunday of advent in the given year.
     @inlinable
-    public func firstSundayOfAdvent(forYear year: Int) -> TimelessDate {
+    public func firstSundayOfAdvent(forYear year: Int) -> HolidayDate {
         date(for: .firstSundayOfAdvent, forYear: year, calculation: calculateFirstSundayOfAdvent)
     }
 
@@ -370,7 +370,7 @@ public struct GregorianCalculator: Calculator {
     /// - Parameter year: The year for which to calculate the second sunday of advent.
     /// - Returns: The date of the second sunday of advent in the given year.
     @inlinable
-    public func secondSundayOfAdvent(forYear year: Int) -> TimelessDate {
+    public func secondSundayOfAdvent(forYear year: Int) -> HolidayDate {
         date(for: .secondSundayOfAdvent, forYear: year, calculation: calculateSecondSundayOfAdvent)
     }
 
@@ -378,7 +378,7 @@ public struct GregorianCalculator: Calculator {
     /// - Parameter year: The year for which to calculate the third sunday of advent.
     /// - Returns: The date of the third sunday of advent in the given year.
     @inlinable
-    public func thirdSundayOfAdvent(forYear year: Int) -> TimelessDate {
+    public func thirdSundayOfAdvent(forYear year: Int) -> HolidayDate {
         date(for: .thirdSundayOfAdvent, forYear: year, calculation: calculateThirdSundayOfAdvent)
     }
 
@@ -386,7 +386,7 @@ public struct GregorianCalculator: Calculator {
     /// - Parameter year: The year for which to calculate the fourth sunday of advent.
     /// - Returns: The date of the fourth sunday of advent in the given year.
     @inlinable
-    public func fourthSundayOfAdvent(forYear year: Int) -> TimelessDate {
+    public func fourthSundayOfAdvent(forYear year: Int) -> HolidayDate {
         date(for: .fourthSundayOfAdvent, forYear: year, calculation: calculateFourthSundayOfAdvent)
     }
 
@@ -394,32 +394,32 @@ public struct GregorianCalculator: Calculator {
     /// - Parameter year: The year for which to calculate christmas eve.
     /// - Returns: The date of christmas eve in the given year.
     @inlinable
-    public func christmasEve(forYear year: Int) -> TimelessDate {
-        TimelessDate(day: 24, month: 12, year: year)
+    public func christmasEve(forYear year: Int) -> HolidayDate {
+        HolidayDate(day: 24, month: 12, year: year)
     }
 
     /// Calculates the date of christmas day for a given year.
     /// - Parameter year: The year for which to calculate christmas day.
     /// - Returns: The date of christmas day in the given year.
     @inlinable
-    public func christmasDay(forYear year: Int) -> TimelessDate {
-        TimelessDate(day: 25, month: 12, year: year)
+    public func christmasDay(forYear year: Int) -> HolidayDate {
+        HolidayDate(day: 25, month: 12, year: year)
     }
 
     /// Calculates the date of the day after christmas for a given year.
     /// - Parameter year: The year for which to calculate the day after christmas.
     /// - Returns: The date of the day after christmas in the given year.
     @inlinable
-    public func dayAfterChristmasDay(forYear year: Int) -> TimelessDate {
-        TimelessDate(day: 26, month: 12, year: year)
+    public func dayAfterChristmasDay(forYear year: Int) -> HolidayDate {
+        HolidayDate(day: 26, month: 12, year: year)
     }
 
     /// Calculates the date of new years eve for a given year.
     /// - Parameter year: The year for which to calculate new years eve.
     /// - Returns: The date of new years eve in the given year.
     @inlinable
-    public func newYearsEve(forYear year: Int) -> TimelessDate {
-        TimelessDate(day: 31, month: 12, year: year)
+    public func newYearsEve(forYear year: Int) -> HolidayDate {
+        HolidayDate(day: 31, month: 12, year: year)
     }
 }
 

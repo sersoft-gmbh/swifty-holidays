@@ -42,14 +42,14 @@ public protocol Calculator: Sendable {
 #endif
 
 extension Calculator {
-    /// Creates a Date for a given timeless date, optionally setting to to noon.
+    /// Creates a Date for a given holiday date, optionally setting to to noon.
     /// - Parameters:
-    ///   - timelessDate: The timeless date to create a Date for.
+    ///   - holiday: The holiday date to create a Date for.
     ///   - atNoon: Whether or not the returned date should have its time set to noon.
-    /// - Returns: A Date for the given timeless date inside the calendar of the calculator. Or nil if no date could be created.
-    /// - SeeAlso: `TimelessDate.date(in:atNoon:)`
+    /// - Returns: A Date for the given holiday date inside the calendar of the calculator. Or nil if no date could be created.
+    /// - SeeAlso: `HolidayDate.date(in:atNoon:)`
     @inlinable
-    public func date(for timelessDate: TimelessDate, atNoon: Bool = false) -> Date? {
-        timelessDate.date(in: calendar, atNoon: atNoon)
+    public func date(for holiday: HolidayDate, atNoon: Bool = false) -> Date? {
+        holiday.date(in: calendar, atNoon: atNoon)
     }
 }

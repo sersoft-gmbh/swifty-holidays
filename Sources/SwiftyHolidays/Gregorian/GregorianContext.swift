@@ -4,7 +4,7 @@ import class Dispatch.DispatchSemaphore
 public struct GregorianCalculationContext: CalculationContext {
     /// The storage that the context uses to cache the results.
     @usableFromInline
-    /*private but @usableFromInline*/ var storage: Dictionary<Int, Dictionary<StorageKey, TimelessDate>>
+    /*private but @usableFromInline*/ var storage: Dictionary<Int, Dictionary<StorageKey, HolidayDate>>
 
     /// The storage that the context uses to cache the results.
     @usableFromInline
@@ -21,7 +21,7 @@ public struct GregorianCalculationContext: CalculationContext {
         storage = try Dictionary(uniqueKeysWithValues: keyedContainer.allKeys.map {
             let yearKeyedContainer = try keyedContainer.nestedContainer(keyedBy: StorageKey.self, forKey: $0)
             return try ($0.year, Dictionary(uniqueKeysWithValues: yearKeyedContainer.allKeys.map {
-                try ($0, yearKeyedContainer.decode(TimelessDate.self, forKey: $0))
+                try ($0, yearKeyedContainer.decode(HolidayDate.self, forKey: $0))
             }))
         })
         semaphores = .init()
@@ -70,7 +70,7 @@ extension GregorianCalculationContext {
     ///   - key: The storage key for which to return the promise.
     ///   - year: The year for which to return the promise.
     @inlinable
-    subscript(_ key: StorageKey, forYear year: Int) -> CalculationPromise<TimelessDate>? {
+    subscript(_ key: StorageKey, forYear year: Int) -> CalculationPromise<HolidayDate>? {
         (storage[year]?[key]).map { .fulfilled($0) } ?? (semaphores[year]?[key]).map { .waiting($0) }
     }
 
@@ -80,7 +80,7 @@ extension GregorianCalculationContext {
     ///   - key: The storage key for which to return the promise.
     ///   - year: The year for which to return the promise.
     @inlinable
-    subscript(storedFor key: StorageKey, forYear year: Int) -> (CalculationPromise<TimelessDate>, wasCreated: Bool) {
+    subscript(storedFor key: StorageKey, forYear year: Int) -> (CalculationPromise<HolidayDate>, wasCreated: Bool) {
         mutating get {
             if let existing = self[key, forYear: year] { return (existing, false) }
             let new = DispatchSemaphore(value: 0)
@@ -95,7 +95,7 @@ extension GregorianCalculationContext {
     ///   - key: The storage key for which to fulfill the promise.
     ///   - date: The date to fulfill the promise with.
     @inlinable
-    mutating func fulfill(_ key: StorageKey, with date: TimelessDate) {
+    mutating func fulfill(_ key: StorageKey, with date: HolidayDate) {
         storage[date.year, default: [:]][key] = date
         semaphores[date.year]?.removeValue(forKey: key)?.signal()
     }

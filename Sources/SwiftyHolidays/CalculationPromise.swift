@@ -10,7 +10,7 @@ enum CalculationPromise<T> {
 
     /// Fulfills the promise with the given value by signaling the semaphore **after** setting the state to .fulfilled.
     /// - Parameter value: The value to fulfill the promise with.
-    @_specialize(where T == TimelessDate)
+    @_specialize(where T == HolidayDate)
     @inlinable
     mutating func fulfill(with value: T) {
         let semaphore: DispatchSemaphore?

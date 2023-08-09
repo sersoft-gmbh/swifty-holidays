@@ -20,7 +20,7 @@ final class CalculatorTests: XCTestCase {
 
     func testDateCreation() {
         let calculator = MockCalc()
-        let date = TimelessDate(day: 29, month: 08, year: 2019)
+        let date = HolidayDate(day: 29, month: 08, year: 2019)
         XCTAssertEqual(calculator.date(for: date, atNoon: true), Date(timeIntervalSinceReferenceDate: 588772800))
         XCTAssertEqual(calculator.date(for: date, atNoon: false), Date(timeIntervalSinceReferenceDate: 588729600))
     }

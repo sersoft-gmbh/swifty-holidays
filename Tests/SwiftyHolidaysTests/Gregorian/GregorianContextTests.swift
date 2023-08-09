@@ -20,7 +20,7 @@ final class GregorianContextTests: XCTestCase {
     }
 
     func testStoredRetrievingStoredOrNew() {
-        let date = TimelessDate(day: 21, month: 4, year: 2019)
+        let date = HolidayDate(day: 21, month: 4, year: 2019)
         let new = context[storedFor: .easterSunday, forYear: date.year]
         XCTAssertTrue(new.wasCreated)
         switch new.0 {
@@ -46,13 +46,13 @@ final class GregorianContextTests: XCTestCase {
     }
 
     func testFulfillingNonExisting() {
-        let date = TimelessDate(day: 21, month: 4, year: 2019)
+        let date = HolidayDate(day: 21, month: 4, year: 2019)
         context.fulfill(.easterSunday, with: date)
         XCTAssertEqual(context.storage[date.year]?[.easterSunday], date)
     }
 
     func testFulfillingExisting() {
-        let date = TimelessDate(day: 21, month: 4, year: 2019)
+        let date = HolidayDate(day: 21, month: 4, year: 2019)
         let new = context[storedFor: .easterSunday, forYear: date.year]
         XCTAssertTrue(new.wasCreated)
         context.fulfill(.easterSunday, with: date)
@@ -60,8 +60,8 @@ final class GregorianContextTests: XCTestCase {
     }
 
     func testClearing() {
-        let easterSunday = TimelessDate(day: 21, month: 4, year: 2019)
-        let easterMonday = TimelessDate(day: 22, month: 4, year: 2019)
+        let easterSunday = HolidayDate(day: 21, month: 4, year: 2019)
+        let easterMonday = HolidayDate(day: 22, month: 4, year: 2019)
         let goodFridaySema = DispatchSemaphore(value: 0)
         let holySaturdaySema = DispatchSemaphore(value: 0)
         context.semaphores[2019, default: [:]][.goodFriday] = goodFridaySema
@@ -79,10 +79,10 @@ final class GregorianContextTests: XCTestCase {
 
     func testMerging() {
         var otherContext = GregorianCalculationContext()
-        let goodFriday = TimelessDate(day: 19, month: 4, year: 2019)
-        let holySaturday = TimelessDate(day: 20, month: 4, year: 2019)
-        let easterSunday = TimelessDate(day: 21, month: 4, year: 2019)
-        let easterMonday = TimelessDate(day: 22, month: 4, year: 2019)
+        let goodFriday = HolidayDate(day: 19, month: 4, year: 2019)
+        let holySaturday = HolidayDate(day: 20, month: 4, year: 2019)
+        let easterSunday = HolidayDate(day: 21, month: 4, year: 2019)
+        let easterMonday = HolidayDate(day: 22, month: 4, year: 2019)
         let goodFridaySema = DispatchSemaphore(value: 0)
         context.semaphores[goodFriday.year, default: [:]][.goodFriday] = goodFridaySema
         context.semaphores[easterSunday.year, default: [:]][.easterSunday] = DispatchSemaphore(value: 0)
@@ -100,8 +100,8 @@ final class GregorianContextTests: XCTestCase {
     }
 
     func testCoding() throws {
-        let easterSunday = TimelessDate(day: 21, month: 4, year: 2019)
-        let easterMonday = TimelessDate(day: 22, month: 4, year: 2019)
+        let easterSunday = HolidayDate(day: 21, month: 4, year: 2019)
+        let easterMonday = HolidayDate(day: 22, month: 4, year: 2019)
         context.fulfill(.easterSunday, with: easterSunday)
         context.fulfill(.easterMonday, with: easterMonday)
         context.semaphores[2019, default: [:]][.goodFriday] = DispatchSemaphore(value: 0)

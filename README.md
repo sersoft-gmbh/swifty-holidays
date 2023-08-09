@@ -67,12 +67,12 @@ let cachedFirstAdvent20 = calculator.firstSundayOfAdvent(forYear: 2020)
 // -> 2020-11-29
 ```
 
-Note that all calculations return a `TimelessDate` - a date without a time component to it. This isn't a general purpose timeless date.
+Note that all calculations return a `HolidayDate` - a date without a time component to it. This isn't a general purpose timeless date.
 It simply removes the time zone problem from the calculations. 
 This is also the reason why the `calendar: Foundation.Calendar` of a calculator always has its timezone set to UTC (0 seconds from GMT).
 Once you use the results of calculations, you should use `Foundation.Date` and `Foundation.DateComponents` again. 
-This is fairly easy since you can always ask a `TimelessDate` for its `components` (which will return the matching `DateComponents`) 
-or ask a calculator to return a `Date` for a given `TimelessDate` (which will use the calculators calendar to create a `Date` from the `TimelessDate`).
+This is fairly easy since you can always ask a `HolidayDate` for its `components` (which will return the matching `DateComponents`) 
+or ask a calculator to return a `Date` for a given `HolidayDate` (which will use the calculators calendar to create a `Date` from the `HolidayDate`).
 
 ## Documentation
 
