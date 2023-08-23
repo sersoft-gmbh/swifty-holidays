@@ -435,22 +435,6 @@
               {
                 "children" : [
                   {
-                    "title" : "Instance Properties",
-                    "type" : "groupMarker"
-                  },
-                  {
-                    "path" : "\/documentation\/swiftyholidays\/holidaydate\/halfwidthcornerquoted",
-                    "title" : "var halfWidthCornerQuoted: String",
-                    "type" : "property"
-                  }
-                ],
-                "path" : "\/documentation\/swiftyholidays\/holidaydate\/customstringconvertible-implementations",
-                "title" : "CustomStringConvertible Implementations",
-                "type" : "symbol"
-              },
-              {
-                "children" : [
-                  {
                     "title" : "Operators",
                     "type" : "groupMarker"
                   },
@@ -488,6 +472,6 @@
   "schemaVersion" : {
     "major" : 0,
     "minor" : 1,
-    "patch" : 0
+    "patch" : 1
   }
 }
