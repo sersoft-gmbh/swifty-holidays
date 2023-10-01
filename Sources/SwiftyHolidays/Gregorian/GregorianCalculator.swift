@@ -1,8 +1,4 @@
-#if canImport(Darwin)
 import Foundation
-#else
-@preconcurrency import Foundation // Calendar in Linux
-#endif
 
 /// Calculates holiday dates for the gregorian calendar.
 public struct GregorianCalculator: Calculator {
