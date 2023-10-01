@@ -31,7 +31,7 @@ final class CalculationContextReferenceTests: XCTestCase {
         }
         XCTAssertTrue(ctx.boolValue)
         XCTAssertEqual(result, "Test")
-        ref.withContextVoid {
+        ref.withContext {
             $0.boolValue = false
         }
         XCTAssertFalse(ctx.boolValue)

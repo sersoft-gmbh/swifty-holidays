@@ -2,6 +2,14 @@ import XCTest
 @testable import SwiftyHolidays
 
 final class GregorianCalculatorTests: XCTestCase {
+    private actor Promise<Value> {
+        var value: Value?
+
+        func fulfill(with value: Value) {
+            self.value = value
+        }
+    }
+
     private let calculator = GregorianCalculator()
 
     override func setUp() {
@@ -128,31 +136,33 @@ final class GregorianCalculatorTests: XCTestCase {
     func testInitializing() {
         _ = calculator.easterSunday(forYear: 2019)
         let sema = DispatchSemaphore(value: 0)
-        calculator.contextRef.withContextVoid { $0.semaphores[2019, default: [:]][.easterSunday] = sema }
+        calculator.contextRef.withContext { $0.semaphores[2019, default: [:]][.easterSunday] = sema }
         calculator.initialize(with: .init())
         XCTAssertTrue(calculator.context.storage.isEmpty)
         XCTAssertEqual(sema.wait(timeout: .now()), .success)
     }
 
-    func testAwaitingCalculation() {
+    func testAwaitingCalculation() async {
         let sema = DispatchSemaphore(value: 0)
         let date = HolidayDate(day: 21, month: 4, year: 2019)
-        calculator.contextRef.withContextVoid { $0.semaphores[date.year, default: [:]][.easterSunday] = sema }
+        calculator.contextRef.withContext { $0.semaphores[date.year, default: [:]][.easterSunday] = sema }
         let awaitExpectation = expectation(description: "Waiting for the calculator to wait for the semaphore")
         awaitExpectation.isInverted = true
         DispatchQueue.global().async {
             _ = self.calculator.easterSunday(forYear: date.year)
             awaitExpectation.fulfill()
         }
-        wait(for: [awaitExpectation], timeout: 2)
-        calculator.contextRef.withContextVoid { $0.fulfill(.easterSunday, with: date) }
+        await fulfillment(of: [awaitExpectation], timeout: 2)
+        calculator.contextRef.withContext { $0.fulfill(.easterSunday, with: date) }
         let calcExpectation = expectation(description: "Waiting for the calculator to return the calculated result")
-        var result: HolidayDate?
-        DispatchQueue.global().async {
-            result = self.calculator.easterSunday(forYear: date.year)
+        let resultPromise = Promise<HolidayDate>()
+        Task.detached {
+            let calculated = self.calculator.easterSunday(forYear: date.year)
+            await resultPromise.fulfill(with: calculated)
             calcExpectation.fulfill()
         }
-        wait(for: [calcExpectation], timeout: 2)
+        await fulfillment(of: [calcExpectation], timeout: 2)
+        let result = await resultPromise.value
         XCTAssertEqual(result, date)
     }
 

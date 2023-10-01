@@ -34,15 +34,6 @@ final class CalculationContextReference<Context: CalculationContext>: @unchecked
         return try contextLock.sync(flags: .barrier) { try work(&_context) }
     }
 
-    /// Gives limited mutating access to the context inside the reference.
-    /// - Parameter work: The work to be executed that can mutate the context.
-    /// - Throws: Any error thrown by `work`.
-    /// - SeeAlso: `withContext(do:)`
-    @inlinable
-    func withContextVoid(do work: (inout Context) throws -> ()) rethrows {
-        try withContext(do: work)
-    }
-
     /// Exchanges the stored context with a new one, returning the old one.
     /// - Parameter context: The new context to replace the old with.
     /// - Returns: The old context that was previously stored in the reference.
