@@ -27,7 +27,7 @@ public struct GregorianCalculator: Calculator {
         try work(calendar)
 #else
         dispatchPrecondition(condition: .notOnQueue(calendarLock))
-        return try calendarLock.sync { work(calendar) }
+        return try calendarLock.sync { try work(calendar) }
 #endif
     }
 

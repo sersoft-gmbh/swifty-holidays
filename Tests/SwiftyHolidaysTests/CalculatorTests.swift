@@ -26,6 +26,6 @@ final class CalculatorTests: XCTestCase {
     }
 }
 
-#if compiler(<5.7) || os(Linux)
+#if !canImport(Darwin)
 extension CalculatorTests.MockCalc: @unchecked Sendable {} // Calendar...
 #endif
