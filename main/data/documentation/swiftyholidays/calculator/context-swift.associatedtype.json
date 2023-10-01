@@ -178,7 +178,10 @@
 },
 "doc://SwiftyHolidays/documentation/SwiftyHolidays/Calculator": {
   "abstract" : [
-
+    {
+      "text" : "Represents a calculator that can calculate holidays using a fixed type of calendar.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {

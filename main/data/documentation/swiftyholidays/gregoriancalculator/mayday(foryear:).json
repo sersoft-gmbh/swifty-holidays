@@ -171,6 +171,38 @@
         }
       ],
       "kind" : "content"
+    },
+    {
+      "content" : [
+        {
+          "anchor" : "discussion",
+          "level" : 2,
+          "text" : "Discussion",
+          "type" : "heading"
+        },
+        {
+          "content" : [
+            {
+              "inlineContent" : [
+                {
+                  "text" : "",
+                  "type" : "text"
+                },
+                {
+                  "identifier" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/GregorianCalculator\/internationalWorkersDay(forYear:)",
+                  "isActive" : true,
+                  "type" : "reference"
+                }
+              ],
+              "type" : "paragraph"
+            }
+          ],
+          "name" : "See Also",
+          "style" : "note",
+          "type" : "aside"
+        }
+      ],
+      "kind" : "content"
     }
   ],
   "schemaVersion" : {
@@ -239,6 +271,60 @@
   "title" : "GregorianCalculator",
   "type" : "topic",
   "url" : "\/documentation\/swiftyholidays\/gregoriancalculator"
+},
+"doc://SwiftyHolidays/documentation/SwiftyHolidays/GregorianCalculator/internationalWorkersDay(forYear:)": {
+  "abstract" : [
+    {
+      "text" : "Calculates the date of international workers day for a given year.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "internationalWorkersDay"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "forYear"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Si",
+      "text" : "Int"
+    },
+    {
+      "kind" : "text",
+      "text" : ") -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14SwiftyHolidays11HolidayDateV",
+      "text" : "HolidayDate"
+    }
+  ],
+  "identifier" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/GregorianCalculator\/internationalWorkersDay(forYear:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "internationalWorkersDay(forYear:)",
+  "type" : "topic",
+  "url" : "\/documentation\/swiftyholidays\/gregoriancalculator\/internationalworkersday(foryear:)"
 },
 "doc://SwiftyHolidays/documentation/SwiftyHolidays/GregorianCalculator/mayDay(forYear:)": {
   "abstract" : [

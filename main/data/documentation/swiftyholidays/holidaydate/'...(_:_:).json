@@ -87,7 +87,10 @@
     ],
     "modules" : [
       {
-        "name" : "SwiftyHolidays"
+        "name" : "SwiftyHolidays",
+        "relatedModules" : [
+          "Swift"
+        ]
       }
     ],
     "role" : "symbol",
