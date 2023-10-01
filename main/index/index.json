@@ -128,7 +128,7 @@
               },
               {
                 "path" : "\/documentation\/swiftyholidays\/gregoriancalculator\/calendar",
-                "title" : "let calendar: Calendar",
+                "title" : "var calendar: Calendar",
                 "type" : "property"
               },
               {
