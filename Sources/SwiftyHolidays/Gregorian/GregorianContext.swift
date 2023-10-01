@@ -16,7 +16,7 @@ public struct GregorianCalculationContext: CalculationContext {
         semaphores = .init()
     }
 
-    public init(from decoder: Decoder) throws {
+    public init(from decoder: any Decoder) throws {
         let keyedContainer = try decoder.container(keyedBy: YearKey.self)
         storage = try Dictionary(uniqueKeysWithValues: keyedContainer.allKeys.map {
             let yearKeyedContainer = try keyedContainer.nestedContainer(keyedBy: StorageKey.self, forKey: $0)
@@ -27,7 +27,7 @@ public struct GregorianCalculationContext: CalculationContext {
         semaphores = .init()
     }
 
-    public func encode(to encoder: Encoder) throws {
+    public func encode(to encoder: any Encoder) throws {
         var keyedContainer = encoder.container(keyedBy: YearKey.self)
         for (year, values) in storage where !values.isEmpty {
             var yearKeyedContainer = keyedContainer.nestedContainer(keyedBy: StorageKey.self, forKey: YearKey(year: year))
@@ -54,7 +54,7 @@ public struct GregorianCalculationContext: CalculationContext {
         let currentSemaphores = semaphores.values
         semaphores.removeAll(keepingCapacity: keepingCapacity)
         // Signal waiting promises, so they don't get stuck.
-        currentSemaphores.lazy.flatMap { $0.values }.forEach { $0.signal() }
+        currentSemaphores.lazy.flatMap(\.values).forEach { $0.signal() }
     }
 
     @inlinable

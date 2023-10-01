@@ -12,7 +12,7 @@ A holiday calculator written in Swift.
 
 Add the following dependency to your `Package.swift`:
 ```swift
-.package(url: "https://github.com/sersoft-gmbh/swifty-holidays.git", from: "2.0.0"),
+.package(url: "https://github.com/sersoft-gmbh/swifty-holidays", from: "2.0.0"),
 ```
 
 Or add it via Xcode (as of Xcode 11).
@@ -21,15 +21,15 @@ Or add it via Xcode (as of Xcode 11).
 
 SwiftyHolidays is built upon calculators. A calculator is responsible for calculating holidays in a given year for a certain calendar. Currently, SwiftyHolidays has a calculator for the gregorian calendar.
 
-All calculations in SwiftyHolidays are thread-safe and are only performed once. 
+All calculations in SwiftyHolidays are thread-safe and are only performed once.
 This means even if you ask a given calculator for a certain date from two threads in parallel, it will only be calculated once and the second thread will wait for the first to finish its calculation.
-Certain dates (like e.g. new years eve) don't even need to be calculated but are fixed day-month-combinations. 
+Certain dates (like e.g. new years eve) don't even need to be calculated but are fixed day-month-combinations.
 Dates, that do have to be calculated, are cached, so that the next time a certain date is requested, it does not have to be calculated but is returned immediately instead.
-Even though calculators are usually structs, they have reference semantics and are thread-safe when it comes to their context (which e.g. contains their cache). 
+Even though calculators are usually structs, they have reference semantics and are thread-safe when it comes to their context (which e.g. contains their cache).
 This means that you can use the calculator object in multiple places and still get the same performance by having dates calculated only once.
 
-The context of a calculator can also be serialized and merged. This means that you could e.g. create a calculator, use it to calculate a few dates and then serialize its context to disk. 
-Later on, you deserialize the context and pass it to a new calculator which will then profit from the previously calculated and now already cached dates. 
+The context of a calculator can also be serialized and merged. This means that you could e.g. create a calculator, use it to calculate a few dates and then serialize its context to disk.
+Later on, you deserialize the context and pass it to a new calculator which will then profit from the previously calculated and now already cached dates.
 This even works across years. Meaning you can build up a cache spanning multiple years.
 If your cache grows too large, you can always clear the context (or simply create a new calculator that uses a new context).
 
@@ -67,11 +67,10 @@ let cachedFirstAdvent20 = calculator.firstSundayOfAdvent(forYear: 2020)
 // -> 2020-11-29
 ```
 
-Note that all calculations return a `HolidayDate` - a date without a time component to it. This isn't a general purpose timeless date.
-It simply removes the time zone problem from the calculations. 
-This is also the reason why the `calendar: Foundation.Calendar` of a calculator always has its timezone set to UTC (0 seconds from GMT).
-Once you use the results of calculations, you should use `Foundation.Date` and `Foundation.DateComponents` again. 
-This is fairly easy since you can always ask a `HolidayDate` for its `components` (which will return the matching `DateComponents`) 
+Note that all calculations return a `HolidayDate` - a date without a time component to it. This isn't a general purpose timeless date. It simply removes the time zone problem from the calculations.
+This is also the reason why the `calendar: Foundation.Calendar` of a calculator always has its timezone set to UTC.
+Once you use the results of calculations, you should use `Foundation.Date` and `Foundation.DateComponents` again.
+This is fairly easy since you can always ask a `HolidayDate` for its `components` (which will return the matching `DateComponents`)
 or ask a calculator to return a `Date` for a given `HolidayDate` (which will use the calculators calendar to create a `Date` from the `HolidayDate`).
 
 ## Documentation

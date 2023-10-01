@@ -1,9 +1,17 @@
+#if canImport(Darwin)
 import Foundation
+#else
+@preconcurrency import Foundation // Calendar in Linux
+#endif
 
 /// Calculates holiday dates for the gregorian calendar.
 public struct GregorianCalculator: Calculator {
     public typealias Context = GregorianCalculationContext
 
+#if !canImport(Darwin)
+    @usableFromInline
+    let calendarLock = DispatchQueue(label: "de.sersoft.swiftyholidays.calendar.lock")
+#endif
     public let calendar: Calendar
 
     /// The reference to the context.
@@ -13,10 +21,28 @@ public struct GregorianCalculator: Calculator {
     @inlinable
     public var context: Context { contextRef.context }
 
+    @inlinable
+    func _withCalendar<T>(do work: (Calendar) throws -> T) rethrows -> T {
+#if canImport(Darwin)
+        try work(calendar)
+#else
+        dispatchPrecondition(condition: .notOnQueue(calendarLock))
+        return try calendarLock.sync { work(calendar) }
+#endif
+    }
+
     /// Creates a new gregorian calculator (also using a new context).
     public init() {
         var calendar  = Calendar(identifier: .gregorian)
+#if canImport(Darwin)
+        if #available(macOS 13, iOS 16, tvOS 16, watchOS 9, *) {
+            calendar.timeZone = .gmt
+        } else {
+            calendar.timeZone = TimeZone(secondsFromGMT: 0)!
+        }
+#else
         calendar.timeZone = TimeZone(secondsFromGMT: 0)!
+#endif
         self.calendar = calendar
     }
 
@@ -35,9 +61,11 @@ public struct GregorianCalculator: Calculator {
     /// - Returns: The date that was either cached or calculated.
     /// - Note: This method also waits on existing calculations on other threads.
     @usableFromInline
-    /*private but @usableFromInline*/ func date(for key: Context.StorageKey, forYear year: Int, calculation: (Int) -> HolidayDate) -> HolidayDate {
+    /*private but @usableFromInline*/ func date(for key: Context.StorageKey,
+                                                forYear year: Int,
+                                                calculation: (Calendar, Int) -> HolidayDate) -> HolidayDate {
         @inline(__always)
-        func wait(for promise: CalculationPromise<HolidayDate>, calculation: (Int) -> HolidayDate) -> HolidayDate {
+        func wait(for promise: CalculationPromise<HolidayDate>, calculation: (Calendar, Int) -> HolidayDate) -> HolidayDate {
             switch promise {
             case .waiting(let sema):
                 sema.wait()
@@ -49,7 +77,7 @@ public struct GregorianCalculator: Calculator {
         if let promise = context[key, forYear: year] { return wait(for: promise, calculation: calculation) }
         let promise = contextRef.withContext { $0[storedFor: key, forYear: year] }
         if promise.wasCreated {
-            let calculated = calculation(year)
+            let calculated = _withCalendar { calculation($0, year) }
             contextRef.withContextVoid { $0.fulfill(key, with: calculated) }
             return calculated
         } else {
@@ -64,18 +92,22 @@ public struct GregorianCalculator: Calculator {
     ///   - year: The year for which to perform these calculations.
     /// - Returns: The date after adding `days` to the date returned by `otherDate`.
     @inlinable
-    /*private but @inlinable*/ func calculateByAdding(days: Int, toResultOf otherDate: (Int) -> HolidayDate, forYear year: Int) -> HolidayDate {
+    /*private but @inlinable*/ func calculateByAdding(days: Int,
+                                                      toResultOf otherDate: (Int) -> HolidayDate,
+                                                      forYear year: Int) -> HolidayDate {
         var otherDateComps = otherDate(year).components
         otherDateComps.day! += days
-        let date = calendar.date(from: otherDateComps)!
-        return HolidayDate(date: date, in: calendar)
+        return _withCalendar {
+            let date = $0.date(from: otherDateComps)!
+            return HolidayDate(date: date, in: $0)
+        }
     }
 
     /// Calculates the palm sunday date for a given year.
     /// - Parameter year: The year for which to calculate palm sunday.
     /// - Returns: The calculated date for palm sunday.
     @inlinable
-    func calculatePalmSunday(forYear year: Int) -> HolidayDate {
+    func calculatePalmSunday(in calendar: Calendar, forYear year: Int) -> HolidayDate {
         calculateByAdding(days: -7, toResultOf: easterSunday, forYear: year)
     }
 
@@ -83,7 +115,7 @@ public struct GregorianCalculator: Calculator {
     /// - Parameter year: The year for which to calculate maundy thursday.
     /// - Returns: The calculated date for maundy thursday.
     @inlinable
-    func calculateMaundyThursday(forYear year: Int) -> HolidayDate {
+    func calculateMaundyThursday(in calendar: Calendar, forYear year: Int) -> HolidayDate {
         calculateByAdding(days: -3, toResultOf: easterSunday, forYear: year)
     }
 
@@ -91,7 +123,7 @@ public struct GregorianCalculator: Calculator {
     /// - Parameter year: The year for which to calculate good friday.
     /// - Returns: The calculated date for good friday.
     @inlinable
-    func calculateGoodFriday(forYear year: Int) -> HolidayDate {
+    func calculateGoodFriday(in calendar: Calendar, forYear year: Int) -> HolidayDate {
         calculateByAdding(days: -2, toResultOf: easterSunday, forYear: year)
     }
 
@@ -99,7 +131,7 @@ public struct GregorianCalculator: Calculator {
     /// - Parameter year: The year for which to calculate the holy saturday.
     /// - Returns: The calculated date for holy saturday.
     @inlinable
-    func calculateHolySaturday(forYear year: Int) -> HolidayDate {
+    func calculateHolySaturday(in calendar: Calendar, forYear year: Int) -> HolidayDate {
         calculateByAdding(days: -1, toResultOf: easterSunday, forYear: year)
     }
 
@@ -107,7 +139,7 @@ public struct GregorianCalculator: Calculator {
     /// - Parameter year: The year for which to calculate easter sunday.
     /// - Returns: The calculated date for easter sunday.
     @usableFromInline
-    func calculateEasterSunday(forYear year: Int) -> HolidayDate {
+    func calculateEasterSunday(in calendar: Calendar, forYear year: Int) -> HolidayDate {
         let d = (19 * (year % 19) + 24) % 30
         let e = (2 * (year % 4) + 4 * (year % 7) + 6 * d + 5) % 7
         let p = 22 + d + e
@@ -120,7 +152,7 @@ public struct GregorianCalculator: Calculator {
     /// - Parameter year: The year for which to calculate easter monday.
     /// - Returns: The calculated date for easter monday.
     @inlinable
-    func calculateEasterMonday(forYear year: Int) -> HolidayDate {
+    func calculateEasterMonday(in calendar: Calendar, forYear year: Int) -> HolidayDate {
         calculateByAdding(days: 1, toResultOf: easterSunday, forYear: year)
     }
 
@@ -128,7 +160,7 @@ public struct GregorianCalculator: Calculator {
     /// - Parameter year: The year for which to calculate the ascension day.
     /// - Returns: The calculated date for ascension day.
     @inlinable
-    func calculateAscensionDay(forYear year: Int) -> HolidayDate {
+    func calculateAscensionDay(in calendar: Calendar, forYear year: Int) -> HolidayDate {
         calculateByAdding(days: 39, toResultOf: easterSunday, forYear: year)
     }
 
@@ -136,7 +168,7 @@ public struct GregorianCalculator: Calculator {
     /// - Parameter year: The year for which to calculate pentecost.
     /// - Returns: The calculated date for pentecost.
     @inlinable
-    func calculatePentecost(forYear year: Int) -> HolidayDate {
+    func calculatePentecost(in calendar: Calendar, forYear year: Int) -> HolidayDate {
         calculateByAdding(days: 49, toResultOf: easterSunday, forYear: year)
     }
 
@@ -144,7 +176,7 @@ public struct GregorianCalculator: Calculator {
     /// - Parameter year: The year for which to calculate whit monday.
     /// - Returns: The calculated date for whit monday.
     @inlinable
-    func calculateWhitMonday(forYear year: Int) -> HolidayDate {
+    func calculateWhitMonday(in calendar: Calendar, forYear year: Int) -> HolidayDate {
         calculateByAdding(days: 50, toResultOf: easterSunday, forYear: year)
     }
 
@@ -152,7 +184,7 @@ public struct GregorianCalculator: Calculator {
     /// - Parameter year: The year for which to calculate corpus christi.
     /// - Returns: The calculated date for corpus christi.
     @inlinable
-    func calculateCorpusChristi(forYear year: Int) -> HolidayDate {
+    func calculateCorpusChristi(in calendar: Calendar, forYear year: Int) -> HolidayDate {
         calculateByAdding(days: 60, toResultOf: easterSunday, forYear: year)
     }
 
@@ -160,7 +192,7 @@ public struct GregorianCalculator: Calculator {
     /// - Parameter year: The year for which to calculate the sunday after corpus christi.
     /// - Returns: The calculated date for sunday after corpus christi.
     @inlinable
-    func calculateSundayAfterCorpusChristi(forYear year: Int) -> HolidayDate {
+    func calculateSundayAfterCorpusChristi(in calendar: Calendar, forYear year: Int) -> HolidayDate {
         calculateByAdding(days: 63, toResultOf: easterSunday, forYear: year)
     }
 
@@ -168,7 +200,7 @@ public struct GregorianCalculator: Calculator {
     /// - Parameter year: The year for which to calculate the first sunday of advent.
     /// - Returns: The calculated date for first sunday of advent.
     @inlinable
-    func calculateFirstSundayOfAdvent(forYear year: Int) -> HolidayDate {
+    func calculateFirstSundayOfAdvent(in calendar: Calendar, forYear year: Int) -> HolidayDate {
         calculateByAdding(days: -21, toResultOf: fourthSundayOfAdvent, forYear: year)
     }
 
@@ -176,7 +208,7 @@ public struct GregorianCalculator: Calculator {
     /// - Parameter year: The year for which to calculate the second sunday of advent.
     /// - Returns: The calculated date for second sunday of advent.
     @inlinable
-    func calculateSecondSundayOfAdvent(forYear year: Int) -> HolidayDate {
+    func calculateSecondSundayOfAdvent(in calendar: Calendar, forYear year: Int) -> HolidayDate {
         calculateByAdding(days: -14, toResultOf: fourthSundayOfAdvent, forYear: year)
     }
 
@@ -184,7 +216,7 @@ public struct GregorianCalculator: Calculator {
     /// - Parameter year: The year for which to calculate the third sunday of advent.
     /// - Returns: The calculated date for third sunday of advent.
     @inlinable
-    func calculateThirdSundayOfAdvent(forYear year: Int) -> HolidayDate {
+    func calculateThirdSundayOfAdvent(in calendar: Calendar, forYear year: Int) -> HolidayDate {
         calculateByAdding(days: -7, toResultOf: fourthSundayOfAdvent, forYear: year)
     }
 
@@ -192,7 +224,7 @@ public struct GregorianCalculator: Calculator {
     /// - Parameter year: The year for which to calculate the fourth sunday of advent.
     /// - Returns: The calculated date for fourth sunday of advent.
     @usableFromInline
-    func calculateFourthSundayOfAdvent(forYear year: Int) -> HolidayDate {
+    func calculateFourthSundayOfAdvent(in calendar: Calendar, forYear year: Int) -> HolidayDate {
         let christmas = christmasDay(forYear: year).date(in: calendar)!
         let mondayAfter = (calendar.dateIntervalOfWeekend(containing: christmas)?.end
                             ?? calendar.nextWeekend(startingAfter: christmas, direction: .backward)?.end)!
@@ -422,7 +454,3 @@ public struct GregorianCalculator: Calculator {
         HolidayDate(day: 31, month: 12, year: year)
     }
 }
-
-#if compiler(<5.7)
-extension GregorianCalculator: @unchecked Sendable {} // Calendar...
-#endif
