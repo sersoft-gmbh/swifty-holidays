@@ -147,17 +147,16 @@ final class GregorianCalculatorTests: XCTestCase {
         wait(for: [awaitExpectation], timeout: 2)
         calculator.contextRef.withContext { $0.fulfill(.easterSunday, with: date) }
         let calcExpectation = expectation(description: "Waiting for the calculator to return the calculated result")
-#if compiler(>=5.10) && hasFeature(StrictConcurrency)
-        nonisolated(unsafe) var result: HolidayDate?
-#else
-        var result: HolidayDate?
-#endif
+        final class Box: @unchecked Sendable {
+            var result: HolidayDate?
+        }
+        let box = Box()
         DispatchQueue.global().async { [calculator] in
-            result = calculator.easterSunday(forYear: date.year)
+            box.result = calculator.easterSunday(forYear: date.year)
             calcExpectation.fulfill()
         }
         wait(for: [calcExpectation], timeout: 2)
-        XCTAssertEqual(result, date)
+        XCTAssertEqual(box.result, date)
     }
 
     // TODO: Figure out how this could work
