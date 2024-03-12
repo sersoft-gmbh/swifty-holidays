@@ -84,7 +84,7 @@
               },
               {
                 "path" : "\/documentation\/swiftyholidays\/gregoriancalculationcontext\/init(from:)",
-                "title" : "init(from: Decoder) throws",
+                "title" : "init(from: any Decoder) throws",
                 "type" : "init"
               },
               {
@@ -98,7 +98,7 @@
               },
               {
                 "path" : "\/documentation\/swiftyholidays\/gregoriancalculationcontext\/encode(to:)",
-                "title" : "func encode(to: Encoder) throws",
+                "title" : "func encode(to: any Encoder) throws",
                 "type" : "method"
               },
               {
@@ -336,7 +336,7 @@
               },
               {
                 "path" : "\/documentation\/swiftyholidays\/holidaydate\/init(from:)",
-                "title" : "init(from: Decoder) throws",
+                "title" : "init(from: any Decoder) throws",
                 "type" : "init"
               },
               {

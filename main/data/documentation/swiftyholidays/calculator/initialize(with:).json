@@ -63,6 +63,7 @@
       },
       {
         "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:14SwiftyHolidays10CalculatorP7ContextQa",
         "text" : "Context"
       },
       {
@@ -141,7 +142,9 @@
               "text" : "."
             },
             {
+              "identifier" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/Calculator\/Context-swift.associatedtype",
               "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:14SwiftyHolidays10CalculatorP7ContextQa",
               "text" : "Context"
             },
             {
@@ -240,6 +243,44 @@
   "type" : "topic",
   "url" : "\/documentation\/swiftyholidays\/calculator"
 },
+"doc://SwiftyHolidays/documentation/SwiftyHolidays/Calculator/Context-swift.associatedtype": {
+  "abstract" : [
+    {
+      "text" : "The context that this calculator uses.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "associatedtype"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Context"
+    },
+    {
+      "kind" : "text",
+      "text" : " : "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14SwiftyHolidays18CalculationContextP",
+      "text" : "CalculationContext"
+    }
+  ],
+  "identifier" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/Calculator\/Context-swift.associatedtype",
+  "kind" : "symbol",
+  "required" : true,
+  "role" : "symbol",
+  "title" : "Context",
+  "type" : "topic",
+  "url" : "\/documentation\/swiftyholidays\/calculator\/context-swift.associatedtype"
+},
 "doc://SwiftyHolidays/documentation/SwiftyHolidays/Calculator/initialize(with:)": {
   "abstract" : [
     {
@@ -290,6 +331,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14SwiftyHolidays10CalculatorP7ContextQa",
       "text" : "Context"
     },
     {

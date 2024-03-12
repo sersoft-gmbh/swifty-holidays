@@ -85,7 +85,9 @@
               "text" : "<"
             },
             {
+              "identifier" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/Calculator\/Context-swift.associatedtype",
               "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:14SwiftyHolidays10CalculatorP7ContextQa",
               "text" : "Context"
             },
             {
@@ -320,6 +322,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14SwiftyHolidays10CalculatorP7ContextQa",
       "text" : "Context"
     }
   ],
@@ -456,6 +459,7 @@
     },
     {
       "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14SwiftyHolidays10CalculatorP7ContextQa",
       "text" : "Context"
     },
     {
