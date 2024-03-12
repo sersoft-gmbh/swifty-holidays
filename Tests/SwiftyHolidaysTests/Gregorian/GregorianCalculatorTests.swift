@@ -140,16 +140,20 @@ final class GregorianCalculatorTests: XCTestCase {
         calculator.contextRef.withContext { $0.semaphores[date.year, default: [:]][.easterSunday] = sema }
         let awaitExpectation = expectation(description: "Waiting for the calculator to wait for the semaphore")
         awaitExpectation.isInverted = true
-        DispatchQueue.global().async {
-            _ = self.calculator.easterSunday(forYear: date.year)
+        DispatchQueue.global().async { [calculator] in
+            _ = calculator.easterSunday(forYear: date.year)
             awaitExpectation.fulfill()
         }
         wait(for: [awaitExpectation], timeout: 2)
         calculator.contextRef.withContext { $0.fulfill(.easterSunday, with: date) }
         let calcExpectation = expectation(description: "Waiting for the calculator to return the calculated result")
+#if compiler(>=5.10) && hasFeature(StrictConcurrency)
+        nonisolated(unsafe) var result: HolidayDate?
+#else
         var result: HolidayDate?
-        DispatchQueue.global().async {
-            result = self.calculator.easterSunday(forYear: date.year)
+#endif
+        DispatchQueue.global().async { [calculator] in
+            result = calculator.easterSunday(forYear: date.year)
             calcExpectation.fulfill()
         }
         wait(for: [calcExpectation], timeout: 2)
