@@ -44,6 +44,10 @@
         "text" : "GregorianCalculationContext"
       }
     ],
+    "remoteSource" : {
+      "fileName" : "GregorianContext.swift",
+      "url" : "https:\/\/github.com\/sersoft-gmbh\/swifty-holidays\/Sources\/SwiftyHolidays\/Gregorian\/GregorianContext.swift#L4"
+    },
     "role" : "symbol",
     "roleHeading" : "Structure",
     "symbolKind" : "struct",

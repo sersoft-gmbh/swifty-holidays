@@ -65,6 +65,10 @@
         "name" : "SwiftyHolidays"
       }
     ],
+    "remoteSource" : {
+      "fileName" : "GregorianCalculator.swift",
+      "url" : "https:\/\/github.com\/sersoft-gmbh\/swifty-holidays\/Sources\/SwiftyHolidays\/Gregorian\/GregorianCalculator.swift#L230"
+    },
     "role" : "symbol",
     "roleHeading" : "Instance Method",
     "symbolKind" : "method",

@@ -72,6 +72,10 @@
         "name" : "SwiftyHolidays"
       }
     ],
+    "remoteSource" : {
+      "fileName" : "HolidayDate.swift",
+      "url" : "https:\/\/github.com\/sersoft-gmbh\/swifty-holidays\/Sources\/SwiftyHolidays\/HolidayDate.swift#L57"
+    },
     "role" : "symbol",
     "roleHeading" : "Operator",
     "symbolKind" : "op",

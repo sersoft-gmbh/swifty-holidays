@@ -86,6 +86,10 @@
         "name" : "SwiftyHolidays"
       }
     ],
+    "remoteSource" : {
+      "fileName" : "HolidayDate.swift",
+      "url" : "https:\/\/github.com\/sersoft-gmbh\/swifty-holidays\/Sources\/SwiftyHolidays\/HolidayDate.swift#L25"
+    },
     "role" : "symbol",
     "roleHeading" : "Initializer",
     "symbolKind" : "init",

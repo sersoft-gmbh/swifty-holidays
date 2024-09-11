@@ -79,6 +79,10 @@
     "platforms" : [
 
     ],
+    "remoteSource" : {
+      "fileName" : "HolidayDate.swift",
+      "url" : "https:\/\/github.com\/sersoft-gmbh\/swifty-holidays\/Sources\/SwiftyHolidays\/HolidayDate.swift#L66"
+    },
     "role" : "symbol",
     "roleHeading" : "Type Alias",
     "symbolKind" : "typealias",

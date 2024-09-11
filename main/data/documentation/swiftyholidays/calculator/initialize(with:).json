@@ -76,6 +76,10 @@
         "name" : "SwiftyHolidays"
       }
     ],
+    "remoteSource" : {
+      "fileName" : "Calculator.swift",
+      "url" : "https:\/\/github.com\/sersoft-gmbh\/swifty-holidays\/Sources\/SwiftyHolidays\/Calculator.swift#L21"
+    },
     "required" : true,
     "role" : "symbol",
     "roleHeading" : "Instance Method",
