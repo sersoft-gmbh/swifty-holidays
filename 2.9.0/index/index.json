@@ -1,0 +1,480 @@
+{
+  "includedArchiveIdentifiers" : [
+    "SwiftyHolidays"
+  ],
+  "interfaceLanguages" : {
+    "swift" : [
+      {
+        "children" : [
+          {
+            "title" : "Protocols",
+            "type" : "groupMarker"
+          },
+          {
+            "children" : [
+              {
+                "title" : "Instance Methods",
+                "type" : "groupMarker"
+              },
+              {
+                "path" : "\/documentation\/swiftyholidays\/calculationcontext\/clear()",
+                "title" : "func clear()",
+                "type" : "method"
+              },
+              {
+                "path" : "\/documentation\/swiftyholidays\/calculationcontext\/merge(with:)",
+                "title" : "func merge(with: Self)",
+                "type" : "method"
+              }
+            ],
+            "path" : "\/documentation\/swiftyholidays\/calculationcontext",
+            "title" : "CalculationContext",
+            "type" : "protocol"
+          },
+          {
+            "children" : [
+              {
+                "title" : "Associated Types",
+                "type" : "groupMarker"
+              },
+              {
+                "path" : "\/documentation\/swiftyholidays\/calculator\/context-swift.associatedtype",
+                "title" : "Context",
+                "type" : "associatedtype"
+              },
+              {
+                "title" : "Instance Properties",
+                "type" : "groupMarker"
+              },
+              {
+                "path" : "\/documentation\/swiftyholidays\/calculator\/calendar",
+                "title" : "var calendar: Calendar",
+                "type" : "property"
+              },
+              {
+                "path" : "\/documentation\/swiftyholidays\/calculator\/context-swift.property",
+                "title" : "var context: Self.Context",
+                "type" : "property"
+              },
+              {
+                "title" : "Instance Methods",
+                "type" : "groupMarker"
+              },
+              {
+                "path" : "\/documentation\/swiftyholidays\/calculator\/date(for:atnoon:)",
+                "title" : "func date(for: HolidayDate, atNoon: Bool) -> Date?",
+                "type" : "method"
+              },
+              {
+                "path" : "\/documentation\/swiftyholidays\/calculator\/initialize(with:)",
+                "title" : "func initialize(with: Self.Context)",
+                "type" : "method"
+              }
+            ],
+            "path" : "\/documentation\/swiftyholidays\/calculator",
+            "title" : "Calculator",
+            "type" : "protocol"
+          },
+          {
+            "title" : "Structures",
+            "type" : "groupMarker"
+          },
+          {
+            "children" : [
+              {
+                "title" : "Initializers",
+                "type" : "groupMarker"
+              },
+              {
+                "path" : "\/documentation\/swiftyholidays\/gregoriancalculationcontext\/init(from:)",
+                "title" : "init(from: any Decoder) throws",
+                "type" : "init"
+              },
+              {
+                "title" : "Instance Methods",
+                "type" : "groupMarker"
+              },
+              {
+                "path" : "\/documentation\/swiftyholidays\/gregoriancalculationcontext\/clear()",
+                "title" : "func clear()",
+                "type" : "method"
+              },
+              {
+                "path" : "\/documentation\/swiftyholidays\/gregoriancalculationcontext\/encode(to:)",
+                "title" : "func encode(to: any Encoder) throws",
+                "type" : "method"
+              },
+              {
+                "path" : "\/documentation\/swiftyholidays\/gregoriancalculationcontext\/merge(with:)",
+                "title" : "func merge(with: GregorianCalculationContext)",
+                "type" : "method"
+              }
+            ],
+            "path" : "\/documentation\/swiftyholidays\/gregoriancalculationcontext",
+            "title" : "GregorianCalculationContext",
+            "type" : "struct"
+          },
+          {
+            "children" : [
+              {
+                "title" : "Initializers",
+                "type" : "groupMarker"
+              },
+              {
+                "path" : "\/documentation\/swiftyholidays\/gregoriancalculator\/init()",
+                "title" : "init()",
+                "type" : "init"
+              },
+              {
+                "title" : "Instance Properties",
+                "type" : "groupMarker"
+              },
+              {
+                "path" : "\/documentation\/swiftyholidays\/gregoriancalculator\/calendar",
+                "title" : "let calendar: Calendar",
+                "type" : "property"
+              },
+              {
+                "path" : "\/documentation\/swiftyholidays\/gregoriancalculator\/context-swift.property",
+                "title" : "var context: GregorianCalculator.Context",
+                "type" : "property"
+              },
+              {
+                "title" : "Instance Methods",
+                "type" : "groupMarker"
+              },
+              {
+                "path" : "\/documentation\/swiftyholidays\/gregoriancalculator\/allsaints(foryear:)",
+                "title" : "func allSaints(forYear: Int) -> HolidayDate",
+                "type" : "method"
+              },
+              {
+                "path" : "\/documentation\/swiftyholidays\/gregoriancalculator\/allsouls(foryear:)",
+                "title" : "func allSouls(forYear: Int) -> HolidayDate",
+                "type" : "method"
+              },
+              {
+                "path" : "\/documentation\/swiftyholidays\/gregoriancalculator\/ascensionday(foryear:)",
+                "title" : "func ascensionDay(forYear: Int) -> HolidayDate",
+                "type" : "method"
+              },
+              {
+                "path" : "\/documentation\/swiftyholidays\/gregoriancalculator\/christmasday(foryear:)",
+                "title" : "func christmasDay(forYear: Int) -> HolidayDate",
+                "type" : "method"
+              },
+              {
+                "path" : "\/documentation\/swiftyholidays\/gregoriancalculator\/christmaseve(foryear:)",
+                "title" : "func christmasEve(forYear: Int) -> HolidayDate",
+                "type" : "method"
+              },
+              {
+                "path" : "\/documentation\/swiftyholidays\/gregoriancalculator\/corpuschristi(foryear:)",
+                "title" : "func corpusChristi(forYear: Int) -> HolidayDate",
+                "type" : "method"
+              },
+              {
+                "path" : "\/documentation\/swiftyholidays\/gregoriancalculator\/dayafterchristmasday(foryear:)",
+                "title" : "func dayAfterChristmasDay(forYear: Int) -> HolidayDate",
+                "type" : "method"
+              },
+              {
+                "path" : "\/documentation\/swiftyholidays\/gregoriancalculator\/eastermonday(foryear:)",
+                "title" : "func easterMonday(forYear: Int) -> HolidayDate",
+                "type" : "method"
+              },
+              {
+                "path" : "\/documentation\/swiftyholidays\/gregoriancalculator\/eastersunday(foryear:)",
+                "title" : "func easterSunday(forYear: Int) -> HolidayDate",
+                "type" : "method"
+              },
+              {
+                "path" : "\/documentation\/swiftyholidays\/gregoriancalculator\/epiphany(foryear:)",
+                "title" : "func epiphany(forYear: Int) -> HolidayDate",
+                "type" : "method"
+              },
+              {
+                "path" : "\/documentation\/swiftyholidays\/gregoriancalculator\/firstsundayofadvent(foryear:)",
+                "title" : "func firstSundayOfAdvent(forYear: Int) -> HolidayDate",
+                "type" : "method"
+              },
+              {
+                "path" : "\/documentation\/swiftyholidays\/gregoriancalculator\/fourthsundayofadvent(foryear:)",
+                "title" : "func fourthSundayOfAdvent(forYear: Int) -> HolidayDate",
+                "type" : "method"
+              },
+              {
+                "path" : "\/documentation\/swiftyholidays\/gregoriancalculator\/goodfriday(foryear:)",
+                "title" : "func goodFriday(forYear: Int) -> HolidayDate",
+                "type" : "method"
+              },
+              {
+                "path" : "\/documentation\/swiftyholidays\/gregoriancalculator\/halloween(foryear:)",
+                "title" : "func halloween(forYear: Int) -> HolidayDate",
+                "type" : "method"
+              },
+              {
+                "path" : "\/documentation\/swiftyholidays\/gregoriancalculator\/holysaturday(foryear:)",
+                "title" : "func holySaturday(forYear: Int) -> HolidayDate",
+                "type" : "method"
+              },
+              {
+                "path" : "\/documentation\/swiftyholidays\/gregoriancalculator\/initialize(with:)",
+                "title" : "func initialize(with: GregorianCalculator.Context)",
+                "type" : "method"
+              },
+              {
+                "path" : "\/documentation\/swiftyholidays\/gregoriancalculator\/internationalworkersday(foryear:)",
+                "title" : "func internationalWorkersDay(forYear: Int) -> HolidayDate",
+                "type" : "method"
+              },
+              {
+                "path" : "\/documentation\/swiftyholidays\/gregoriancalculator\/laborday(foryear:)",
+                "title" : "func laborDay(forYear: Int) -> HolidayDate",
+                "type" : "method"
+              },
+              {
+                "path" : "\/documentation\/swiftyholidays\/gregoriancalculator\/maundythursday(foryear:)",
+                "title" : "func maundyThursday(forYear: Int) -> HolidayDate",
+                "type" : "method"
+              },
+              {
+                "path" : "\/documentation\/swiftyholidays\/gregoriancalculator\/mayday(foryear:)",
+                "title" : "func mayDay(forYear: Int) -> HolidayDate",
+                "type" : "method"
+              },
+              {
+                "path" : "\/documentation\/swiftyholidays\/gregoriancalculator\/newyearsday(foryear:)",
+                "title" : "func newYearsDay(forYear: Int) -> HolidayDate",
+                "type" : "method"
+              },
+              {
+                "path" : "\/documentation\/swiftyholidays\/gregoriancalculator\/newyearseve(foryear:)",
+                "title" : "func newYearsEve(forYear: Int) -> HolidayDate",
+                "type" : "method"
+              },
+              {
+                "path" : "\/documentation\/swiftyholidays\/gregoriancalculator\/palmsunday(foryear:)",
+                "title" : "func palmSunday(forYear: Int) -> HolidayDate",
+                "type" : "method"
+              },
+              {
+                "path" : "\/documentation\/swiftyholidays\/gregoriancalculator\/pentecost(foryear:)",
+                "title" : "func pentecost(forYear: Int) -> HolidayDate",
+                "type" : "method"
+              },
+              {
+                "path" : "\/documentation\/swiftyholidays\/gregoriancalculator\/secondsundayofadvent(foryear:)",
+                "title" : "func secondSundayOfAdvent(forYear: Int) -> HolidayDate",
+                "type" : "method"
+              },
+              {
+                "path" : "\/documentation\/swiftyholidays\/gregoriancalculator\/sundayaftercorpuschristi(foryear:)",
+                "title" : "func sundayAfterCorpusChristi(forYear: Int) -> HolidayDate",
+                "type" : "method"
+              },
+              {
+                "path" : "\/documentation\/swiftyholidays\/gregoriancalculator\/thirdsundayofadvent(foryear:)",
+                "title" : "func thirdSundayOfAdvent(forYear: Int) -> HolidayDate",
+                "type" : "method"
+              },
+              {
+                "path" : "\/documentation\/swiftyholidays\/gregoriancalculator\/whitmonday(foryear:)",
+                "title" : "func whitMonday(forYear: Int) -> HolidayDate",
+                "type" : "method"
+              },
+              {
+                "title" : "Type Aliases",
+                "type" : "groupMarker"
+              },
+              {
+                "path" : "\/documentation\/swiftyholidays\/gregoriancalculator\/context-swift.typealias",
+                "title" : "GregorianCalculator.Context",
+                "type" : "typealias"
+              },
+              {
+                "title" : "Default Implementations",
+                "type" : "groupMarker"
+              },
+              {
+                "children" : [
+                  {
+                    "title" : "Instance Methods",
+                    "type" : "groupMarker"
+                  },
+                  {
+                    "path" : "\/documentation\/swiftyholidays\/gregoriancalculator\/date(for:atnoon:)",
+                    "title" : "func date(for: HolidayDate, atNoon: Bool) -> Date?",
+                    "type" : "method"
+                  }
+                ],
+                "path" : "\/documentation\/swiftyholidays\/gregoriancalculator\/calculator-implementations",
+                "title" : "Calculator Implementations",
+                "type" : "symbol"
+              }
+            ],
+            "path" : "\/documentation\/swiftyholidays\/gregoriancalculator",
+            "title" : "GregorianCalculator",
+            "type" : "struct"
+          },
+          {
+            "children" : [
+              {
+                "title" : "Operators",
+                "type" : "groupMarker"
+              },
+              {
+                "path" : "\/documentation\/swiftyholidays\/holidaydate\/_(_:_:)-94wad",
+                "title" : "static func < (HolidayDate, HolidayDate) -> Bool",
+                "type" : "op"
+              },
+              {
+                "title" : "Initializers",
+                "type" : "groupMarker"
+              },
+              {
+                "path" : "\/documentation\/swiftyholidays\/holidaydate\/init(day:month:year:)",
+                "title" : "init(day: Int, month: Int, year: Int)",
+                "type" : "init"
+              },
+              {
+                "path" : "\/documentation\/swiftyholidays\/holidaydate\/init(from:)",
+                "title" : "init(from: any Decoder) throws",
+                "type" : "init"
+              },
+              {
+                "title" : "Instance Properties",
+                "type" : "groupMarker"
+              },
+              {
+                "path" : "\/documentation\/swiftyholidays\/holidaydate\/components",
+                "title" : "var components: DateComponents",
+                "type" : "property"
+              },
+              {
+                "path" : "\/documentation\/swiftyholidays\/holidaydate\/day",
+                "title" : "var day: Int",
+                "type" : "property"
+              },
+              {
+                "path" : "\/documentation\/swiftyholidays\/holidaydate\/description",
+                "title" : "var description: String",
+                "type" : "property"
+              },
+              {
+                "path" : "\/documentation\/swiftyholidays\/holidaydate\/month",
+                "title" : "var month: Int",
+                "type" : "property"
+              },
+              {
+                "path" : "\/documentation\/swiftyholidays\/holidaydate\/year",
+                "title" : "var year: Int",
+                "type" : "property"
+              },
+              {
+                "title" : "Instance Methods",
+                "type" : "groupMarker"
+              },
+              {
+                "path" : "\/documentation\/swiftyholidays\/holidaydate\/date(in:atnoon:)",
+                "title" : "func date(in: Calendar, atNoon: Bool) -> Date?",
+                "type" : "method"
+              },
+              {
+                "title" : "Default Implementations",
+                "type" : "groupMarker"
+              },
+              {
+                "children" : [
+                  {
+                    "title" : "Operators",
+                    "type" : "groupMarker"
+                  },
+                  {
+                    "path" : "\/documentation\/swiftyholidays\/holidaydate\/'...(_:)-19j59",
+                    "title" : "static func ... (Self) -> PartialRangeThrough<Self>",
+                    "type" : "op"
+                  },
+                  {
+                    "path" : "\/documentation\/swiftyholidays\/holidaydate\/'...(_:)-goaz",
+                    "title" : "static func ... (Self) -> PartialRangeFrom<Self>",
+                    "type" : "op"
+                  },
+                  {
+                    "path" : "\/documentation\/swiftyholidays\/holidaydate\/'...(_:_:)",
+                    "title" : "static func ... (Self, Self) -> ClosedRange<Self>",
+                    "type" : "op"
+                  },
+                  {
+                    "path" : "\/documentation\/swiftyholidays\/holidaydate\/'.._(_:)",
+                    "title" : "static func ..< (Self) -> PartialRangeUpTo<Self>",
+                    "type" : "op"
+                  },
+                  {
+                    "path" : "\/documentation\/swiftyholidays\/holidaydate\/'.._(_:_:)",
+                    "title" : "static func ..< (Self, Self) -> Range<Self>",
+                    "type" : "op"
+                  },
+                  {
+                    "path" : "\/documentation\/swiftyholidays\/holidaydate\/_(_:_:)-2tdrn",
+                    "title" : "static func > (Self, Self) -> Bool",
+                    "type" : "op"
+                  },
+                  {
+                    "path" : "\/documentation\/swiftyholidays\/holidaydate\/_=(_:_:)-13w0d",
+                    "title" : "static func <= (Self, Self) -> Bool",
+                    "type" : "op"
+                  },
+                  {
+                    "path" : "\/documentation\/swiftyholidays\/holidaydate\/_=(_:_:)-9ws4i",
+                    "title" : "static func >= (Self, Self) -> Bool",
+                    "type" : "op"
+                  }
+                ],
+                "path" : "\/documentation\/swiftyholidays\/holidaydate\/comparable-implementations",
+                "title" : "Comparable Implementations",
+                "type" : "symbol"
+              },
+              {
+                "children" : [
+                  {
+                    "title" : "Operators",
+                    "type" : "groupMarker"
+                  },
+                  {
+                    "path" : "\/documentation\/swiftyholidays\/holidaydate\/!=(_:_:)",
+                    "title" : "static func != (Self, Self) -> Bool",
+                    "type" : "op"
+                  }
+                ],
+                "path" : "\/documentation\/swiftyholidays\/holidaydate\/equatable-implementations",
+                "title" : "Equatable Implementations",
+                "type" : "symbol"
+              }
+            ],
+            "path" : "\/documentation\/swiftyholidays\/holidaydate",
+            "title" : "HolidayDate",
+            "type" : "struct"
+          },
+          {
+            "title" : "Type Aliases",
+            "type" : "groupMarker"
+          },
+          {
+            "path" : "\/documentation\/swiftyholidays\/timelessdate",
+            "title" : "TimelessDate",
+            "type" : "typealias"
+          }
+        ],
+        "path" : "\/documentation\/swiftyholidays",
+        "title" : "SwiftyHolidays",
+        "type" : "module"
+      }
+    ]
+  },
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 1,
+    "patch" : 2
+  }
+}
