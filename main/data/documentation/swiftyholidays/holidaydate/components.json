@@ -43,7 +43,7 @@
   },
   "kind" : "symbol",
   "metadata" : {
-    "externalID" : "s:14SwiftyHolidays11HolidayDateV10components10Foundation0D10ComponentsVvp",
+    "externalID" : "s:14SwiftyHolidays11HolidayDateV10components20FoundationEssentials0D10ComponentsVvp",
     "fragments" : [
       {
         "kind" : "keyword",
@@ -63,7 +63,7 @@
       },
       {
         "kind" : "typeIdentifier",
-        "preciseIdentifier" : "s:10Foundation14DateComponentsV",
+        "preciseIdentifier" : "s:20FoundationEssentials14DateComponentsV",
         "text" : "DateComponents"
       }
     ],
@@ -110,7 +110,7 @@
             },
             {
               "kind" : "typeIdentifier",
-              "preciseIdentifier" : "s:10Foundation14DateComponentsV",
+              "preciseIdentifier" : "s:20FoundationEssentials14DateComponentsV",
               "text" : "DateComponents"
             },
             {
@@ -248,7 +248,7 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:10Foundation14DateComponentsV",
+      "preciseIdentifier" : "s:20FoundationEssentials14DateComponentsV",
       "text" : "DateComponents"
     }
   ],

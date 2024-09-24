@@ -33,6 +33,8 @@
   ],
   "topicSections" : [
     {
+      "anchor" : "Protocols",
+      "generated" : true,
       "identifiers" : [
         "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/CalculationContext",
         "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/Calculator"
@@ -40,6 +42,8 @@
       "title" : "Protocols"
     },
     {
+      "anchor" : "Structures",
+      "generated" : true,
       "identifiers" : [
         "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/GregorianCalculationContext",
         "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/GregorianCalculator",
@@ -48,6 +52,8 @@
       "title" : "Structures"
     },
     {
+      "anchor" : "Type-Aliases",
+      "generated" : true,
       "identifiers" : [
         "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/TimelessDate"
       ],

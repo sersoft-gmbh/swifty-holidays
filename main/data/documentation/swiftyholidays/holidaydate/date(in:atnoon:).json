@@ -27,7 +27,7 @@
   },
   "kind" : "symbol",
   "metadata" : {
-    "externalID" : "s:14SwiftyHolidays11HolidayDateV4date2in6atNoon10Foundation0D0VSgAG8CalendarV_SbtF",
+    "externalID" : "s:14SwiftyHolidays11HolidayDateV4date2in6atNoon20FoundationEssentials0D0VSgAG8CalendarV_SbtF",
     "fragments" : [
       {
         "kind" : "keyword",
@@ -55,7 +55,7 @@
       },
       {
         "kind" : "typeIdentifier",
-        "preciseIdentifier" : "s:10Foundation8CalendarV",
+        "preciseIdentifier" : "s:20FoundationEssentials8CalendarV",
         "text" : "Calendar"
       },
       {
@@ -81,7 +81,7 @@
       },
       {
         "kind" : "typeIdentifier",
-        "preciseIdentifier" : "s:10Foundation4DateV",
+        "preciseIdentifier" : "s:20FoundationEssentials4DateV",
         "text" : "Date"
       },
       {
@@ -148,7 +148,7 @@
             },
             {
               "kind" : "typeIdentifier",
-              "preciseIdentifier" : "s:10Foundation8CalendarV",
+              "preciseIdentifier" : "s:20FoundationEssentials8CalendarV",
               "text" : "Calendar"
             },
             {
@@ -174,7 +174,7 @@
             },
             {
               "kind" : "typeIdentifier",
-              "preciseIdentifier" : "s:10Foundation4DateV",
+              "preciseIdentifier" : "s:20FoundationEssentials4DateV",
               "text" : "Date"
             },
             {
@@ -405,7 +405,7 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:10Foundation8CalendarV",
+      "preciseIdentifier" : "s:20FoundationEssentials8CalendarV",
       "text" : "Calendar"
     },
     {
@@ -431,7 +431,7 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:10Foundation4DateV",
+      "preciseIdentifier" : "s:20FoundationEssentials4DateV",
       "text" : "Date"
     },
     {

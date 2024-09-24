@@ -19,7 +19,7 @@
   },
   "kind" : "symbol",
   "metadata" : {
-    "externalID" : "s:14SwiftyHolidays10CalculatorP8calendar10Foundation8CalendarVvp",
+    "externalID" : "s:14SwiftyHolidays10CalculatorP8calendar20FoundationEssentials8CalendarVvp",
     "fragments" : [
       {
         "kind" : "keyword",
@@ -39,7 +39,7 @@
       },
       {
         "kind" : "typeIdentifier",
-        "preciseIdentifier" : "s:10Foundation8CalendarV",
+        "preciseIdentifier" : "s:20FoundationEssentials8CalendarV",
         "text" : "Calendar"
       }
     ],
@@ -87,7 +87,7 @@
             },
             {
               "kind" : "typeIdentifier",
-              "preciseIdentifier" : "s:10Foundation8CalendarV",
+              "preciseIdentifier" : "s:20FoundationEssentials8CalendarV",
               "text" : "Calendar"
             },
             {
@@ -228,7 +228,7 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:10Foundation8CalendarV",
+      "preciseIdentifier" : "s:20FoundationEssentials8CalendarV",
       "text" : "Calendar"
     }
   ],

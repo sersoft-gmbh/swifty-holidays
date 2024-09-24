@@ -145,6 +145,8 @@
   ],
   "topicSections" : [
     {
+      "anchor" : "Instance-Methods",
+      "generated" : true,
       "identifiers" : [
         "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/CalculationContext\/clear()",
         "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/CalculationContext\/merge(with:)"

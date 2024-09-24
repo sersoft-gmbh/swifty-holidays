@@ -1,4 +1,7 @@
 {
+  "includedArchiveIdentifiers" : [
+    "SwiftyHolidays"
+  ],
   "interfaceLanguages" : {
     "swift" : [
       {
@@ -128,7 +131,7 @@
               },
               {
                 "path" : "\/documentation\/swiftyholidays\/gregoriancalculator\/calendar",
-                "title" : "var calendar: Calendar",
+                "title" : "let calendar: Calendar",
                 "type" : "property"
               },
               {
@@ -472,6 +475,6 @@
   "schemaVersion" : {
     "major" : 0,
     "minor" : 1,
-    "patch" : 1
+    "patch" : 2
   }
 }

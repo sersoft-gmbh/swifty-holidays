@@ -137,12 +137,16 @@
   ],
   "topicSections" : [
     {
+      "anchor" : "Associated-Types",
+      "generated" : true,
       "identifiers" : [
         "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/Calculator\/Context-swift.associatedtype"
       ],
       "title" : "Associated Types"
     },
     {
+      "anchor" : "Instance-Properties",
+      "generated" : true,
       "identifiers" : [
         "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/Calculator\/calendar",
         "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/Calculator\/context-swift.property"
@@ -150,6 +154,8 @@
       "title" : "Instance Properties"
     },
     {
+      "anchor" : "Instance-Methods",
+      "generated" : true,
       "identifiers" : [
         "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/Calculator\/date(for:atNoon:)",
         "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/Calculator\/initialize(with:)"
@@ -280,7 +286,7 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:10Foundation8CalendarV",
+      "preciseIdentifier" : "s:20FoundationEssentials8CalendarV",
       "text" : "Calendar"
     }
   ],
@@ -398,7 +404,7 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:10Foundation4DateV",
+      "preciseIdentifier" : "s:20FoundationEssentials4DateV",
       "text" : "Date"
     },
     {

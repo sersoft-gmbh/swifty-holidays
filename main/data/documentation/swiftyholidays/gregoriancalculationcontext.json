@@ -104,12 +104,16 @@
   ],
   "topicSections" : [
     {
+      "anchor" : "Initializers",
+      "generated" : true,
       "identifiers" : [
         "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/GregorianCalculationContext\/init(from:)"
       ],
       "title" : "Initializers"
     },
     {
+      "anchor" : "Instance-Methods",
+      "generated" : true,
       "identifiers" : [
         "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/GregorianCalculationContext\/clear()",
         "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/GregorianCalculationContext\/encode(to:)",

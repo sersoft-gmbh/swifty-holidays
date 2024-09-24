@@ -93,6 +93,7 @@
   "relationshipsSections" : [
     {
       "identifiers" : [
+        "doc:\/\/SwiftyHolidays\/s15BitwiseCopyableP",
         "doc:\/\/SwiftyHolidays\/SL",
         "doc:\/\/SwiftyHolidays\/s23CustomStringConvertibleP",
         "doc:\/\/SwiftyHolidays\/Se",
@@ -116,12 +117,16 @@
   ],
   "topicSections" : [
     {
+      "anchor" : "Operators",
+      "generated" : true,
       "identifiers" : [
         "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/HolidayDate\/_(_:_:)-94wad"
       ],
       "title" : "Operators"
     },
     {
+      "anchor" : "Initializers",
+      "generated" : true,
       "identifiers" : [
         "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/HolidayDate\/init(day:month:year:)",
         "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/HolidayDate\/init(from:)"
@@ -129,6 +134,8 @@
       "title" : "Initializers"
     },
     {
+      "anchor" : "Instance-Properties",
+      "generated" : true,
       "identifiers" : [
         "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/HolidayDate\/components",
         "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/HolidayDate\/day",
@@ -139,12 +146,15 @@
       "title" : "Instance Properties"
     },
     {
+      "anchor" : "Instance-Methods",
+      "generated" : true,
       "identifiers" : [
         "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/HolidayDate\/date(in:atNoon:)"
       ],
       "title" : "Instance Methods"
     },
     {
+      "anchor" : "Default-Implementations",
       "generated" : true,
       "identifiers" : [
         "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/HolidayDate\/Comparable-Implementations",
@@ -373,7 +383,7 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:10Foundation14DateComponentsV",
+      "preciseIdentifier" : "s:20FoundationEssentials14DateComponentsV",
       "text" : "DateComponents"
     }
   ],
@@ -426,7 +436,7 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:10Foundation8CalendarV",
+      "preciseIdentifier" : "s:20FoundationEssentials8CalendarV",
       "text" : "Calendar"
     },
     {
@@ -452,7 +462,7 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:10Foundation4DateV",
+      "preciseIdentifier" : "s:20FoundationEssentials4DateV",
       "text" : "Date"
     },
     {
@@ -728,6 +738,11 @@
   "title" : "year",
   "type" : "topic",
   "url" : "\/documentation\/swiftyholidays\/holidaydate\/year"
+},
+"doc://SwiftyHolidays/s15BitwiseCopyableP": {
+  "identifier" : "doc:\/\/SwiftyHolidays\/s15BitwiseCopyableP",
+  "title" : "Swift.BitwiseCopyable",
+  "type" : "unresolvable"
 },
 "doc://SwiftyHolidays/s23CustomStringConvertibleP": {
   "identifier" : "doc:\/\/SwiftyHolidays\/s23CustomStringConvertibleP",
