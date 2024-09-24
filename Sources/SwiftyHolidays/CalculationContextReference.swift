@@ -1,4 +1,8 @@
-import Dispatch
+#if swift(>=6.0)
+fileprivate import Dispatch
+#else
+public import Dispatch
+#endif
 
 /// Encapsulates a by-reference relation to a given context.
 /// Since contexts and calculators are usually structs,

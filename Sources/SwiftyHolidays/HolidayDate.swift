@@ -1,4 +1,4 @@
-import Foundation
+public import Foundation
 
 /// Represents a holiday date which is fixed across time zones - and therefor does not have a time.
 @frozen

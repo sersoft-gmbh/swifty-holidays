@@ -1,4 +1,4 @@
-import class Dispatch.DispatchSemaphore
+public import class Dispatch.DispatchSemaphore
 
 /// Represents the context that is used by the GregorianCalculator.
 public struct GregorianCalculationContext: CalculationContext {
@@ -6,7 +6,7 @@ public struct GregorianCalculationContext: CalculationContext {
     @usableFromInline
     /*private but @usableFromInline*/ var storage: Dictionary<Int, Dictionary<StorageKey, HolidayDate>>
 
-    /// The storage that the context uses to cache the results.
+    /// The semaphoers of the context's ongoing calculations
     @usableFromInline
     /*private but @usableFromInline*/ var semaphores: Dictionary<Int, Dictionary<StorageKey, DispatchSemaphore>>
 

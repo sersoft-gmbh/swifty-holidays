@@ -1,9 +1,12 @@
-import Foundation
+public import Foundation
 
 /// Calculates holiday dates for the gregorian calendar.
 public struct GregorianCalculator: Calculator {
     public typealias Context = GregorianCalculationContext
 
+#if canImport(Darwin) || swift(>=6.0)
+    public let calendar: Calendar
+#else
     @usableFromInline
     let calculationCalendar: CalculationCalendar
 
@@ -11,6 +14,7 @@ public struct GregorianCalculator: Calculator {
     public var calendar: Calendar {
         calculationCalendar.withCalendar { $0 }
     }
+#endif
 
     /// The reference to the context.
     @usableFromInline
@@ -22,7 +26,7 @@ public struct GregorianCalculator: Calculator {
     /// Creates a new gregorian calculator (also using a new context).
     public init() {
         var calendar  = Calendar(identifier: .gregorian)
-#if canImport(Darwin)
+#if canImport(Darwin) || swift(>=6.0)
         if #available(macOS 13, iOS 16, tvOS 16, watchOS 9, *) {
             calendar.timeZone = .gmt
         } else {
@@ -31,7 +35,11 @@ public struct GregorianCalculator: Calculator {
 #else
         calendar.timeZone = TimeZone(secondsFromGMT: 0)!
 #endif
+#if canImport(Darwin) || swift(>=6.0)
+        self.calendar = calendar
+#else
         calculationCalendar = .init(calendar: calendar)
+#endif
     }
 
     @inlinable
@@ -57,7 +65,11 @@ public struct GregorianCalculator: Calculator {
         if let promise = context[key, forYear: year] { return wait(for: promise, calculation: calculation) }
         let promise = contextRef.withContext { $0[storedFor: key, forYear: year] }
         if promise.wasCreated {
+#if canImport(Darwin) || swift(>=6.0)
+            let calculated = calculation(calendar, year)
+#else
             let calculated = calculation(calculationCalendar, year)
+#endif
             contextRef.withContext { $0.fulfill(key, with: calculated) }
             return calculated
         } else {
@@ -71,10 +83,15 @@ public struct GregorianCalculator: Calculator {
                                                       forYear year: Int) -> HolidayDate {
         var otherDateComps = otherDate(year).components
         otherDateComps.day! += days
+#if canImport(Darwin) || swift(>=6.0)
+        let date = calendar.date(from: otherDateComps)!
+        return HolidayDate(date: date, in: calendar)
+#else
         return calculationCalendar.withCalendar {
             let date = $0.date(from: otherDateComps)!
             return HolidayDate(date: date, in: $0)
         }
+#endif
     }
 
     @inlinable
@@ -103,10 +120,15 @@ public struct GregorianCalculator: Calculator {
         let e = (2 * (year % 4) + 4 * (year % 7) + 6 * d + 5) % 7
         let p = 22 + d + e
         let comps = DateComponents(year: year, month: 3, day: p)
+#if canImport(Darwin) || swift(>=6.0)
+        let date = calendar.date(from: comps)!
+        return HolidayDate(date: date, in: calendar)
+#else
         return calendar.withCalendar {
             let date = $0.date(from: comps)!
             return HolidayDate(date: date, in: $0)
         }
+#endif
     }
 
     @inlinable
@@ -157,13 +179,21 @@ public struct GregorianCalculator: Calculator {
     @usableFromInline
     func calculateFourthSundayOfAdvent(in calendar: CalculationCalendar, forYear year: Int) -> HolidayDate {
         let christmasDay = christmasDay(forYear: year)
-        return calendar.withCalendar {
-            let christmasDate = christmasDay.date(in: $0)!
-            let mondayAfter = ($0.dateIntervalOfWeekend(containing: christmasDate)?.end
-                               ?? $0.nextWeekend(startingAfter: christmasDate, direction: .backward)?.end)!
-            let sunday = $0.date(byAdding: .day, value: -1, to: mondayAfter)!
-            return HolidayDate(date: sunday, in: $0)
+
+        @inline(__always)
+        func calc(in calendar: Calendar) -> HolidayDate {
+            let christmasDate = christmasDay.date(in: calendar)!
+            let mondayAfter = (calendar.dateIntervalOfWeekend(containing: christmasDate)?.end
+                               ?? calendar.nextWeekend(startingAfter: christmasDate, direction: .backward)?.end)!
+            let sunday = calendar.date(byAdding: .day, value: -1, to: mondayAfter)!
+            return HolidayDate(date: sunday, in: calendar)
         }
+
+#if canImport(Darwin) || swift(>=6.0)
+        return calc(in: calendar)
+#else
+        return calendar.withCalendar { calc(in: $0) }
+#endif
     }
 
     /// Calculates the date of new years day for a given year.

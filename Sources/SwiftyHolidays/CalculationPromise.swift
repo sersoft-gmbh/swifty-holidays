@@ -1,8 +1,8 @@
 #if canImport(Darwin)
-import class Dispatch.DispatchSemaphore
+public import class Dispatch.DispatchSemaphore
 #else
 @preconcurrency
-import class Dispatch.DispatchSemaphore
+public import class Dispatch.DispatchSemaphore
 #endif
 
 /// Represents a value that is currently being calculated.

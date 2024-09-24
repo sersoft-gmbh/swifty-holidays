@@ -1,5 +1,5 @@
-import struct Foundation.Calendar
-import struct Foundation.Date
+public import struct Foundation.Calendar
+public import struct Foundation.Date
 
 /// Represents a calculator that can calculate holidays using a fixed type of calendar.
 @preconcurrency
