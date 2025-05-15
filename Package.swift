@@ -1,4 +1,4 @@
-// swift-tools-version:6.0
+// swift-tools-version:6.1
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -7,7 +7,6 @@ let swiftSettings: Array<SwiftSetting> = [
     .swiftLanguageMode(.v6),
     .enableUpcomingFeature("ExistentialAny"),
     .enableUpcomingFeature("InternalImportsByDefault"),
-    .enableExperimentalFeature("GlobalConcurrency"),
 ]
 
 let package = Package(
@@ -17,6 +16,7 @@ let package = Package(
         .iOS(.v12),
         .tvOS(.v12),
         .watchOS(.v4),
+        .visionOS(.v1),
     ],
     products: [
         // Products define the executables and libraries produced by a package, and make them visible to other packages.

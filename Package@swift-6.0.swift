@@ -1,24 +1,22 @@
-// swift-tools-version:5.9
+// swift-tools-version:6.0
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
 
 let swiftSettings: Array<SwiftSetting> = [
-    .enableUpcomingFeature("ConciseMagicFile"),
+    .swiftLanguageMode(.v6),
     .enableUpcomingFeature("ExistentialAny"),
-    .enableUpcomingFeature("BareSlashRegexLiterals"),
-    .enableUpcomingFeature("DisableOutwardActorInference"),
-    .enableExperimentalFeature("StrictConcurrency"),
-    .enableExperimentalFeature("AccessLevelOnImport"),
+    .enableUpcomingFeature("InternalImportsByDefault"),
 ]
 
 let package = Package(
     name: "swifty-holidays",
     platforms: [
         .macOS(.v10_13),
-        .iOS(.v11),
-        .tvOS(.v11),
+        .iOS(.v12),
+        .tvOS(.v12),
         .watchOS(.v4),
+        .visionOS(.v1),
     ],
     products: [
         // Products define the executables and libraries produced by a package, and make them visible to other packages.
