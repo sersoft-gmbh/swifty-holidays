@@ -17,8 +17,7 @@
     "paths" : [
       [
         "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays",
-        "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/HolidayDate",
-        "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/HolidayDate\/Comparable-Implementations"
+        "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/HolidayDate"
       ]
     ]
   },
@@ -375,17 +374,6 @@
   "title" : "HolidayDate",
   "type" : "topic",
   "url" : "\/documentation\/swiftyholidays\/holidaydate"
-},
-"doc://SwiftyHolidays/documentation/SwiftyHolidays/HolidayDate/Comparable-Implementations": {
-  "abstract" : [
-
-  ],
-  "identifier" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/HolidayDate\/Comparable-Implementations",
-  "kind" : "article",
-  "role" : "collectionGroup",
-  "title" : "Comparable Implementations",
-  "type" : "topic",
-  "url" : "\/documentation\/swiftyholidays\/holidaydate\/comparable-implementations"
 },
 "doc://SwiftyHolidays/documentation/SwiftyHolidays/HolidayDate/_=(_:_:)-9ws4i": {
   "abstract" : [

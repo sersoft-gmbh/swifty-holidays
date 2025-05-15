@@ -46,7 +46,7 @@
     ],
     "remoteSource" : {
       "fileName" : "HolidayDate.swift",
-      "url" : "https:\/\/github.com\/sersoft-gmbh\/swifty-holidays\/Sources\/SwiftyHolidays\/HolidayDate.swift#L5"
+      "url" : "https:\/\/github.com\/sersoft-gmbh\/swifty-holidays\/blob\/refs\/heads\/main\/Sources\/SwiftyHolidays\/HolidayDate.swift#L5"
     },
     "role" : "symbol",
     "roleHeading" : "Structure",
@@ -120,7 +120,7 @@
       "anchor" : "Operators",
       "generated" : true,
       "identifiers" : [
-        "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/HolidayDate\/_(_:_:)-94wad"
+        "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/HolidayDate\/_(_:_:)"
       ],
       "title" : "Operators"
     },
@@ -269,7 +269,7 @@
   "type" : "topic",
   "url" : "\/documentation\/swiftyholidays\/holidaydate\/equatable-implementations"
 },
-"doc://SwiftyHolidays/documentation/SwiftyHolidays/HolidayDate/_(_:_:)-94wad": {
+"doc://SwiftyHolidays/documentation/SwiftyHolidays/HolidayDate/_(_:_:)": {
   "abstract" : [
 
   ],
@@ -326,12 +326,12 @@
       "text" : "Bool"
     }
   ],
-  "identifier" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/HolidayDate\/_(_:_:)-94wad",
+  "identifier" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/HolidayDate\/_(_:_:)",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "<(_:_:)",
   "type" : "topic",
-  "url" : "\/documentation\/swiftyholidays\/holidaydate\/_(_:_:)-94wad"
+  "url" : "\/documentation\/swiftyholidays\/holidaydate\/_(_:_:)"
 },
 "doc://SwiftyHolidays/documentation/SwiftyHolidays/HolidayDate/components": {
   "abstract" : [

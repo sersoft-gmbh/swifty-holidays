@@ -9,8 +9,7 @@
     "paths" : [
       [
         "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays",
-        "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/GregorianCalculator",
-        "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/GregorianCalculator\/Calculator-Implementations"
+        "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/GregorianCalculator"
       ]
     ]
   },
@@ -90,7 +89,7 @@
     ],
     "remoteSource" : {
       "fileName" : "Calculator.swift",
-      "url" : "https:\/\/github.com\/sersoft-gmbh\/swifty-holidays\/Sources\/SwiftyHolidays\/Calculator.swift#L32"
+      "url" : "https:\/\/github.com\/sersoft-gmbh\/swifty-holidays\/blob\/refs\/heads\/main\/Sources\/SwiftyHolidays\/Calculator.swift#L32"
     },
     "role" : "symbol",
     "roleHeading" : "Instance Method",
@@ -333,17 +332,6 @@
   "title" : "GregorianCalculator",
   "type" : "topic",
   "url" : "\/documentation\/swiftyholidays\/gregoriancalculator"
-},
-"doc://SwiftyHolidays/documentation/SwiftyHolidays/GregorianCalculator/Calculator-Implementations": {
-  "abstract" : [
-
-  ],
-  "identifier" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/GregorianCalculator\/Calculator-Implementations",
-  "kind" : "article",
-  "role" : "collectionGroup",
-  "title" : "Calculator Implementations",
-  "type" : "topic",
-  "url" : "\/documentation\/swiftyholidays\/gregoriancalculator\/calculator-implementations"
 },
 "doc://SwiftyHolidays/documentation/SwiftyHolidays/GregorianCalculator/date(for:atNoon:)": {
   "abstract" : [

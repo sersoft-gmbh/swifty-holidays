@@ -9,8 +9,7 @@
     "paths" : [
       [
         "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays",
-        "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/HolidayDate",
-        "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/HolidayDate\/Equatable-Implementations"
+        "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/HolidayDate"
       ]
     ]
   },
@@ -429,17 +428,6 @@
   "title" : "!=(_:_:)",
   "type" : "topic",
   "url" : "\/documentation\/swiftyholidays\/holidaydate\/!=(_:_:)"
-},
-"doc://SwiftyHolidays/documentation/SwiftyHolidays/HolidayDate/Equatable-Implementations": {
-  "abstract" : [
-
-  ],
-  "identifier" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/HolidayDate\/Equatable-Implementations",
-  "kind" : "article",
-  "role" : "collectionGroup",
-  "title" : "Equatable Implementations",
-  "type" : "topic",
-  "url" : "\/documentation\/swiftyholidays\/holidaydate\/equatable-implementations"
 }
 }
 }
