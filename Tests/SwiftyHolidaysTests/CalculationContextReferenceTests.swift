@@ -1,7 +1,9 @@
-import XCTest
+import Foundation
+import Testing
 @testable import SwiftyHolidays
 
-final class CalculationContextReferenceTests: XCTestCase {
+@Suite
+struct CalculationContextReferenceTests {
     private final class MockContext: Equatable, CalculationContext {
         let id: String
 
@@ -16,33 +18,37 @@ final class CalculationContextReferenceTests: XCTestCase {
         static func ==(lhs: MockContext, rhs: MockContext) -> Bool { lhs.id == rhs.id }
     }
 
-    func testGettingContext() {
+    @Test
+    func gettingContext() {
         let ctx = MockContext()
         let ref = CalculationContextReference(context: ctx)
-        XCTAssertEqual(ref.context, ctx)
+        #expect(ref.context == ctx)
+        #expect(ref.context === ctx)
     }
 
-    func testMutatingContext() {
+    @Test
+    func mutatingContext() {
         let ctx = MockContext()
         let ref = CalculationContextReference(context: ctx)
         let result: String = ref.withContext {
             $0.boolValue = true
             return "Test"
         }
-        XCTAssertTrue(ctx.boolValue)
-        XCTAssertEqual(result, "Test")
+        #expect(ctx.boolValue)
+        #expect(result == "Test")
         ref.withContext {
             $0.boolValue = false
         }
-        XCTAssertFalse(ctx.boolValue)
+        #expect(!ctx.boolValue)
     }
 
-    func testExchangingContexts() {
+    @Test
+    func exchangingContexts() {
         let ctx1 = MockContext()
         let ctx2 = MockContext()
         let ref = CalculationContextReference(context: ctx1)
         let old = ref.exchange(with: ctx2)
-        XCTAssertEqual(old, ctx1)
-        XCTAssertEqual(ref.context, ctx2)
+        #expect(old === ctx1)
+        #expect(ref.context === ctx2)
     }
 }

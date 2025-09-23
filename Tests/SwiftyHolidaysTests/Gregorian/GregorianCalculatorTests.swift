@@ -1,200 +1,160 @@
-import XCTest
+import Testing
 @testable import SwiftyHolidays
 
-final class GregorianCalculatorTests: XCTestCase {
+@Suite
+struct GregorianCalculatorTests {
     private let calculator = GregorianCalculator()
 
-    override func setUp() {
-        super.setUp()
-        calculator.initialize(with: .init())
+    @Test(arguments: [2019, 2024, 2040])
+    func newYearsDay(year: Int) {
+        #expect(calculator.newYearsDay(forYear: year) == HolidayDate(day: 1, month: 1, year: year))
     }
 
-    func testNewYearsDay() {    
-        XCTAssertEqual(calculator.newYearsDay(forYear: 2019), HolidayDate(day: 1, month: 1, year: 2019))
+    @Test
+    func epiphany() {
+        #expect(calculator.epiphany(forYear: 2019) == HolidayDate(day: 6, month: 1, year: 2019))
     }
 
-    func testEpiphany() {
-        XCTAssertEqual(calculator.epiphany(forYear: 2019), HolidayDate(day: 6, month: 1, year: 2019))
+    @Test
+    func palmSunday() {
+        #expect(calculator.palmSunday(forYear: 2019) == HolidayDate(day: 14, month: 4, year: 2019))
     }
 
-    func testPalmSunday() {
-        XCTAssertEqual(calculator.palmSunday(forYear: 2019), HolidayDate(day: 14, month: 4, year: 2019))
+    @Test
+    func maundyThursday() {
+        #expect(calculator.maundyThursday(forYear: 2019) == HolidayDate(day: 18, month: 4, year: 2019))
     }
 
-    func testMaundyThursday() {
-        XCTAssertEqual(calculator.maundyThursday(forYear: 2019), HolidayDate(day: 18, month: 4, year: 2019))
+    @Test
+    func goodFriday() {
+        #expect(calculator.goodFriday(forYear: 2019) == HolidayDate(day: 19, month: 4, year: 2019))
     }
 
-    func testGoodFriday() {
-        XCTAssertEqual(calculator.goodFriday(forYear: 2019), HolidayDate(day: 19, month: 4, year: 2019))
+    @Test
+    func holySaturday() {
+        #expect(calculator.holySaturday(forYear: 2019) == HolidayDate(day: 20, month: 4, year: 2019))
     }
 
-    func testHolySaturday() {
-        XCTAssertEqual(calculator.holySaturday(forYear: 2019), HolidayDate(day: 20, month: 4, year: 2019))
+    @Test
+    func easterSunday() {
+        #expect(calculator.easterSunday(forYear: 2019) == HolidayDate(day: 21, month: 4, year: 2019))
     }
 
-    func testEasterSunday() {
-        XCTAssertEqual(calculator.easterSunday(forYear: 2019), HolidayDate(day: 21, month: 4, year: 2019))
+    @Test
+    func easterMonday() {
+        #expect(calculator.easterMonday(forYear: 2019) == HolidayDate(day: 22, month: 4, year: 2019))
     }
 
-    func testEasterMonday() {
-        XCTAssertEqual(calculator.easterMonday(forYear: 2019), HolidayDate(day: 22, month: 4, year: 2019))
+    @Test(arguments: [2019, 2024, 2040])
+    func internationalWorkersDay(year: Int) {
+        #expect(calculator.internationalWorkersDay(forYear: year) == HolidayDate(day: 1, month: 5, year: year))
     }
 
-    func testInternationalWorkersDay() {
-        XCTAssertEqual(calculator.internationalWorkersDay(forYear: 2019), HolidayDate(day: 1, month: 5, year: 2019))
+    @Test(arguments: [2019, 2024, 2040])
+    func laborDay(year: Int) {
+        #expect(calculator.laborDay(forYear: year) == calculator.internationalWorkersDay(forYear: year))
     }
 
-    func testLaborDay() {
-        XCTAssertEqual(calculator.laborDay(forYear: 2019), calculator.internationalWorkersDay(forYear: 2019))
+    @Test(arguments: [2019, 2024, 2040])
+    func mayDay(year: Int) {
+        #expect(calculator.mayDay(forYear: year) == calculator.internationalWorkersDay(forYear: year))
     }
 
-    func testMayDay() {
-        XCTAssertEqual(calculator.mayDay(forYear: 2019), calculator.internationalWorkersDay(forYear: 2019))
+    @Test
+    func ascensionDay() {
+        #expect(calculator.ascensionDay(forYear: 2019) == HolidayDate(day: 30, month: 5, year: 2019))
     }
 
-    func testAscensionDay() {
-        XCTAssertEqual(calculator.ascensionDay(forYear: 2019), HolidayDate(day: 30, month: 5, year: 2019))
+    @Test
+    func pentecost() {
+        #expect(calculator.pentecost(forYear: 2019) == HolidayDate(day: 9, month: 6, year: 2019))
     }
 
-    func testPentecost() {
-        XCTAssertEqual(calculator.pentecost(forYear: 2019), HolidayDate(day: 9, month: 6, year: 2019))
+    @Test
+    func whitMonday() {
+        #expect(calculator.whitMonday(forYear: 2019) == HolidayDate(day: 10, month: 6, year: 2019))
     }
 
-    func testWhitMonday() {
-        XCTAssertEqual(calculator.whitMonday(forYear: 2019), HolidayDate(day: 10, month: 6, year: 2019))
+    @Test
+    func corpusCristi() {
+        #expect(calculator.corpusChristi(forYear: 2019) == HolidayDate(day: 20, month: 6, year: 2019))
     }
 
-    func testCorpusCristi() {
-        XCTAssertEqual(calculator.corpusChristi(forYear: 2019), HolidayDate(day: 20, month: 6, year: 2019))
+    @Test
+    func sundayAfterCorpusCristi() {
+        #expect(calculator.sundayAfterCorpusChristi(forYear: 2019) == HolidayDate(day: 23, month: 6, year: 2019))
     }
 
-    func testSundayAfterCorpusCristi() {
-        XCTAssertEqual(calculator.sundayAfterCorpusChristi(forYear: 2019), HolidayDate(day: 23, month: 6, year: 2019))
+    @Test(arguments: [2019, 2024, 2040])
+    func halloween(year: Int) {
+        #expect(calculator.halloween(forYear: year) == HolidayDate(day: 31, month: 10, year: year))
     }
 
-    func testHalloween() {
-        XCTAssertEqual(calculator.halloween(forYear: 2019), HolidayDate(day: 31, month: 10, year: 2019))
+    @Test(arguments: [2019, 2024, 2040])
+    func allSaints(year: Int) {
+        #expect(calculator.allSaints(forYear: year) == HolidayDate(day: 1, month: 11, year: year))
     }
 
-    func testAllSaints() {
-        XCTAssertEqual(calculator.allSaints(forYear: 2019), HolidayDate(day: 1, month: 11, year: 2019))
+    @Test(arguments: [2019, 2024, 2040])
+    func allSouls(year: Int) {
+        #expect(calculator.allSouls(forYear: year) == HolidayDate(day: 2, month: 11, year: year))
     }
 
-    func testAllSouls() {
-        XCTAssertEqual(calculator.allSouls(forYear: 2019), HolidayDate(day: 2, month: 11, year: 2019))
+    @Test
+    func firstSundayOfAdvent() {
+        #expect(calculator.firstSundayOfAdvent(forYear: 2019) == HolidayDate(day: 1, month: 12, year: 2019))
     }
 
-    func testFirstSundayOfAdvent() {
-        XCTAssertEqual(calculator.firstSundayOfAdvent(forYear: 2019), HolidayDate(day: 1, month: 12, year: 2019))
+    @Test
+    func secondSundayOfAdvent() {
+        #expect(calculator.secondSundayOfAdvent(forYear: 2019) == HolidayDate(day: 8, month: 12, year: 2019))
     }
 
-    func testSecondSundayOfAdvent() {
-        XCTAssertEqual(calculator.secondSundayOfAdvent(forYear: 2019), HolidayDate(day: 8, month: 12, year: 2019))
+    @Test
+    func thirdSundayOfAdvent() {
+        #expect(calculator.thirdSundayOfAdvent(forYear: 2019) == HolidayDate(day: 15, month: 12, year: 2019))
     }
 
-    func testThirdSundayOfAdvent() {
-        XCTAssertEqual(calculator.thirdSundayOfAdvent(forYear: 2019), HolidayDate(day: 15, month: 12, year: 2019))
+    @Test
+    func fourthSundayOfAdvent() {
+        #expect(calculator.fourthSundayOfAdvent(forYear: 2019) == HolidayDate(day: 22, month: 12, year: 2019))
     }
 
-    func testFourthSundayOfAdvent() {
-        XCTAssertEqual(calculator.fourthSundayOfAdvent(forYear: 2019), HolidayDate(day: 22, month: 12, year: 2019))
+    @Test(arguments: [2019, 2024, 2040])
+    func christmasEve(year: Int) {
+        #expect(calculator.christmasEve(forYear: year) == HolidayDate(day: 24, month: 12, year: year))
     }
 
-    func testChristmasEve() {
-        XCTAssertEqual(calculator.christmasEve(forYear: 2019), HolidayDate(day: 24, month: 12, year: 2019))
+    @Test(arguments: [2019, 2024, 2040])
+    func christmasDay(year: Int) {
+        #expect(calculator.christmasDay(forYear: year) == HolidayDate(day: 25, month: 12, year: year))
     }
 
-    func testChristmasDay() {
-        XCTAssertEqual(calculator.christmasDay(forYear: 2019), HolidayDate(day: 25, month: 12, year: 2019))
+    @Test(arguments: [2019, 2024, 2040])
+    func dayAfterChristmasDay(year: Int) {
+        #expect(calculator.dayAfterChristmasDay(forYear: year) == HolidayDate(day: 26, month: 12, year: year))
     }
 
-    func testDayAfterChristmasDay() {
-        XCTAssertEqual(calculator.dayAfterChristmasDay(forYear: 2019), HolidayDate(day: 26, month: 12, year: 2019))
+    @Test(arguments: [2019, 2024, 2040])
+    func newYearsEve(year: Int) {
+        #expect(calculator.newYearsEve(forYear: year) == HolidayDate(day: 31, month: 12, year: year))
     }
 
-    func testNewYearsEve() {
-        XCTAssertEqual(calculator.newYearsEve(forYear: 2019), HolidayDate(day: 31, month: 12, year: 2019))
+    @Test
+    func easterSunday2033() {
+        #expect(calculator.easterSunday(forYear: 2033) == HolidayDate(day: 17, month: 04, year: 2033))
     }
 
-    func testEasterSunday2033() {
-        XCTAssertEqual(calculator.easterSunday(forYear: 2033), HolidayDate(day: 17, month: 04, year: 2033))
+    @Test
+    func easterMonday2033() {
+        #expect(calculator.easterMonday(forYear: 2033) == HolidayDate(day: 18, month: 04, year: 2033))
     }
 
-    func testEasterMonday2033() {
-        XCTAssertEqual(calculator.easterMonday(forYear: 2033), HolidayDate(day: 18, month: 04, year: 2033))
-    }
-
-    func testInitializing() {
+    @Test
+    func initializing() {
         _ = calculator.easterSunday(forYear: 2019)
-        let sema = DispatchSemaphore(value: 0)
-        calculator.contextRef.withContext { $0.semaphores[2019, default: [:]][.easterSunday] = sema }
+        _ = calculator.easterSunday(forYear: 2024)
         calculator.initialize(with: .init())
-        XCTAssertTrue(calculator.context.storage.isEmpty)
-        XCTAssertEqual(sema.wait(timeout: .now()), .success)
+        #expect(calculator.context.storage.isEmpty)
     }
-
-    func testAwaitingCalculation() {
-        let sema = DispatchSemaphore(value: 0)
-        let date = HolidayDate(day: 21, month: 4, year: 2019)
-        calculator.contextRef.withContext { $0.semaphores[date.year, default: [:]][.easterSunday] = sema }
-        let awaitExpectation = expectation(description: "Waiting for the calculator to wait for the semaphore")
-        awaitExpectation.isInverted = true
-        DispatchQueue.global().async { [calculator] in
-            _ = calculator.easterSunday(forYear: date.year)
-            awaitExpectation.fulfill()
-        }
-        wait(for: [awaitExpectation], timeout: 2)
-        calculator.contextRef.withContext { $0.fulfill(.easterSunday, with: date) }
-        let calcExpectation = expectation(description: "Waiting for the calculator to return the calculated result")
-        final class Box: @unchecked Sendable {
-            var result: HolidayDate?
-        }
-        let box = Box()
-        DispatchQueue.global().async { [calculator] in
-            box.result = calculator.easterSunday(forYear: date.year)
-            calcExpectation.fulfill()
-        }
-        wait(for: [calcExpectation], timeout: 2)
-        XCTAssertEqual(box.result, date)
-    }
-
-    // TODO: Figure out how this could work
-//    func testAwaitingCalculationWhenSemaphoreIsCreatedDuringContextLock() {
-//        let contextLock = Mirror(reflecting: calculator.contextRef).descendant("contextLock") as! DispatchQueue
-//        let sema = DispatchSemaphore(value: 0)
-//        let date = HolidayDate(day: 21, month: 4, year: 2019)
-//        let lockExpectation = expectation(description: "Waiting for the calculator to lock the context")
-//        let semaInPlaceExpectation = expectation(description: "Waiting for the semaphore to be put in place")
-//        let unlockExpectation = expectation(description: "Waiting to free the lock")
-//        contextLock.async {
-//            self.wait(for: [lockExpectation], timeout: 3)
-//            DispatchQueue.global().async {
-//                unlockExpectation.fulfill()
-//                self.calculator.contextRef.withContextVoid {
-//                    $0.semaphores[date.year, default: [:]][.easterSunday] = sema
-//                }
-//                semaInPlaceExpectation.fulfill()
-//            }
-//            self.wait(for: [unlockExpectation], timeout: 2)
-//        }
-//        let awaitExpectation = expectation(description: "Waiting for the calculator to wait for the semaphore")
-//        awaitExpectation.isInverted = true
-//        DispatchQueue.global().async {
-//            DispatchQueue.global().asyncAfter(deadline: .now() + 1) { lockExpectation.fulfill() }
-//            _ = self.calculator.easterSunday(forYear: date.year)
-//            awaitExpectation.fulfill()
-//        }
-//        wait(for: [awaitExpectation], timeout: 2)
-//        wait(for: [semaInPlaceExpectation], timeout: 2)
-//        calculator.contextRef.withContextVoid { $0.fulfill(.easterSunday, with: date) }
-//        let calcExpectation = expectation(description: "Waiting for the calculator to return the calculated result")
-//        var result: HolidayDate?
-//        DispatchQueue.global().async {
-//            result = self.calculator.easterSunday(forYear: date.year)
-//            calcExpectation.fulfill()
-//        }
-//        wait(for: [calcExpectation], timeout: 2)
-//        XCTAssertEqual(result, date)
-//    }
 }

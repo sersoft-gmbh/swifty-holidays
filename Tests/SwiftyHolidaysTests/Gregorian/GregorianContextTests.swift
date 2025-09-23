@@ -1,116 +1,75 @@
-import XCTest
+import Foundation
+import Testing
 @testable import SwiftyHolidays
 
-final class GregorianContextTests: XCTestCase {
+@Suite
+struct GregorianContextTests {
     private var context = GregorianCalculationContext()
 
-    override func setUp() {
-        super.setUp()
-
-        context = GregorianCalculationContext()
+    @Test
+    func initializiation() {
+        #expect(context.storage.isEmpty)
     }
 
-    func testInitializiation() {
-        XCTAssertTrue(context.storage.isEmpty)
-        XCTAssertTrue(context.semaphores.isEmpty)
+    @Test(arguments: [2019, 2024, 2040])
+    func retrievingNil(year: Int) {
+        #expect(context[.easterSunday, forYear: year] == nil)
     }
 
-    func testRetrievingNil() {
-        XCTAssertNil(context[.easterSunday, forYear: 2019])
+    @Test(arguments: [2019, 2024, 2040])
+    mutating func storing(year: Int) {
+        #expect(context[.easterSunday, forYear: year] == nil)
+        let date = HolidayDate(day: 21, month: 4, year: year)
+        context[.easterSunday, forYear: year] = date
+        #expect(context[.easterSunday, forYear: year] == date)
     }
 
-    func testStoredRetrievingStoredOrNew() {
-        let date = HolidayDate(day: 21, month: 4, year: 2019)
-        let new = context[storedFor: .easterSunday, forYear: date.year]
-        XCTAssertTrue(new.wasCreated)
-        switch new.0 {
-        case .waiting(let sema): XCTAssertEqual(sema.signal(), 0)
-        case .fulfilled(_): XCTFail()
-        }
-        let sema = DispatchSemaphore(value: 0)
-        context.semaphores[date.year, default: [:]][.easterSunday] = sema
-        let waiting = context[storedFor: .easterSunday, forYear: date.year]
-        XCTAssertFalse(waiting.wasCreated)
-        switch waiting.0 {
-        case .waiting(let sema): XCTAssertEqual(sema.signal(), 0)
-        case .fulfilled(_): XCTFail()
-        }
-        context.semaphores[date.year, default: [:]][.easterSunday] = nil
-        context.storage[date.year, default: [:]][.easterSunday] = date
-        let existing = context[storedFor: .easterSunday, forYear: date.year]
-        XCTAssertFalse(existing.wasCreated)
-        switch existing.0 {
-        case .waiting(_): XCTFail()
-        case .fulfilled(let fulfilledDate): XCTAssertEqual(fulfilledDate, date)
-        }
-    }
-
-    func testFulfillingNonExisting() {
-        let date = HolidayDate(day: 21, month: 4, year: 2019)
+    @Test(arguments: [2019, 2024, 2040])
+    @available(*, deprecated)
+    mutating func fulfillingNonExisting(year: Int) {
+        let date = HolidayDate(day: 21, month: 4, year: year)
         context.fulfill(.easterSunday, with: date)
-        XCTAssertEqual(context.storage[date.year]?[.easterSunday], date)
+        #expect(context.storage[year]?[.easterSunday] == date)
     }
 
-    func testFulfillingExisting() {
-        let date = HolidayDate(day: 21, month: 4, year: 2019)
-        let new = context[storedFor: .easterSunday, forYear: date.year]
-        XCTAssertTrue(new.wasCreated)
-        context.fulfill(.easterSunday, with: date)
-        XCTAssertEqual(context.storage[date.year]?[.easterSunday], date)
-    }
-
-    func testClearing() {
-        let easterSunday = HolidayDate(day: 21, month: 4, year: 2019)
-        let easterMonday = HolidayDate(day: 22, month: 4, year: 2019)
-        let goodFridaySema = DispatchSemaphore(value: 0)
-        let holySaturdaySema = DispatchSemaphore(value: 0)
-        context.semaphores[2019, default: [:]][.goodFriday] = goodFridaySema
-        context.semaphores[2019, default: [:]][.holySaturday] = holySaturdaySema
-        context.storage[easterSunday.year, default: [:]][.easterSunday] = easterSunday
-        context.storage[easterMonday.year, default: [:]][.easterMonday] = easterMonday
-        XCTAssertFalse(context.storage.isEmpty)
-        XCTAssertFalse(context.semaphores.isEmpty)
+    @Test(arguments: [2019, 2024, 2040])
+    mutating func clearing(year: Int) {
+        let easterSunday = HolidayDate(day: 21, month: 4, year: year)
+        let easterMonday = HolidayDate(day: 22, month: 4, year: year)
+        context.storage[year, default: [:]][.easterSunday] = easterSunday
+        context.storage[year, default: [:]][.easterMonday] = easterMonday
+        #expect(!context.storage.isEmpty)
         context.clear()
-        XCTAssertTrue(context.storage.isEmpty)
-        XCTAssertTrue(context.semaphores.isEmpty)
-        XCTAssertEqual(goodFridaySema.wait(timeout: .now()), .success)
-        XCTAssertEqual(holySaturdaySema.wait(timeout: .now()), .success)
+        #expect(context.storage.isEmpty)
     }
 
-    func testMerging() {
+    @Test(arguments: [2019, 2024, 2040])
+    mutating func merging(year: Int) {
         var otherContext = GregorianCalculationContext()
-        let goodFriday = HolidayDate(day: 19, month: 4, year: 2019)
-        let holySaturday = HolidayDate(day: 20, month: 4, year: 2019)
-        let easterSunday = HolidayDate(day: 21, month: 4, year: 2019)
-        let easterMonday = HolidayDate(day: 22, month: 4, year: 2019)
-        let goodFridaySema = DispatchSemaphore(value: 0)
-        context.semaphores[goodFriday.year, default: [:]][.goodFriday] = goodFridaySema
-        context.semaphores[easterSunday.year, default: [:]][.easterSunday] = DispatchSemaphore(value: 0)
-        context.storage[holySaturday.year, default: [:]][.holySaturday] = holySaturday
-        otherContext.semaphores[easterSunday.year, default: [:]][.easterSunday] = DispatchSemaphore(value: 0)
-        otherContext.storage[goodFriday.year, default: [:]][.goodFriday] = goodFriday
-        otherContext.storage[holySaturday.year, default: [:]][.holySaturday] = holySaturday
-        otherContext.storage[easterMonday.year, default: [:]][.easterMonday] = easterMonday
+        let goodFriday = HolidayDate(day: 19, month: 4, year: year)
+        let holySaturday = HolidayDate(day: 20, month: 4, year: year)
+        let easterSunday = HolidayDate(day: 21, month: 4, year: year)
+        let easterMonday = HolidayDate(day: 22, month: 4, year: year)
+        context.storage[year, default: [:]][.holySaturday] = holySaturday
+        otherContext.storage[year, default: [:]][.goodFriday] = goodFriday
+        otherContext.storage[year, default: [:]][.holySaturday] = holySaturday
+        otherContext.storage[year, default: [:]][.easterMonday] = easterMonday
         context.merge(with: otherContext)
-        XCTAssertEqual(context.semaphores.count, 1)
-        XCTAssertEqual(context.semaphores.values.first?.count, 1)
-        XCTAssertEqual(context.storage.count, 1)
-        XCTAssertEqual(context.storage.values.first?.count, 3)
-        XCTAssertEqual(goodFridaySema.wait(timeout: .now()), .success)
+        #expect(context.storage.count == 1)
+        #expect(context.storage.values.first?.count == 3)
     }
 
-    func testCoding() throws {
-        let easterSunday = HolidayDate(day: 21, month: 4, year: 2019)
-        let easterMonday = HolidayDate(day: 22, month: 4, year: 2019)
-        context.fulfill(.easterSunday, with: easterSunday)
-        context.fulfill(.easterMonday, with: easterMonday)
-        context.semaphores[2019, default: [:]][.goodFriday] = DispatchSemaphore(value: 0)
+    @Test(arguments: [2019, 2024, 2040])
+    mutating func coding(year: Int) throws {
+        let easterSunday = HolidayDate(day: 21, month: 4, year: year)
+        let easterMonday = HolidayDate(day: 22, month: 4, year: year)
+        context[.easterSunday, forYear: year] = easterSunday
+        context[.easterMonday, forYear: year] = easterMonday
         let data = try JSONEncoder().encode(context)
         let decodedContext = try JSONDecoder().decode(GregorianCalculationContext.self, from: data)
-        XCTAssertEqual(decodedContext.storage.count, context.storage.count)
-        XCTAssertEqual(decodedContext.storage.keys, context.storage.keys)
-        XCTAssertEqual(decodedContext.storage[2019]?.count, context.storage[2019]?.count)
-        XCTAssertEqual(decodedContext.storage[2019]?.keys, context.storage[2019]?.keys)
-        XCTAssertTrue(decodedContext.semaphores.isEmpty)
+        #expect(decodedContext.storage.count == context.storage.count)
+        #expect(decodedContext.storage.keys == context.storage.keys)
+        #expect(decodedContext.storage[year]?.count == context.storage[year]?.count)
+        #expect(decodedContext.storage[year]?.keys == context.storage[year]?.keys)
     }
 }

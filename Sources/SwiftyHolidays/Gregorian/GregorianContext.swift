@@ -1,19 +1,12 @@
-public import class Dispatch.DispatchSemaphore
-
 /// Represents the context that is used by the GregorianCalculator.
 public struct GregorianCalculationContext: CalculationContext {
     /// The storage that the context uses to cache the results.
     @usableFromInline
     /*private but @usableFromInline*/ var storage: Dictionary<Int, Dictionary<StorageKey, HolidayDate>>
 
-    /// The semaphoers of the context's ongoing calculations
-    @usableFromInline
-    /*private but @usableFromInline*/ var semaphores: Dictionary<Int, Dictionary<StorageKey, DispatchSemaphore>>
-
     /// Creates a new context with an empty storage.
     init() {
         storage = .init()
-        semaphores = .init()
     }
 
     public init(from decoder: any Decoder) throws {
@@ -24,7 +17,6 @@ public struct GregorianCalculationContext: CalculationContext {
                 try ($0, yearKeyedContainer.decode(HolidayDate.self, forKey: $0))
             }))
         })
-        semaphores = .init()
     }
 
     public func encode(to encoder: any Encoder) throws {
@@ -41,7 +33,7 @@ public struct GregorianCalculationContext: CalculationContext {
         other.storage.values.forEach {
             $0.forEach { key, date in
                 assert((storage[date.year]?[key]).map { $0 == date } != false)
-                fulfill(key, with: date)
+                storage[date.year, default: [:]][key] = date
             }
         }
     }
@@ -51,10 +43,6 @@ public struct GregorianCalculationContext: CalculationContext {
     @usableFromInline
     mutating func clear(keepingCapacity: Bool) {
         storage.removeAll(keepingCapacity: keepingCapacity)
-        let currentSemaphores = semaphores.values
-        semaphores.removeAll(keepingCapacity: keepingCapacity)
-        // Signal waiting promises, so they don't get stuck.
-        currentSemaphores.lazy.flatMap(\.values).forEach { $0.signal() }
     }
 
     @inlinable
@@ -70,23 +58,10 @@ extension GregorianCalculationContext {
     ///   - key: The storage key for which to return the promise.
     ///   - year: The year for which to return the promise.
     @inlinable
-    subscript(_ key: StorageKey, forYear year: Int) -> CalculationPromise<HolidayDate>? {
-        (storage[year]?[key]).map { .fulfilled($0) } ?? (semaphores[year]?[key]).map { .waiting($0) }
-    }
-
-    /// Returns an existing calculation promise for a given key in a given year, or creates a new one if none exists yet.
-    /// In the resulting tuple, there is also the information whether or not the promise was created.
-    /// - Parameters:
-    ///   - key: The storage key for which to return the promise.
-    ///   - year: The year for which to return the promise.
-    @inlinable
-    subscript(storedFor key: StorageKey, forYear year: Int) -> (CalculationPromise<HolidayDate>, wasCreated: Bool) {
-        mutating get {
-            if let existing = self[key, forYear: year] { return (existing, false) }
-            let new = DispatchSemaphore(value: 0)
-            semaphores[year, default: [:]][key] = new
-            return (.waiting(new), true)
-        }
+    subscript(_ key: StorageKey, forYear year: Int) -> HolidayDate? {
+        get { storage[year]?[key] }
+        set { storage[year, default: [:]][key] = newValue }
+        _modify { yield &storage[year, default: [:]][key] }
     }
 
     /// Fulfills the promise for a given key in a given year with a given date.
@@ -95,9 +70,9 @@ extension GregorianCalculationContext {
     ///   - key: The storage key for which to fulfill the promise.
     ///   - date: The date to fulfill the promise with.
     @inlinable
+    @available(*, deprecated)
     mutating func fulfill(_ key: StorageKey, with date: HolidayDate) {
         storage[date.year, default: [:]][key] = date
-        semaphores[date.year]?.removeValue(forKey: key)?.signal()
     }
 }
 

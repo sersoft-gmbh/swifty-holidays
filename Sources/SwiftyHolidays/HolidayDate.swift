@@ -11,7 +11,9 @@ public struct HolidayDate: Sendable, Hashable, Comparable, Codable, CustomString
     public var year: Int
 
     @inlinable
-    public var description: String { String(format: "%04d-%02d-%02d", year, month, day) }
+    public var description: String {
+        "\(String(year).zeroLPad(toLength: 4))-\(String(month).zeroLPad(toLength: 2))-\(String(day).zeroLPad(toLength: 2))"
+    }
 
     /// The date components that have its `year`, `month` and `day` component set to the respective properties of the holiday date.
     @inlinable
@@ -56,6 +58,14 @@ public struct HolidayDate: Sendable, Hashable, Comparable, Codable, CustomString
     @inlinable
     public static func < (lhs: Self, rhs: Self) -> Bool {
         (lhs.year, lhs.month, lhs.day) < (rhs.year, rhs.month, rhs.day)
+    }
+}
+
+extension String {
+    @inlinable
+    func zeroLPad(toLength newLength: Int) -> String {
+        if count >= newLength { return self }
+        return String(repeating: "0", count: newLength - count) + self
     }
 }
 
