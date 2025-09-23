@@ -74,7 +74,7 @@
     ],
     "remoteSource" : {
       "fileName" : "HolidayDate.swift",
-      "url" : "https:\/\/github.com\/sersoft-gmbh\/swifty-holidays\/blob\/refs\/heads\/main\/Sources\/SwiftyHolidays\/HolidayDate.swift#L57"
+      "url" : "https:\/\/github.com\/sersoft-gmbh\/swifty-holidays\/blob\/refs\/heads\/main\/Sources\/SwiftyHolidays\/HolidayDate.swift#L59"
     },
     "role" : "symbol",
     "roleHeading" : "Operator",
@@ -191,7 +191,10 @@
 "references": {
 "doc://SwiftyHolidays/documentation/SwiftyHolidays": {
   "abstract" : [
-
+    {
+      "text" : "A holiday calculator written in Swift.",
+      "type" : "text"
+    }
   ],
   "identifier" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays",
   "kind" : "symbol",

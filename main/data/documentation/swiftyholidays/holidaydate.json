@@ -100,7 +100,8 @@
         "doc:\/\/SwiftyHolidays\/SE",
         "doc:\/\/SwiftyHolidays\/SQ",
         "doc:\/\/SwiftyHolidays\/SH",
-        "doc:\/\/SwiftyHolidays\/s8SendableP"
+        "doc:\/\/SwiftyHolidays\/s8SendableP",
+        "doc:\/\/SwiftyHolidays\/s16SendableMetatypeP"
       ],
       "kind" : "relationships",
       "title" : "Conforms To",
@@ -204,7 +205,10 @@
 },
 "doc://SwiftyHolidays/documentation/SwiftyHolidays": {
   "abstract" : [
-
+    {
+      "text" : "A holiday calculator written in Swift.",
+      "type" : "text"
+    }
   ],
   "identifier" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays",
   "kind" : "symbol",
@@ -742,6 +746,11 @@
 "doc://SwiftyHolidays/s15BitwiseCopyableP": {
   "identifier" : "doc:\/\/SwiftyHolidays\/s15BitwiseCopyableP",
   "title" : "Swift.BitwiseCopyable",
+  "type" : "unresolvable"
+},
+"doc://SwiftyHolidays/s16SendableMetatypeP": {
+  "identifier" : "doc:\/\/SwiftyHolidays\/s16SendableMetatypeP",
+  "title" : "Swift.SendableMetatype",
   "type" : "unresolvable"
 },
 "doc://SwiftyHolidays/s23CustomStringConvertibleP": {

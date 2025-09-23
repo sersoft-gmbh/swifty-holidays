@@ -86,7 +86,8 @@
     {
       "identifiers" : [
         "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/Calculator",
-        "doc:\/\/SwiftyHolidays\/s8SendableP"
+        "doc:\/\/SwiftyHolidays\/s8SendableP",
+        "doc:\/\/SwiftyHolidays\/s16SendableMetatypeP"
       ],
       "kind" : "relationships",
       "title" : "Conforms To",
@@ -187,7 +188,10 @@
 "references": {
 "doc://SwiftyHolidays/documentation/SwiftyHolidays": {
   "abstract" : [
-
+    {
+      "text" : "A holiday calculator written in Swift.",
+      "type" : "text"
+    }
   ],
   "identifier" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays",
   "kind" : "symbol",
@@ -1919,6 +1923,11 @@
   "title" : "whitMonday(forYear:)",
   "type" : "topic",
   "url" : "\/documentation\/swiftyholidays\/gregoriancalculator\/whitmonday(foryear:)"
+},
+"doc://SwiftyHolidays/s16SendableMetatypeP": {
+  "identifier" : "doc:\/\/SwiftyHolidays\/s16SendableMetatypeP",
+  "title" : "Swift.SendableMetatype",
+  "type" : "unresolvable"
 },
 "doc://SwiftyHolidays/s8SendableP": {
   "identifier" : "doc:\/\/SwiftyHolidays\/s8SendableP",

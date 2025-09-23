@@ -121,7 +121,10 @@
 "references": {
 "doc://SwiftyHolidays/documentation/SwiftyHolidays": {
   "abstract" : [
-
+    {
+      "text" : "A holiday calculator written in Swift.",
+      "type" : "text"
+    }
   ],
   "identifier" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays",
   "kind" : "symbol",

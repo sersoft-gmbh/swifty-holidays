@@ -56,7 +56,7 @@
     ],
     "remoteSource" : {
       "fileName" : "GregorianContext.swift",
-      "url" : "https:\/\/github.com\/sersoft-gmbh\/swifty-holidays\/blob\/refs\/heads\/main\/Sources\/SwiftyHolidays\/Gregorian\/GregorianContext.swift#L40"
+      "url" : "https:\/\/github.com\/sersoft-gmbh\/swifty-holidays\/blob\/refs\/heads\/main\/Sources\/SwiftyHolidays\/Gregorian\/GregorianContext.swift#L32"
     },
     "role" : "symbol",
     "roleHeading" : "Instance Method",
@@ -154,7 +154,10 @@
 "references": {
 "doc://SwiftyHolidays/documentation/SwiftyHolidays": {
   "abstract" : [
-
+    {
+      "text" : "A holiday calculator written in Swift.",
+      "type" : "text"
+    }
   ],
   "identifier" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays",
   "kind" : "symbol",

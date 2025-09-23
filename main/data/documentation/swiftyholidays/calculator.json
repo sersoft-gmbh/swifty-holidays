@@ -112,7 +112,8 @@
   "relationshipsSections" : [
     {
       "identifiers" : [
-        "doc:\/\/SwiftyHolidays\/s8SendableP"
+        "doc:\/\/SwiftyHolidays\/s8SendableP",
+        "doc:\/\/SwiftyHolidays\/s16SendableMetatypeP"
       ],
       "kind" : "relationships",
       "title" : "Inherits From",
@@ -179,7 +180,10 @@
 "references": {
 "doc://SwiftyHolidays/documentation/SwiftyHolidays": {
   "abstract" : [
-
+    {
+      "text" : "A holiday calculator written in Swift.",
+      "type" : "text"
+    }
   ],
   "identifier" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays",
   "kind" : "symbol",
@@ -518,6 +522,11 @@
   "title" : "GregorianCalculator",
   "type" : "topic",
   "url" : "\/documentation\/swiftyholidays\/gregoriancalculator"
+},
+"doc://SwiftyHolidays/s16SendableMetatypeP": {
+  "identifier" : "doc:\/\/SwiftyHolidays\/s16SendableMetatypeP",
+  "title" : "Swift.SendableMetatype",
+  "type" : "unresolvable"
 },
 "doc://SwiftyHolidays/s8SendableP": {
   "identifier" : "doc:\/\/SwiftyHolidays\/s8SendableP",
