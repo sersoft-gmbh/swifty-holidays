@@ -1,4 +1,10 @@
 {
+  "abstract" : [
+    {
+      "text" : "The calendar this calculator uses for its calculations.",
+      "type" : "text"
+    }
+  ],
   "hierarchy" : {
     "paths" : [
       [
@@ -87,6 +93,33 @@
         }
       ],
       "kind" : "declarations"
+    },
+    {
+      "content" : [
+        {
+          "anchor" : "discussion",
+          "level" : 2,
+          "text" : "Discussion",
+          "type" : "heading"
+        },
+        {
+          "content" : [
+            {
+              "inlineContent" : [
+                {
+                  "text" : "Calculators should always set the time zone of their calendar to UTC.",
+                  "type" : "text"
+                }
+              ],
+              "type" : "paragraph"
+            }
+          ],
+          "name" : "Note",
+          "style" : "note",
+          "type" : "aside"
+        }
+      ],
+      "kind" : "content"
     }
   ],
   "schemaVersion" : {
@@ -161,7 +194,10 @@
 },
 "doc://SwiftyHolidays/documentation/SwiftyHolidays/GregorianCalculator/calendar": {
   "abstract" : [
-
+    {
+      "text" : "The calendar this calculator uses for its calculations.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {

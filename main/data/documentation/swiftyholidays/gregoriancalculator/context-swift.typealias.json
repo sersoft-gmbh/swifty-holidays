@@ -1,4 +1,10 @@
 {
+  "abstract" : [
+    {
+      "text" : "The context that this calculator uses.",
+      "type" : "text"
+    }
+  ],
   "hierarchy" : {
     "paths" : [
       [
@@ -193,7 +199,10 @@
 },
 "doc://SwiftyHolidays/documentation/SwiftyHolidays/GregorianCalculator/Context-swift.typealias": {
   "abstract" : [
-
+    {
+      "text" : "The context that this calculator uses.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {

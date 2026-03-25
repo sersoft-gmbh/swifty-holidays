@@ -77,12 +77,7 @@
       }
     ],
     "platforms" : [
-      {
-        "beta" : false,
-        "deprecated" : true,
-        "renamed" : "HolidayDate",
-        "unavailable" : false
-      }
+
     ],
     "remoteSource" : {
       "fileName" : "HolidayDate.swift",
