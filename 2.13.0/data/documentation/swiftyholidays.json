@@ -1,0 +1,671 @@
+{
+  "abstract" : [
+    {
+      "text" : "A holiday calculator written in Swift.",
+      "type" : "text"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "externalID" : "SwiftyHolidays",
+    "modules" : [
+      {
+        "name" : "SwiftyHolidays"
+      }
+    ],
+    "role" : "collection",
+    "roleHeading" : "Framework",
+    "symbolKind" : "module",
+    "title" : "SwiftyHolidays"
+  },
+  "primaryContentSections" : [
+    {
+      "content" : [
+        {
+          "anchor" : "Installation",
+          "level" : 2,
+          "text" : "Installation",
+          "type" : "heading"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "Add the following dependency to your ",
+              "type" : "text"
+            },
+            {
+              "code" : "Package.swift",
+              "type" : "codeVoice"
+            },
+            {
+              "text" : ":",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        },
+        {
+          "code" : [
+            ".package(url: \"https:\/\/github.com\/sersoft-gmbh\/swifty-holidays\", from: \"2.0.0\"),"
+          ],
+          "syntax" : "swift",
+          "type" : "codeListing"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "Or add it via Xcode (as of Xcode 11).",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        },
+        {
+          "anchor" : "Usage",
+          "level" : 2,
+          "text" : "Usage",
+          "type" : "heading"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "SwiftyHolidays is built upon calculators. A calculator is responsible for calculating holidays in a given year for a certain calendar. Currently, SwiftyHolidays has a calculator for the gregorian calendar.",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "All calculations in SwiftyHolidays are thread-safe and are only performed once.",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "This means even if you ask a given calculator for a certain date from two threads in parallel, it will only be calculated once and the second thread will wait for the first to finish its calculation.",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "Certain dates (like e.g. new years eve) don’t even need to be calculated but are fixed day-month-combinations.",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "Dates, that do have to be calculated, are cached, so that the next time a certain date is requested, it does not have to be calculated but is returned immediately instead.",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "Even though calculators are usually structs, they have reference semantics and are thread-safe when it comes to their context (which e.g. contains their cache).",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "This means that you can use the calculator object in multiple places and still get the same performance by having dates calculated only once.",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "The context of a calculator can also be serialized and merged. This means that you could e.g. create a calculator, use it to calculate a few dates and then serialize its context to disk.",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "Later on, you deserialize the context and pass it to a new calculator which will then profit from the previously calculated and now already cached dates.",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "This even works across years. Meaning you can build up a cache spanning multiple years.",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "If your cache grows too large, you can always clear the context (or simply create a new calculator that uses a new context).",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "Here are a few examples:",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        },
+        {
+          "code" : [
+            "let calculator = GregorianCalculator()",
+            "\/\/ A few calculations:",
+            "let easterSunday20 = calculator.easterSunday(forYear: 2020)",
+            "\/\/ -> 2020-04-12",
+            "let firstAdvent19 = calculator.firstSundayOfAdvent(forYear: 2019)",
+            "\/\/ -> 2019-12-01",
+            "let firstAdvent20 = calculator.firstSundayOfAdvent(forYear: 2020)",
+            "\/\/ -> 2020-11-29",
+            "",
+            "",
+            "\/\/ Serialize context",
+            "let data = try JSONEncoder().encode(calculator.context)",
+            "let ctxPath = URL(fileURLWithPath: \"\/path\/to\/gregorian.ctx\")",
+            "try data.write(to: ctxPath, options: .atomic)",
+            "",
+            "\/\/ [...]",
+            "",
+            "\/\/ Deserialize context",
+            "let data = try Data(contentsOf: ctxPath)",
+            "let deserializedCtx = try JSONDecoder().decode(GregorianCalculator.Context.self, from: data)",
+            "let newCalculator = GregorianCalculator()",
+            "newCalculator.initialize(with: deserializedCtx)",
+            "\/\/ -> `newCalculator` will now have cached values for the dates calculated above. So the following calls will use the cached values instead of recalculating them.",
+            "let cachedEasterSunday20 = calculator.easterSunday(forYear: 2020)",
+            "\/\/ -> 2020-04-12",
+            "let cachedFirstAdvent19 = calculator.firstSundayOfAdvent(forYear: 2019)",
+            "\/\/ -> 2019-12-01",
+            "let cachedFirstAdvent20 = calculator.firstSundayOfAdvent(forYear: 2020)",
+            "\/\/ -> 2020-11-29"
+          ],
+          "syntax" : "swift",
+          "type" : "codeListing"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "Note that all calculations return a ",
+              "type" : "text"
+            },
+            {
+              "identifier" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/HolidayDate",
+              "isActive" : true,
+              "type" : "reference"
+            },
+            {
+              "text" : " - a date without a time component to it. This isn’t a general purpose timeless date. It simply removes the time zone problem from the calculations.",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "This is also the reason why the ",
+              "type" : "text"
+            },
+            {
+              "code" : "calendar: Foundation.Calendar",
+              "type" : "codeVoice"
+            },
+            {
+              "text" : " of a calculator always has its timezone set to UTC.",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "Once you use the results of calculations, you should use ",
+              "type" : "text"
+            },
+            {
+              "code" : "Foundation.Date",
+              "type" : "codeVoice"
+            },
+            {
+              "text" : " and ",
+              "type" : "text"
+            },
+            {
+              "code" : "Foundation.DateComponents",
+              "type" : "codeVoice"
+            },
+            {
+              "text" : " again.",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "This is fairly easy since you can always ask a ",
+              "type" : "text"
+            },
+            {
+              "identifier" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/HolidayDate",
+              "isActive" : true,
+              "type" : "reference"
+            },
+            {
+              "text" : " for its ",
+              "type" : "text"
+            },
+            {
+              "code" : "components",
+              "type" : "codeVoice"
+            },
+            {
+              "text" : " (which will return the matching ",
+              "type" : "text"
+            },
+            {
+              "code" : "DateComponents",
+              "type" : "codeVoice"
+            },
+            {
+              "text" : ")",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "or ask a calculator to return a ",
+              "type" : "text"
+            },
+            {
+              "code" : "Date",
+              "type" : "codeVoice"
+            },
+            {
+              "text" : " for a given ",
+              "type" : "text"
+            },
+            {
+              "identifier" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/HolidayDate",
+              "isActive" : true,
+              "type" : "reference"
+            },
+            {
+              "text" : " (which will use the calculators calendar to create a ",
+              "type" : "text"
+            },
+            {
+              "code" : "Date",
+              "type" : "codeVoice"
+            },
+            {
+              "text" : " from the ",
+              "type" : "text"
+            },
+            {
+              "identifier" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/HolidayDate",
+              "isActive" : true,
+              "type" : "reference"
+            },
+            {
+              "text" : ").",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        }
+      ],
+      "kind" : "content"
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "topicSections" : [
+    {
+      "anchor" : "Protocols",
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/CalculationContext",
+        "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/Calculator"
+      ],
+      "title" : "Protocols"
+    },
+    {
+      "anchor" : "Structures",
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/GregorianCalculationContext",
+        "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/GregorianCalculator",
+        "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/HolidayDate"
+      ],
+      "title" : "Structures"
+    },
+    {
+      "anchor" : "Type-Aliases",
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/TimelessDate"
+      ],
+      "title" : "Type Aliases"
+    }
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/swiftyholidays"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://SwiftyHolidays/documentation/SwiftyHolidays": {
+  "abstract" : [
+    {
+      "text" : "A holiday calculator written in Swift.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "SwiftyHolidays",
+  "type" : "topic",
+  "url" : "\/documentation\/swiftyholidays"
+},
+"doc://SwiftyHolidays/documentation/SwiftyHolidays/CalculationContext": {
+  "abstract" : [
+    {
+      "text" : "Describes a calculation context that is used by a calculator.",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "A context can be serialized and deserialized using any Coder.",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "Nevertheless the resulting serialized state should be considered opaque.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "protocol"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "CalculationContext"
+    }
+  ],
+  "identifier" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/CalculationContext",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "CalculationContext"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "CalculationContext",
+  "type" : "topic",
+  "url" : "\/documentation\/swiftyholidays\/calculationcontext"
+},
+"doc://SwiftyHolidays/documentation/SwiftyHolidays/Calculator": {
+  "abstract" : [
+    {
+      "text" : "Represents a calculator that can calculate holidays using a fixed type of calendar.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "protocol"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Calculator"
+    }
+  ],
+  "identifier" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/Calculator",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Calculator"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Calculator",
+  "type" : "topic",
+  "url" : "\/documentation\/swiftyholidays\/calculator"
+},
+"doc://SwiftyHolidays/documentation/SwiftyHolidays/GregorianCalculationContext": {
+  "abstract" : [
+    {
+      "text" : "Represents the context that is used by the GregorianCalculator.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "GregorianCalculationContext"
+    }
+  ],
+  "identifier" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/GregorianCalculationContext",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "GregorianCalculationContext"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "GregorianCalculationContext",
+  "type" : "topic",
+  "url" : "\/documentation\/swiftyholidays\/gregoriancalculationcontext"
+},
+"doc://SwiftyHolidays/documentation/SwiftyHolidays/GregorianCalculator": {
+  "abstract" : [
+    {
+      "text" : "Calculates holiday dates for the gregorian calendar.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "GregorianCalculator"
+    }
+  ],
+  "identifier" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/GregorianCalculator",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "GregorianCalculator"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "GregorianCalculator",
+  "type" : "topic",
+  "url" : "\/documentation\/swiftyholidays\/gregoriancalculator"
+},
+"doc://SwiftyHolidays/documentation/SwiftyHolidays/HolidayDate": {
+  "abstract" : [
+    {
+      "text" : "Represents a holiday date which is fixed across time zones - and therefor does not have a time.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "HolidayDate"
+    }
+  ],
+  "identifier" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/HolidayDate",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "HolidayDate"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "HolidayDate",
+  "type" : "topic",
+  "url" : "\/documentation\/swiftyholidays\/holidaydate"
+},
+"doc://SwiftyHolidays/documentation/SwiftyHolidays/TimelessDate": {
+  "abstract" : [
+    {
+      "text" : "Represents a date that is fixed across time zones - and therefor does not have a time.",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "This is not intented to be used as a general purpose timeless date.",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "Please use ",
+      "type" : "text"
+    },
+    {
+      "code" : "DateComponents",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " and ",
+      "type" : "text"
+    },
+    {
+      "code" : "Date",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " for working with dates and times.",
+      "type" : "text"
+    }
+  ],
+  "deprecated" : true,
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "typealias"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "TimelessDate"
+    }
+  ],
+  "identifier" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/TimelessDate",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "TimelessDate"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "TimelessDate",
+  "type" : "topic",
+  "url" : "\/documentation\/swiftyholidays\/timelessdate"
+}
+}
+}
