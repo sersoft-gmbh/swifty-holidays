@@ -3,7 +3,7 @@ public import struct Foundation.Date
 
 /// Represents a calculator that can calculate holidays using a fixed type of calendar.
 @preconcurrency
-public protocol Calculator<Context>: Sendable {
+public protocol Calculator<Context>: Sendable, ~Copyable {
     /// The context that this calculator uses.
     associatedtype Context: CalculationContext
 
@@ -21,7 +21,7 @@ public protocol Calculator<Context>: Sendable {
     mutating func initialize(with context: Context)
 }
 
-extension Calculator {
+extension Calculator where Self: ~Copyable {
     /// Creates a Date for a given holiday date, optionally setting to to noon.
     /// - Parameters:
     ///   - holiday: The holiday date to create a Date for.

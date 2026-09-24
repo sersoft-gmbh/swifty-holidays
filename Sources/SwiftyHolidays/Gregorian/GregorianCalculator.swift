@@ -26,17 +26,16 @@ public struct GregorianCalculator: Calculator {
 
     @inlinable
     public func initialize(with context: Context) {
-        var oldCtx = contextRef.exchange(with: context)
-        oldCtx.clear(keepingCapacity: false) // signal any leftover semaphores
+        contextRef.exchange(with: context)
     }
 
-    @usableFromInline
-    /*private but @usableFromInline*/ func date(for key: Context.StorageKey,
-                                                forYear year: Int,
-                                                calculation: (Calendar, Int) -> HolidayDate) -> HolidayDate {
+    @inlinable
+    /*private but @inlinable*/ func date(for key: Context.StorageKey,
+                                         forYear year: Int,
+                                         calculation: (Calendar, Int) -> HolidayDate) -> HolidayDate {
         if let existing = context[key, forYear: year] { return existing }
         let date = calculation(calendar, year)
-        contextRef.withContext { $0 [key, forYear: year] = date }
+        contextRef.withContext { $0[key, forYear: year] = date }
         return date
     }
 
