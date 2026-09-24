@@ -102,6 +102,10 @@
               "kind" : "typeIdentifier",
               "preciseIdentifier" : "s:s8SendableP",
               "text" : "Sendable"
+            },
+            {
+              "kind" : "text",
+              "text" : ", ~Copyable"
             }
           ]
         }
@@ -328,14 +332,6 @@
     },
     {
       "kind" : "typeIdentifier",
-      "text" : "Self"
-    },
-    {
-      "kind" : "text",
-      "text" : "."
-    },
-    {
-      "kind" : "typeIdentifier",
       "preciseIdentifier" : "s:14SwiftyHolidays10CalculatorP7ContextQa",
       "text" : "Context"
     }
@@ -462,14 +458,6 @@
     {
       "kind" : "text",
       "text" : ": "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "text" : "Self"
-    },
-    {
-      "kind" : "text",
-      "text" : "."
     },
     {
       "kind" : "typeIdentifier",

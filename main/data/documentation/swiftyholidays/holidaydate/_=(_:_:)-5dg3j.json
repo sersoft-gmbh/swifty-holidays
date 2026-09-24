@@ -9,7 +9,7 @@
       "type" : "text"
     },
     {
-      "text" : "is less than or equal to that of the second argument.",
+      "text" : "is greater than or equal to that of the second argument.",
       "type" : "text"
     }
   ],
@@ -23,12 +23,12 @@
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/HolidayDate\/_=(_:_:)-13w0d"
+    "url" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/HolidayDate\/_=(_:_:)-5dg3j"
   },
   "kind" : "symbol",
   "metadata" : {
     "extendedModule" : "Swift",
-    "externalID" : "s:SLsE2leoiySbx_xtFZ::SYNTHESIZED::s:14SwiftyHolidays11HolidayDateV",
+    "externalID" : "s:SLsRi_zRi0_zrlE2geoiySbx_xtFZ::SYNTHESIZED::s:14SwiftyHolidays11HolidayDateV",
     "fragments" : [
       {
         "kind" : "keyword",
@@ -48,7 +48,7 @@
       },
       {
         "kind" : "identifier",
-        "text" : "<="
+        "text" : ">="
       },
       {
         "kind" : "text",
@@ -59,12 +59,28 @@
         "text" : "("
       },
       {
+        "kind" : "keyword",
+        "text" : "borrowing"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
         "kind" : "typeIdentifier",
         "text" : "Self"
       },
       {
         "kind" : "text",
         "text" : ", "
+      },
+      {
+        "kind" : "keyword",
+        "text" : "borrowing"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
       },
       {
         "kind" : "typeIdentifier",
@@ -91,7 +107,7 @@
     "role" : "symbol",
     "roleHeading" : "Operator",
     "symbolKind" : "op",
-    "title" : "<=(_:_:)"
+    "title" : ">=(_:_:)"
   },
   "primaryContentSections" : [
     {
@@ -122,7 +138,7 @@
             },
             {
               "kind" : "identifier",
-              "text" : "<="
+              "text" : ">="
             },
             {
               "kind" : "text",
@@ -141,6 +157,14 @@
               "text" : ": "
             },
             {
+              "kind" : "keyword",
+              "text" : "borrowing"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
               "kind" : "typeIdentifier",
               "text" : "Self"
             },
@@ -155,6 +179,14 @@
             {
               "kind" : "text",
               "text" : ": "
+            },
+            {
+              "kind" : "keyword",
+              "text" : "borrowing"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
             },
             {
               "kind" : "typeIdentifier",
@@ -210,6 +242,62 @@
     {
       "content" : [
         {
+          "anchor" : "return-value",
+          "level" : 2,
+          "text" : "Return Value",
+          "type" : "heading"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "",
+              "type" : "text"
+            },
+            {
+              "code" : "true",
+              "type" : "codeVoice"
+            },
+            {
+              "text" : " if ",
+              "type" : "text"
+            },
+            {
+              "code" : "lhs",
+              "type" : "codeVoice"
+            },
+            {
+              "text" : " is greater than or equal to ",
+              "type" : "text"
+            },
+            {
+              "code" : "rhs",
+              "type" : "codeVoice"
+            },
+            {
+              "text" : "; otherwise,",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "code" : "false",
+              "type" : "codeVoice"
+            },
+            {
+              "text" : ".",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        }
+      ],
+      "kind" : "content"
+    },
+    {
+      "content" : [
+        {
           "anchor" : "discussion",
           "level" : 2,
           "text" : "Discussion",
@@ -218,7 +306,7 @@
         {
           "inlineContent" : [
             {
-              "text" : "This is the default implementation of the less-than-or-equal-to",
+              "text" : "This is the default implementation of the greater-than-or-equal-to operator",
               "type" : "text"
             },
             {
@@ -226,11 +314,11 @@
               "type" : "text"
             },
             {
-              "text" : "operator (",
+              "text" : "(",
               "type" : "text"
             },
             {
-              "code" : "<=",
+              "code" : ">=",
               "type" : "codeVoice"
             },
             {
@@ -263,7 +351,7 @@
   "variants" : [
     {
       "paths" : [
-        "\/documentation\/swiftyholidays\/holidaydate\/_=(_:_:)-13w0d"
+        "\/documentation\/swiftyholidays\/holidaydate\/_=(_:_:)-5dg3j"
       ],
       "traits" : [
         {
@@ -322,7 +410,7 @@
   "type" : "topic",
   "url" : "\/documentation\/swiftyholidays\/holidaydate"
 },
-"doc://SwiftyHolidays/documentation/SwiftyHolidays/HolidayDate/_=(_:_:)-13w0d": {
+"doc://SwiftyHolidays/documentation/SwiftyHolidays/HolidayDate/_=(_:_:)-5dg3j": {
   "abstract" : [
     {
       "text" : "Returns a Boolean value indicating whether the value of the first argument",
@@ -333,7 +421,7 @@
       "type" : "text"
     },
     {
-      "text" : "is less than or equal to that of the second argument.",
+      "text" : "is greater than or equal to that of the second argument.",
       "type" : "text"
     }
   ],
@@ -356,7 +444,7 @@
     },
     {
       "kind" : "identifier",
-      "text" : "<="
+      "text" : ">="
     },
     {
       "kind" : "text",
@@ -367,12 +455,28 @@
       "text" : "("
     },
     {
+      "kind" : "keyword",
+      "text" : "borrowing"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
       "kind" : "typeIdentifier",
       "text" : "Self"
     },
     {
       "kind" : "text",
       "text" : ", "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "borrowing"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
     },
     {
       "kind" : "typeIdentifier",
@@ -388,12 +492,12 @@
       "text" : "Bool"
     }
   ],
-  "identifier" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/HolidayDate\/_=(_:_:)-13w0d",
+  "identifier" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/HolidayDate\/_=(_:_:)-5dg3j",
   "kind" : "symbol",
   "role" : "symbol",
-  "title" : "<=(_:_:)",
+  "title" : ">=(_:_:)",
   "type" : "topic",
-  "url" : "\/documentation\/swiftyholidays\/holidaydate\/_=(_:_:)-13w0d"
+  "url" : "\/documentation\/swiftyholidays\/holidaydate\/_=(_:_:)-5dg3j"
 }
 }
 }

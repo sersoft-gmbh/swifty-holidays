@@ -9,7 +9,7 @@
       "type" : "text"
     },
     {
-      "text" : "is greater than that of the second argument.",
+      "text" : "is less than or equal to that of the second argument.",
       "type" : "text"
     }
   ],
@@ -23,12 +23,12 @@
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/HolidayDate\/_(_:_:)-2tdrn"
+    "url" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/HolidayDate\/_=(_:_:)-519m7"
   },
   "kind" : "symbol",
   "metadata" : {
     "extendedModule" : "Swift",
-    "externalID" : "s:SLsE1goiySbx_xtFZ::SYNTHESIZED::s:14SwiftyHolidays11HolidayDateV",
+    "externalID" : "s:SLsRi_zRi0_zrlE2leoiySbx_xtFZ::SYNTHESIZED::s:14SwiftyHolidays11HolidayDateV",
     "fragments" : [
       {
         "kind" : "keyword",
@@ -48,7 +48,7 @@
       },
       {
         "kind" : "identifier",
-        "text" : ">"
+        "text" : "<="
       },
       {
         "kind" : "text",
@@ -59,12 +59,28 @@
         "text" : "("
       },
       {
+        "kind" : "keyword",
+        "text" : "borrowing"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
         "kind" : "typeIdentifier",
         "text" : "Self"
       },
       {
         "kind" : "text",
         "text" : ", "
+      },
+      {
+        "kind" : "keyword",
+        "text" : "borrowing"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
       },
       {
         "kind" : "typeIdentifier",
@@ -91,7 +107,7 @@
     "role" : "symbol",
     "roleHeading" : "Operator",
     "symbolKind" : "op",
-    "title" : ">(_:_:)"
+    "title" : "<=(_:_:)"
   },
   "primaryContentSections" : [
     {
@@ -122,7 +138,7 @@
             },
             {
               "kind" : "identifier",
-              "text" : ">"
+              "text" : "<="
             },
             {
               "kind" : "text",
@@ -141,6 +157,14 @@
               "text" : ": "
             },
             {
+              "kind" : "keyword",
+              "text" : "borrowing"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
               "kind" : "typeIdentifier",
               "text" : "Self"
             },
@@ -155,6 +179,14 @@
             {
               "kind" : "text",
               "text" : ": "
+            },
+            {
+              "kind" : "keyword",
+              "text" : "borrowing"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
             },
             {
               "kind" : "typeIdentifier",
@@ -218,15 +250,7 @@
         {
           "inlineContent" : [
             {
-              "text" : "This is the default implementation of the greater-than operator (",
-              "type" : "text"
-            },
-            {
-              "code" : ">",
-              "type" : "codeVoice"
-            },
-            {
-              "text" : ") for",
+              "text" : "This is the default implementation of the less-than-or-equal-to",
               "type" : "text"
             },
             {
@@ -234,7 +258,15 @@
               "type" : "text"
             },
             {
-              "text" : "any type that conforms to ",
+              "text" : "operator (",
+              "type" : "text"
+            },
+            {
+              "code" : "<=",
+              "type" : "codeVoice"
+            },
+            {
+              "text" : ") for any type that conforms to ",
               "type" : "text"
             },
             {
@@ -263,7 +295,7 @@
   "variants" : [
     {
       "paths" : [
-        "\/documentation\/swiftyholidays\/holidaydate\/_(_:_:)-2tdrn"
+        "\/documentation\/swiftyholidays\/holidaydate\/_=(_:_:)-519m7"
       ],
       "traits" : [
         {
@@ -322,7 +354,7 @@
   "type" : "topic",
   "url" : "\/documentation\/swiftyholidays\/holidaydate"
 },
-"doc://SwiftyHolidays/documentation/SwiftyHolidays/HolidayDate/_(_:_:)-2tdrn": {
+"doc://SwiftyHolidays/documentation/SwiftyHolidays/HolidayDate/_=(_:_:)-519m7": {
   "abstract" : [
     {
       "text" : "Returns a Boolean value indicating whether the value of the first argument",
@@ -333,7 +365,7 @@
       "type" : "text"
     },
     {
-      "text" : "is greater than that of the second argument.",
+      "text" : "is less than or equal to that of the second argument.",
       "type" : "text"
     }
   ],
@@ -356,7 +388,7 @@
     },
     {
       "kind" : "identifier",
-      "text" : ">"
+      "text" : "<="
     },
     {
       "kind" : "text",
@@ -367,12 +399,28 @@
       "text" : "("
     },
     {
+      "kind" : "keyword",
+      "text" : "borrowing"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
       "kind" : "typeIdentifier",
       "text" : "Self"
     },
     {
       "kind" : "text",
       "text" : ", "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "borrowing"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
     },
     {
       "kind" : "typeIdentifier",
@@ -388,12 +436,12 @@
       "text" : "Bool"
     }
   ],
-  "identifier" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/HolidayDate\/_(_:_:)-2tdrn",
+  "identifier" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/HolidayDate\/_=(_:_:)-519m7",
   "kind" : "symbol",
   "role" : "symbol",
-  "title" : ">(_:_:)",
+  "title" : "<=(_:_:)",
   "type" : "topic",
-  "url" : "\/documentation\/swiftyholidays\/holidaydate\/_(_:_:)-2tdrn"
+  "url" : "\/documentation\/swiftyholidays\/holidaydate\/_=(_:_:)-519m7"
 }
 }
 }

@@ -281,10 +281,7 @@
 },
 "doc://SwiftyHolidays/documentation/SwiftyHolidays/GregorianCalculator/Context-swift.typealias": {
   "abstract" : [
-    {
-      "text" : "The context that this calculator uses.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -477,10 +474,7 @@
 },
 "doc://SwiftyHolidays/documentation/SwiftyHolidays/GregorianCalculator/calendar": {
   "abstract" : [
-    {
-      "text" : "The calendar this calculator uses for its calculations.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -622,10 +616,7 @@
 },
 "doc://SwiftyHolidays/documentation/SwiftyHolidays/GregorianCalculator/context-swift.property": {
   "abstract" : [
-    {
-      "text" : "The current state of the context used by the calculator.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -643,15 +634,6 @@
     {
       "kind" : "text",
       "text" : ": "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14SwiftyHolidays19GregorianCalculatorV",
-      "text" : "GregorianCalculator"
-    },
-    {
-      "kind" : "text",
-      "text" : "."
     },
     {
       "kind" : "typeIdentifier",
@@ -1232,18 +1214,7 @@
 },
 "doc://SwiftyHolidays/documentation/SwiftyHolidays/GregorianCalculator/initialize(with:)": {
   "abstract" : [
-    {
-      "text" : "(Re-)Initializes the context of the calculator with a new one, replacing the old one.",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "This API is useful if you create a new calculator and want it to use the context of another one (or a deserialized context).",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -1269,15 +1240,6 @@
     {
       "kind" : "text",
       "text" : ": "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14SwiftyHolidays19GregorianCalculatorV",
-      "text" : "GregorianCalculator"
-    },
-    {
-      "kind" : "text",
-      "text" : "."
     },
     {
       "kind" : "typeIdentifier",

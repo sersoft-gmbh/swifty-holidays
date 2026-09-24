@@ -275,18 +275,7 @@
 },
 "doc://SwiftyHolidays/documentation/SwiftyHolidays/HolidayDate/_(_:_:)": {
   "abstract" : [
-    {
-      "text" : "Returns a Boolean value indicating whether the value of the first",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "argument is less than that of the second argument.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -315,21 +304,11 @@
     },
     {
       "kind" : "text",
-      "text" : "("
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14SwiftyHolidays11HolidayDateV",
-      "text" : "HolidayDate"
+      "text" : "(`Self`"
     },
     {
       "kind" : "text",
-      "text" : ", "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14SwiftyHolidays11HolidayDateV",
-      "text" : "HolidayDate"
+      "text" : ", `Self`"
     },
     {
       "kind" : "text",
@@ -531,10 +510,7 @@
 },
 "doc://SwiftyHolidays/documentation/SwiftyHolidays/HolidayDate/description": {
   "abstract" : [
-    {
-      "text" : "A textual representation of this instance.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -643,10 +619,7 @@
 },
 "doc://SwiftyHolidays/documentation/SwiftyHolidays/HolidayDate/init(from:)": {
   "abstract" : [
-    {
-      "text" : "Creates a new instance by decoding from the given decoder.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {

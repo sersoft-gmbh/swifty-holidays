@@ -1,10 +1,4 @@
 {
-  "abstract" : [
-    {
-      "text" : "The current state of the context used by the calculator.",
-      "type" : "text"
-    }
-  ],
   "hierarchy" : {
     "paths" : [
       [
@@ -36,15 +30,6 @@
       {
         "kind" : "text",
         "text" : ": "
-      },
-      {
-        "kind" : "typeIdentifier",
-        "preciseIdentifier" : "s:14SwiftyHolidays19GregorianCalculatorV",
-        "text" : "GregorianCalculator"
-      },
-      {
-        "kind" : "text",
-        "text" : "."
       },
       {
         "kind" : "typeIdentifier",
@@ -94,16 +79,6 @@
               "text" : ": "
             },
             {
-              "identifier" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/GregorianCalculator",
-              "kind" : "typeIdentifier",
-              "preciseIdentifier" : "s:14SwiftyHolidays19GregorianCalculatorV",
-              "text" : "GregorianCalculator"
-            },
-            {
-              "kind" : "text",
-              "text" : "."
-            },
-            {
               "identifier" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/GregorianCalculator\/Context-swift.typealias",
               "kind" : "typeIdentifier",
               "preciseIdentifier" : "s:14SwiftyHolidays19GregorianCalculatorV7Contexta",
@@ -125,33 +100,6 @@
         }
       ],
       "kind" : "declarations"
-    },
-    {
-      "content" : [
-        {
-          "anchor" : "discussion",
-          "level" : 2,
-          "text" : "Discussion",
-          "type" : "heading"
-        },
-        {
-          "content" : [
-            {
-              "inlineContent" : [
-                {
-                  "text" : "This is just the current state in time. The context can change at any time and the value returned here might be outdated by the time it is returned.",
-                  "type" : "text"
-                }
-              ],
-              "type" : "paragraph"
-            }
-          ],
-          "name" : "Note",
-          "style" : "note",
-          "type" : "aside"
-        }
-      ],
-      "kind" : "content"
     }
   ],
   "schemaVersion" : {
@@ -226,10 +174,7 @@
 },
 "doc://SwiftyHolidays/documentation/SwiftyHolidays/GregorianCalculator/Context-swift.typealias": {
   "abstract" : [
-    {
-      "text" : "The context that this calculator uses.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -260,10 +205,7 @@
 },
 "doc://SwiftyHolidays/documentation/SwiftyHolidays/GregorianCalculator/context-swift.property": {
   "abstract" : [
-    {
-      "text" : "The current state of the context used by the calculator.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -281,15 +223,6 @@
     {
       "kind" : "text",
       "text" : ": "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14SwiftyHolidays19GregorianCalculatorV",
-      "text" : "GregorianCalculator"
-    },
-    {
-      "kind" : "text",
-      "text" : "."
     },
     {
       "kind" : "typeIdentifier",

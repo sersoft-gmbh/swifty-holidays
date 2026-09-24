@@ -1,10 +1,4 @@
 {
-  "abstract" : [
-    {
-      "text" : "Clears the contents of this context.",
-      "type" : "text"
-    }
-  ],
   "hierarchy" : {
     "paths" : [
       [
@@ -165,10 +159,7 @@
 },
 "doc://SwiftyHolidays/documentation/SwiftyHolidays/GregorianCalculationContext/clear()": {
   "abstract" : [
-    {
-      "text" : "Clears the contents of this context.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {

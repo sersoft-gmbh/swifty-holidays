@@ -1,26 +1,4 @@
 {
-  "abstract" : [
-    {
-      "text" : "Merges the contents of ",
-      "type" : "text"
-    },
-    {
-      "code" : "other",
-      "type" : "codeVoice"
-    },
-    {
-      "text" : " into ",
-      "type" : "text"
-    },
-    {
-      "code" : "self",
-      "type" : "codeVoice"
-    },
-    {
-      "text" : ".",
-      "type" : "text"
-    }
-  ],
   "hierarchy" : {
     "paths" : [
       [
@@ -150,25 +128,6 @@
         }
       ],
       "kind" : "declarations"
-    },
-    {
-      "kind" : "parameters",
-      "parameters" : [
-        {
-          "content" : [
-            {
-              "inlineContent" : [
-                {
-                  "text" : "The other context to merge into this one.",
-                  "type" : "text"
-                }
-              ],
-              "type" : "paragraph"
-            }
-          ],
-          "name" : "other"
-        }
-      ]
     }
   ],
   "schemaVersion" : {
@@ -243,26 +202,7 @@
 },
 "doc://SwiftyHolidays/documentation/SwiftyHolidays/GregorianCalculationContext/merge(with:)": {
   "abstract" : [
-    {
-      "text" : "Merges the contents of ",
-      "type" : "text"
-    },
-    {
-      "code" : "other",
-      "type" : "codeVoice"
-    },
-    {
-      "text" : " into ",
-      "type" : "text"
-    },
-    {
-      "code" : "self",
-      "type" : "codeVoice"
-    },
-    {
-      "text" : ".",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {

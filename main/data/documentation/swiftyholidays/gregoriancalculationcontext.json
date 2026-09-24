@@ -246,10 +246,7 @@
 },
 "doc://SwiftyHolidays/documentation/SwiftyHolidays/GregorianCalculationContext/clear()": {
   "abstract" : [
-    {
-      "text" : "Clears the contents of this context.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -278,10 +275,7 @@
 },
 "doc://SwiftyHolidays/documentation/SwiftyHolidays/GregorianCalculationContext/encode(to:)": {
   "abstract" : [
-    {
-      "text" : "Encodes this value into the given encoder.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -306,7 +300,15 @@
     },
     {
       "kind" : "text",
-      "text" : ": any "
+      "text" : ": "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "any"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
     },
     {
       "kind" : "typeIdentifier",
@@ -331,10 +333,7 @@
 },
 "doc://SwiftyHolidays/documentation/SwiftyHolidays/GregorianCalculationContext/init(from:)": {
   "abstract" : [
-    {
-      "text" : "Creates a new instance by decoding from the given decoder.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -351,7 +350,15 @@
     },
     {
       "kind" : "text",
-      "text" : ": any "
+      "text" : ": "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "any"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
     },
     {
       "kind" : "typeIdentifier",
@@ -376,26 +383,7 @@
 },
 "doc://SwiftyHolidays/documentation/SwiftyHolidays/GregorianCalculationContext/merge(with:)": {
   "abstract" : [
-    {
-      "text" : "Merges the contents of ",
-      "type" : "text"
-    },
-    {
-      "code" : "other",
-      "type" : "codeVoice"
-    },
-    {
-      "text" : " into ",
-      "type" : "text"
-    },
-    {
-      "code" : "self",
-      "type" : "codeVoice"
-    },
-    {
-      "text" : ".",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {

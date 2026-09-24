@@ -40,9 +40,9 @@
         "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/HolidayDate\/...(_:_:)",
         "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/HolidayDate\/.._(_:)",
         "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/HolidayDate\/.._(_:_:)",
-        "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/HolidayDate\/_(_:_:)-2tdrn",
-        "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/HolidayDate\/_=(_:_:)-13w0d",
-        "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/HolidayDate\/_=(_:_:)-9ws4i"
+        "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/HolidayDate\/_(_:_:)-116hn",
+        "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/HolidayDate\/_=(_:_:)-519m7",
+        "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/HolidayDate\/_=(_:_:)-5dg3j"
       ],
       "title" : "Operators"
     }
@@ -478,7 +478,7 @@
   "type" : "topic",
   "url" : "\/documentation\/swiftyholidays\/holidaydate\/'.._(_:_:)"
 },
-"doc://SwiftyHolidays/documentation/SwiftyHolidays/HolidayDate/_(_:_:)-2tdrn": {
+"doc://SwiftyHolidays/documentation/SwiftyHolidays/HolidayDate/_(_:_:)-116hn": {
   "abstract" : [
     {
       "text" : "Returns a Boolean value indicating whether the value of the first argument",
@@ -523,12 +523,28 @@
       "text" : "("
     },
     {
+      "kind" : "keyword",
+      "text" : "borrowing"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
       "kind" : "typeIdentifier",
       "text" : "Self"
     },
     {
       "kind" : "text",
       "text" : ", "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "borrowing"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
     },
     {
       "kind" : "typeIdentifier",
@@ -544,14 +560,14 @@
       "text" : "Bool"
     }
   ],
-  "identifier" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/HolidayDate\/_(_:_:)-2tdrn",
+  "identifier" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/HolidayDate\/_(_:_:)-116hn",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : ">(_:_:)",
   "type" : "topic",
-  "url" : "\/documentation\/swiftyholidays\/holidaydate\/_(_:_:)-2tdrn"
+  "url" : "\/documentation\/swiftyholidays\/holidaydate\/_(_:_:)-116hn"
 },
-"doc://SwiftyHolidays/documentation/SwiftyHolidays/HolidayDate/_=(_:_:)-13w0d": {
+"doc://SwiftyHolidays/documentation/SwiftyHolidays/HolidayDate/_=(_:_:)-519m7": {
   "abstract" : [
     {
       "text" : "Returns a Boolean value indicating whether the value of the first argument",
@@ -596,12 +612,28 @@
       "text" : "("
     },
     {
+      "kind" : "keyword",
+      "text" : "borrowing"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
       "kind" : "typeIdentifier",
       "text" : "Self"
     },
     {
       "kind" : "text",
       "text" : ", "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "borrowing"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
     },
     {
       "kind" : "typeIdentifier",
@@ -617,14 +649,14 @@
       "text" : "Bool"
     }
   ],
-  "identifier" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/HolidayDate\/_=(_:_:)-13w0d",
+  "identifier" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/HolidayDate\/_=(_:_:)-519m7",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "<=(_:_:)",
   "type" : "topic",
-  "url" : "\/documentation\/swiftyholidays\/holidaydate\/_=(_:_:)-13w0d"
+  "url" : "\/documentation\/swiftyholidays\/holidaydate\/_=(_:_:)-519m7"
 },
-"doc://SwiftyHolidays/documentation/SwiftyHolidays/HolidayDate/_=(_:_:)-9ws4i": {
+"doc://SwiftyHolidays/documentation/SwiftyHolidays/HolidayDate/_=(_:_:)-5dg3j": {
   "abstract" : [
     {
       "text" : "Returns a Boolean value indicating whether the value of the first argument",
@@ -669,12 +701,28 @@
       "text" : "("
     },
     {
+      "kind" : "keyword",
+      "text" : "borrowing"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
       "kind" : "typeIdentifier",
       "text" : "Self"
     },
     {
       "kind" : "text",
       "text" : ", "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "borrowing"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
     },
     {
       "kind" : "typeIdentifier",
@@ -690,12 +738,12 @@
       "text" : "Bool"
     }
   ],
-  "identifier" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/HolidayDate\/_=(_:_:)-9ws4i",
+  "identifier" : "doc:\/\/SwiftyHolidays\/documentation\/SwiftyHolidays\/HolidayDate\/_=(_:_:)-5dg3j",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : ">=(_:_:)",
   "type" : "topic",
-  "url" : "\/documentation\/swiftyholidays\/holidaydate\/_=(_:_:)-9ws4i"
+  "url" : "\/documentation\/swiftyholidays\/holidaydate\/_=(_:_:)-5dg3j"
 }
 }
 }

@@ -76,9 +76,6 @@
         "text" : "TimelessDate"
       }
     ],
-    "platforms" : [
-
-    ],
     "remoteSource" : {
       "fileName" : "HolidayDate.swift",
       "url" : "https:\/\/github.com\/sersoft-gmbh\/swifty-holidays\/blob\/refs\/heads\/main\/Sources\/SwiftyHolidays\/HolidayDate.swift#L76"
